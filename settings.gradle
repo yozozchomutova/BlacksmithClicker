@@ -1,0 +1,2 @@
+rootProject.name = "Blacksmith Clicker"
+include ':app'
