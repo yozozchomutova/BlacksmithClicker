@@ -18,12 +18,16 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 
+import net.jozoproductions.blacksmithclicker.activities.CrateMenuActivity;
 import net.jozoproductions.blacksmithclicker.activities.ItemSelectActivity;
 import net.jozoproductions.blacksmithclicker.items.Item;
 import net.jozoproductions.blacksmithclicker.materials.Material;
 import net.jozoproductions.blacksmithclicker.particlemanaging.ParticlePack;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -57,6 +61,10 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
+        //Initialize items & rarities
+        Item.InitializeRarityItemsArrayLists();
+
+        //24/7 thread
         endlessThread = new EndlessThread();
         endlessThread.context = this;
 
@@ -95,6 +103,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.storage).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CrateMenuActivity.class);
+                startActivity(intent);
+            }
+        });
+
         //Start endless thread
         ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
         executorService.scheduleAtFixedRate(endlessThread, 0, 10, TimeUnit.MILLISECONDS);
@@ -117,15 +133,43 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void Save() {
+        //Convert items array to item names array
+        Set<String> itemNames = new HashSet<>();
+        ArrayList<Item> items = Player.unlockedItemRecipes;
+
+        for (int i = 0; i < items.size(); i++) {
+            itemNames.add(items.get(i).name());
+        }
+
+        //Save
         SharedPreferences sp = getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
 
         editor.putInt("money", Player.money);
+        editor.putStringSet("items", itemNames);
+        editor.putBoolean("first_time_launch", false);
         editor.apply();
     }
 
     private void Load() {
+        //Load
         SharedPreferences sp = getPreferences(Context.MODE_PRIVATE);
         Player.AddMoney(sp.getInt("money", 0));
+        Set<String> itemNamesSet = sp.getStringSet("items", new HashSet<>());
+
+        if (sp.getBoolean("first_time_launch", true))
+            FirstTimeLaunch();
+
+        //Convert item names array to items array
+        ArrayList<String> itemNames = new ArrayList<>(itemNamesSet);
+
+        for (int i = 0; i < itemNames.size(); i++) {
+            Item item = Item.valueOf(itemNames.get(i));
+            Player.AddItemRecipe(item);
+        }
+    }
+
+    private void FirstTimeLaunch() {
+        Player.AddItemRecipe(Item.STICK);
     }
 }

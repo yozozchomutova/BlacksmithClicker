@@ -7,4 +7,22 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- = RARITY COLORS = -->
+     <color name="rarity_common">#FFFFFF</color>
+     <color name="rarity_uncommon">#00FF00</color>
+     <color name="rarity_rare">#00BBFF</color>
+     <color name="rarity_epic">#6622BB</color>
+     <color name="rarity_legendary">#FF6600</color>
+     <color name="rarity_mythic">#FF0000</color>
+
+    <!-- = RANK COLORS = -->
+    <color name="rank_bronze">#BB4400</color>
+    <color name="rank_iron">#FFFFFF</color>
+    <color name="rank_gold">#FFFF00</color>
+    <color name="rank_platinum">#00FF99</color>
+    <color name="rank_diamond">#00BBFF</color>
+    <color name="rank_ruby">#FF0000</color>
+    <color name="rank_amethyst">#FF00FF</color>
+    <color name="rank_aurora">#FFFFFF</color>
 </resources>

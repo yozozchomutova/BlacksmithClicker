@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#111111" >
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <net.jozoproductions.blacksmithclicker.crates.CrateItem
+                android:id="@+id/crate_common"
+                android:layout_width="match_parent"
+                android:layout_height="80dp">
+
+            </net.jozoproductions.blacksmithclicker.crates.CrateItem>
+
+            <net.jozoproductions.blacksmithclicker.crates.CrateItem
+                android:id="@+id/crate_uncommon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </net.jozoproductions.blacksmithclicker.crates.CrateItem>
+
+            <net.jozoproductions.blacksmithclicker.crates.CrateItem
+                android:id="@+id/crate_rare"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </net.jozoproductions.blacksmithclicker.crates.CrateItem>
+
+            <net.jozoproductions.blacksmithclicker.crates.CrateItem
+                android:id="@+id/crate_epic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </net.jozoproductions.blacksmithclicker.crates.CrateItem>
+
+            <net.jozoproductions.blacksmithclicker.crates.CrateItem
+                android:id="@+id/crate_legendary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </net.jozoproductions.blacksmithclicker.crates.CrateItem>
+
+            <net.jozoproductions.blacksmithclicker.crates.CrateItem
+                android:id="@+id/crate_mythic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </net.jozoproductions.blacksmithclicker.crates.CrateItem>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
