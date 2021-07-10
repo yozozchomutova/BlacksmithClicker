@@ -5,7 +5,7 @@ import android.widget.ScrollView;
 import net.jozoproductions.blacksmithclicker.R;
 
 public enum Crate {
-    COMMON_CRATE("Common Crate", R.drawable.crate_common, R.color.rarity_common, 0f, 0f, 0f, 0.0f, 0.0f),
+    COMMON_CRATE("Common Crate", R.drawable.crate_common, R.color.rarity_common, 15f, 0f, 0f, 0.0f, 0.0f),
     UNCOMMON_CRATE("Uncommon Crate", R.drawable.crate_uncommon, R.color.rarity_uncommon, 55f, 10f, 1f, 0.0f, 0.0f),
     RARE_CRATE("Rare Crate", R.drawable.crate_rare, R.color.rarity_rare, 80f, 50f, 8f, 1f, 0.3f),
     EPIC_CRATE("Epic Crate", R.drawable.crate_epic, R.color.rarity_epic, 98f, 70f, 45f, 1f, 0.5f),

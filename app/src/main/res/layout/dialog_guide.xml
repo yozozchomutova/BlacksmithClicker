@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:text="Introduction"
+                android:paddingTop="0dp"
+                style="@style/GuideDialog_Title" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:text="Welcome to this game. This game is about clicking, researching and discovering new stuff."
+                style="@style/GuideDialog_Description"/>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:text="[1] Clicking"
+                style="@style/GuideDialog_Title" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:text="Every item needs certain amount of clicks. After enough clicks, you receive money, XP and maybe some research points."
+                style="@style/GuideDialog_Description"/>
+
+            <TextView
+                android:id="@+id/textView5"
+                style="@style/GuideDialog_Title"
+                android:layout_width="match_parent"
+                android:text="[2] Unlocking new Items"
+                app:autoSizeTextType="uniform" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:text="You can unlock new items by opening crates. Each crate costs some money and with each opening price will be increased. Currently there is 1 crate (other crates will be added in the future)."
+                style="@style/GuideDialog_Description"/>
+
+            <TextView
+                android:id="@+id/textView7"
+                style="@style/GuideDialog_Title"
+                android:layout_width="match_parent"
+                android:text="[3] Research"
+                app:autoSizeTextType="uniform" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:text="By clicking, you sometimes receive research point. Currently there's no way to spend them, but you can collect them for future usage."
+                style="@style/GuideDialog_Description"/>
+
+            <TextView
+                android:id="@+id/textView9"
+                style="@style/GuideDialog_Title"
+                android:layout_width="match_parent"
+                android:text="[4] Rank up"
+                app:autoSizeTextType="uniform" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:text="You can rank up by gathering XP. XP's are gathered by clicking of course. Ranks currently are useless. But in the future they will be unlocking new crates and new technologies to research."
+                style="@style/GuideDialog_Description"/>
+
+            <TextView
+                android:id="@+id/textView11"
+                style="@style/GuideDialog_Title"
+                android:layout_width="match_parent"
+                android:text="Rarities and ranks"
+                app:autoSizeTextType="uniform" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:text="Game rarity list:\n-COMMON\n-UNCOMMON\n-RARE\n-EPIC\n-LEGENDARY\n-MYTHIC\n\nGame rank list:\n-BRONZE\n-IRON\n-GOLD\n-PLATINUM\n-DIAMOND\n-RUBY\n-AMETHYST\n-AURORA"
+                style="@style/GuideDialog_Description"/>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

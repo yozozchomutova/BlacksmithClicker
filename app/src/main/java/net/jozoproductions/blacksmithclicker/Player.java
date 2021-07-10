@@ -11,8 +11,13 @@ import java.util.ArrayList;
 
 public class Player {
 
-    public static int money = 0;
-    public static int researchPoints = 0;
+    public static String name;
+
+    public static float money = 0;
+    public static float researchPoints = 0;
+    public static float xp = 0;
+
+    public static float researchPointChance = 0.2f; //Chance of getting research point
 
     public static ArrayList<Ingredient> ingredients = new ArrayList<>();
     public static ArrayList<Item> unlockedItemRecipes = new ArrayList<>();
@@ -53,8 +58,13 @@ public class Player {
         }
     }
 
-    public static void AddMoney(int count) {
+    public static void AddMoney(float count) {
         money += count;
+
+        //XP Cannot be lost!
+        if (count > 0)
+            xp += count;
+
         moneyText.setText("" + money);
     }
 

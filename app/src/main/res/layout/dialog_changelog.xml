@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/textView"
+                style="@style/GuideDialog_Title"
+                android:layout_width="match_parent"
+                android:paddingTop="0dp"
+                android:text="0.3.0v - Beta" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:text="Features:\n-Profile and player ranking.\n-Player can now collect XP.\n-Player can now collect Research points.\n-Added mini-guide.\n-Google play publish.\n\nFixes:\n-Weapon images rescaled.\n-Bad XP couting fixed.\n-Wrong rank visuals fixed.\n\n
+Removed:\n-Unnecessary crates were temporarily removed from game."
+                style="@style/GuideDialog_Description"/>
+
+            <TextView
+                android:id="@+id/textView3"
+                style="@style/GuideDialog_Title"
+                android:layout_width="match_parent"
+                android:text="Upcoming features:" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:text="-Spending research points.\n-Adding new items with Uncommon and Rare rarity.\n-Material researching.\n-Bonuses.\n-More crates.\n-Rewards for new rank.\n
+-Weapon and material archive.\n-Weapon sell price+amount of required clicks balance.\n-Sound effects.\n-Crate price increase."
+                style="@style/GuideDialog_Description"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

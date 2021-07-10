@@ -24,7 +24,22 @@ public class SmithingItem {
         clickableItem = clickableItem_;
     }
 
-    public static void Click() {
+    public static void Click(float x, float y) {
+        //Research points
+        float randomPercent = MainActivity.random.nextFloat() * 100;
+        if (randomPercent < Player.researchPointChance) {
+            Player.researchPoints++;
+
+            //Particle
+            MainActivity.endlessThread.particlePacks.add(new ParticlePack(
+                    R.drawable.research_add,
+                    x,
+                    y,
+                    5
+            ));
+        }
+
+        //Progress
         progress++;
 
         if (progress >= smithingItem.requiredClicks) {

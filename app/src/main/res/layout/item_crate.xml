@@ -78,8 +78,9 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
-        android:background="#00FF00"
+        android:background="#00000000"
+        android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="@+id/rarity"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/anvil" />
+        app:srcCompat="@drawable/buy" />
 </androidx.constraintlayout.widget.ConstraintLayout>

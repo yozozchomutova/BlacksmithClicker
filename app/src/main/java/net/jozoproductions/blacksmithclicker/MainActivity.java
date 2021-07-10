@@ -1,12 +1,18 @@
 package net.jozoproductions.blacksmithclicker;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.Dialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
@@ -17,9 +23,13 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import net.jozoproductions.blacksmithclicker.activities.CrateMenuActivity;
 import net.jozoproductions.blacksmithclicker.activities.ItemSelectActivity;
+import net.jozoproductions.blacksmithclicker.activities.ProfileActivity;
+import net.jozoproductions.blacksmithclicker.activities.ResearchActivity;
+import net.jozoproductions.blacksmithclicker.dialog.GuideDialog;
 import net.jozoproductions.blacksmithclicker.items.Item;
 import net.jozoproductions.blacksmithclicker.materials.Material;
 import net.jozoproductions.blacksmithclicker.particlemanaging.ParticlePack;
@@ -81,15 +91,18 @@ public class MainActivity extends AppCompatActivity {
         clickableItem.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+                float x = event.getRawX();
+                float y = event.getRawY();
+
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     endlessThread.particlePacks.add(new ParticlePack(
                             R.drawable.particle_spark,
-                            event.getRawX(),
-                            event.getRawY(),
+                            x,
+                            y,
                             10
                     ));
                     clickableItem.startAnimation(itemClickAnim);
-                    SmithingItem.Click();
+                    SmithingItem.Click(x, y);
                 }
                 return false;
             }
@@ -103,11 +116,70 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.research).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ResearchActivity.class);
+                startActivity(intent);
+            }
+        });
+
         findViewById(R.id.storage).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, CrateMenuActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.profile).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.info_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GuideDialog guideDialog = new GuideDialog(MainActivity.this);
+                guideDialog.show();
+            }
+        });
+
+        findViewById(R.id.discord_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder discordDialog = new AlertDialog.Builder(MainActivity.this);
+                discordDialog.setTitle("Discord");
+                discordDialog.setMessage("Join our community, send feedback and talk with others.");
+                discordDialog.setPositiveButton("Copy link", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                        ClipData clip = ClipData.newPlainText("link", "https://discord.gg/mXFwmrdX9B");
+                        clipboard.setPrimaryClip(clip);
+                    }
+                });
+
+                discordDialog.setNegativeButton("Open link", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://discord.gg/mXFwmrdX9B"));
+                        startActivity(browserIntent);
+                    }
+                });
+                discordDialog.create().show();
+            }
+        });
+
+        findViewById(R.id.changelog_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog dialog = new Dialog(MainActivity.this);
+                dialog.setContentView(R.layout.dialog_changelog);
+                dialog.show();
             }
         });
 
@@ -145,7 +217,11 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sp = getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
 
-        editor.putInt("money", Player.money);
+        editor.putString("name", Player.name);
+        editor.putFloat("money", Player.money);
+        editor.putFloat("xp", Player.xp);
+        editor.putFloat("researchPoints", Player.researchPoints);
+
         editor.putStringSet("items", itemNames);
         editor.putBoolean("first_time_launch", false);
         editor.apply();
@@ -154,7 +230,12 @@ public class MainActivity extends AppCompatActivity {
     private void Load() {
         //Load
         SharedPreferences sp = getPreferences(Context.MODE_PRIVATE);
-        Player.AddMoney(sp.getInt("money", 0));
+
+        Player.name = sp.getString("name", "Guest32557");
+        Player.AddMoney(sp.getFloat("money", 0f));
+        Player.xp = sp.getFloat("xp", Player.money);
+        Player.researchPoints = sp.getFloat("researchPoints", 0);
+
         Set<String> itemNamesSet = sp.getStringSet("items", new HashSet<>());
 
         if (sp.getBoolean("first_time_launch", true))
@@ -171,5 +252,20 @@ public class MainActivity extends AppCompatActivity {
 
     private void FirstTimeLaunch() {
         Player.AddItemRecipe(Item.STICK);
+
+        //Message for new players
+        AlertDialog.Builder message = new AlertDialog.Builder(this);
+        message.setCancelable(false);
+        message.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        message.setTitle("Welcome");
+        message.setMessage("Please take in mind, that this is Beta and im going to update it often. You can press <!> button (at the top-left corner) for help/guide. If you want to give me feedback, join my discord server (button at top-left corner).");
+
+        message.show();
     }
 }

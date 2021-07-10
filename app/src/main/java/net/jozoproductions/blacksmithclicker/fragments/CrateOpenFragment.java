@@ -102,7 +102,11 @@ public class CrateOpenFragment extends Fragment {
                         }
 
                         if (randomNumber < percentageRequired) {
+                            //Next level
                             curRarity = Rarity.NextRarity(curRarity);
+
+                            UpdateTexts();
+                            ((ImageView) view.findViewById(R.id.background)).setColorFilter(ContextCompat.getColor(getContext(), curRarity.colorId));
 
                             //Is last/Reached end?
                             if (curRarity == null) {
