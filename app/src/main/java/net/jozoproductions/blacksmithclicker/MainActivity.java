@@ -29,6 +29,7 @@ import net.jozoproductions.blacksmithclicker.activities.CrateMenuActivity;
 import net.jozoproductions.blacksmithclicker.activities.ItemSelectActivity;
 import net.jozoproductions.blacksmithclicker.activities.ProfileActivity;
 import net.jozoproductions.blacksmithclicker.activities.ResearchActivity;
+import net.jozoproductions.blacksmithclicker.audio.AudioSystem;
 import net.jozoproductions.blacksmithclicker.dialog.GuideDialog;
 import net.jozoproductions.blacksmithclicker.items.Item;
 import net.jozoproductions.blacksmithclicker.materials.Material;
@@ -74,13 +75,16 @@ public class MainActivity extends AppCompatActivity {
         //Initialize items & rarities
         Item.InitializeRarityItemsArrayLists();
 
+        //Load sounds
+        AudioSystem.LoadAudio(this, "AnvilStrike", R.raw.anvil_strike);
+
         //24/7 thread
         endlessThread = new EndlessThread();
         endlessThread.context = this;
 
         Player.setMoneyText(findViewById(R.id.coin_count));
 
-        SmithingItem.Initialize(findViewById(R.id.item_name), findViewById(R.id.smith_progress), findViewById(R.id.clickable_item));
+        SmithingItem.Initialize(findViewById(R.id.item_name), findViewById(R.id.smith_progress), findViewById(R.id.light), findViewById(R.id.clickable_item));
         SmithingItem.ChangeItem(Item.STICK);
 
         ImageView clickableItem = findViewById(R.id.clickable_item);
@@ -103,6 +107,8 @@ public class MainActivity extends AppCompatActivity {
                     ));
                     clickableItem.startAnimation(itemClickAnim);
                     SmithingItem.Click(x, y);
+
+                    AudioSystem.PlayAudio("AnvilStrike");
                 }
                 return false;
             }
@@ -222,6 +228,13 @@ public class MainActivity extends AppCompatActivity {
         editor.putFloat("xp", Player.xp);
         editor.putFloat("researchPoints", Player.researchPoints);
 
+        editor.putInt("common_crate_open_count", Player.commonCrateOpenCount);
+        editor.putInt("uncommon_crate_open_count", Player.uncommonCrateOpenCount);
+        editor.putInt("rare_crate_open_count", Player.rareCrateOpenCount);
+        editor.putInt("epic_crate_open_count", Player.epicCrateOpenCount);
+        editor.putInt("legendary_crate_open_count", Player.legendaryCrateOpenCount);
+        editor.putInt("mythic_crate_open_count", Player.mythicCrateOpenCount);
+
         editor.putStringSet("items", itemNames);
         editor.putBoolean("first_time_launch", false);
         editor.apply();
@@ -248,6 +261,13 @@ public class MainActivity extends AppCompatActivity {
             Item item = Item.valueOf(itemNames.get(i));
             Player.AddItemRecipe(item);
         }
+
+        Player.commonCrateOpenCount = sp.getInt("common_crate_open_count", Player.commonCrateOpenCount);
+        Player.uncommonCrateOpenCount = sp.getInt("uncommon_crate_open_count", Player.uncommonCrateOpenCount);
+        Player.rareCrateOpenCount = sp.getInt("rare_crate_open_count", Player.rareCrateOpenCount);
+        Player.epicCrateOpenCount = sp.getInt("epic_crate_open_count", Player.epicCrateOpenCount);
+        Player.legendaryCrateOpenCount = sp.getInt("legendary_crate_open_count", Player.legendaryCrateOpenCount);
+        Player.mythicCrateOpenCount = sp.getInt("mythic_crate_open_count", Player.mythicCrateOpenCount);
     }
 
     private void FirstTimeLaunch() {

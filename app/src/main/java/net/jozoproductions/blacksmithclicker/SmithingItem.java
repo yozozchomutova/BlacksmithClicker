@@ -1,9 +1,13 @@
 package net.jozoproductions.blacksmithclicker;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import androidx.annotation.ColorRes;
+import androidx.core.content.res.ResourcesCompat;
 
 import net.jozoproductions.blacksmithclicker.items.Item;
 import net.jozoproductions.blacksmithclicker.particlemanaging.ParticlePack;
@@ -16,11 +20,13 @@ public class SmithingItem {
     //UI
     public static TextView name;
     public static ProgressBar progressBar;
+    public static ImageView light;
     public static ImageView clickableItem;
 
-    public static void Initialize(TextView name_, ProgressBar progressBar_, ImageView clickableItem_) {
+    public static void Initialize(TextView name_, ProgressBar progressBar_, ImageView light_, ImageView clickableItem_) {
         name = name_;
         progressBar = progressBar_;
+        light = light_;
         clickableItem = clickableItem_;
     }
 
@@ -56,6 +62,7 @@ public class SmithingItem {
         smithingItem = newItem;
 
         name.setText(smithingItem.name);
+        light.setColorFilter(light.getResources().getColor(newItem.rarity.colorId));
         clickableItem.setImageDrawable(clickableItem.getResources().getDrawable(smithingItem.iconId));
         progressBar.setMax(smithingItem.requiredClicks);
 

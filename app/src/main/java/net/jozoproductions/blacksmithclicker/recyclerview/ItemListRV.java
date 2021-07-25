@@ -68,7 +68,7 @@ public class ItemListRV extends RecyclerView.Adapter<ItemListRV.ViewHolder> {
 
             name = (TextView) view.findViewById(R.id.name);
             icon = (ImageView) view.findViewById(R.id.icon);
-            selectItem = (ImageButton) view.findViewById(R.id.select_item);
+            selectItem = (ImageButton) view.findViewById(R.id.buy);
         }
     }
 }

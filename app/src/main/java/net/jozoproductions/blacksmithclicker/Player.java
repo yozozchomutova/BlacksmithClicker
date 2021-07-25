@@ -26,12 +26,19 @@ public class Player {
     public static TextView moneyText;
 
     //Crate prices
-    public static final int commonCratePrice = 50;
-    public static final int uncommonCratePrice = 999999999;
-    public static final int rareCratePrice = 999999999;
-    public static final int epicCratePrice = 999999999;
-    public static final int legendaryCratePrice = 999999999;
-    public static final int mythicCratePrice = 999999999;
+    public static Integer commonCrateOpenCount = new Integer(0);
+    public static Integer uncommonCrateOpenCount = 0;
+    public static Integer rareCrateOpenCount = 0;
+    public static Integer epicCrateOpenCount = 0;
+    public static Integer legendaryCrateOpenCount = 0;
+    public static Integer mythicCrateOpenCount = 0;
+
+    public static final float commonCrateBasePrice = 50;
+    public static final float uncommonCrateBasePrice = 100;
+    public static final float rareCrateBasePrice = 999999999;
+    public static final float epicCrateBasePrice = 999999999;
+    public static final float legendaryCrateBasePrice = 999999999;
+    public static final float mythicCrateBasePrice = 999999999;
 
     public static void setMoneyText(TextView moneyText_) {
         moneyText = moneyText_;

@@ -33,11 +33,11 @@ public class CrateListFragment extends Fragment {
         //Initialize crates
         Crate[] crates = Crate.values();
 
-        ((CrateItem) view.findViewById(R.id.crate_common)).Inflate(getContext(), crates[0], Player.commonCratePrice);
-        ((CrateItem) view.findViewById(R.id.crate_uncommon)).Inflate(getContext(), crates[1], Player.uncommonCratePrice);
-        ((CrateItem) view.findViewById(R.id.crate_rare)).Inflate(getContext(), crates[2], Player.rareCratePrice);
-        ((CrateItem) view.findViewById(R.id.crate_epic)).Inflate(getContext(), crates[3], Player.epicCratePrice);
-        ((CrateItem) view.findViewById(R.id.crate_legendary)).Inflate(getContext(), crates[4], Player.legendaryCratePrice);
-        ((CrateItem) view.findViewById(R.id.crate_mythic)).Inflate(getContext(), crates[5], Player.mythicCratePrice);
+        ((CrateItem) view.findViewById(R.id.crate_common)).Inflate(getContext(), crates[0], Player.commonCrateBasePrice, Player.commonCrateOpenCount);
+        ((CrateItem) view.findViewById(R.id.crate_uncommon)).Inflate(getContext(), crates[1], Player.uncommonCrateBasePrice, Player.uncommonCrateOpenCount);
+        ((CrateItem) view.findViewById(R.id.crate_rare)).Inflate(getContext(), crates[2], Player.rareCrateBasePrice, Player.rareCrateOpenCount);
+        ((CrateItem) view.findViewById(R.id.crate_epic)).Inflate(getContext(), crates[3], Player.epicCrateBasePrice, Player.epicCrateOpenCount);
+        ((CrateItem) view.findViewById(R.id.crate_legendary)).Inflate(getContext(), crates[4], Player.legendaryCrateBasePrice, Player.legendaryCrateOpenCount);
+        ((CrateItem) view.findViewById(R.id.crate_mythic)).Inflate(getContext(), crates[5], Player.mythicCrateBasePrice, Player.mythicCrateOpenCount);
     }
 }

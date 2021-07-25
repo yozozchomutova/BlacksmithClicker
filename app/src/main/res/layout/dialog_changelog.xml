@@ -23,8 +23,20 @@
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
-                android:text="Features:\n-Profile and player ranking.\n-Player can now collect XP.\n-Player can now collect Research points.\n-Added mini-guide.\n-Google play publish.\n\nFixes:\n-Weapon images rescaled.\n-Bad XP couting fixed.\n-Wrong rank visuals fixed.\n\n
+                android:text="Features:\n-Profile and player ranking.\n-Player can now collect XP.\n-Player can now collect Research points.\n-Added mini-guide.\n\nFixes:\n-Weapon images rescaled.\n-Bad XP couting fixed.\n-Wrong rank visuals fixed.\n\n
 Removed:\n-Unnecessary crates were temporarily removed from game."
+                style="@style/GuideDialog_Description"/>
+
+            <TextView
+                android:id="@+id/textView8"
+                style="@style/GuideDialog_Title"
+                android:layout_width="match_parent"
+                android:text="0.4.0v - Beta" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:text="Features:\n-Sound system + first sound\n-Improved background.\n-Light color on main screen is now being changed by item rarity.\n-Crate prices are now increasing.\n-New 22 weapons\n-New crate available: Uncommon crate\n-Crates now require minimum rank.\n\nNerfs:\n-Common crate - Uncommon drop chance: 15% -> 10%\n\nBuffs:\n-Common crate - Rare drop chance: 0% -> 1%\n-XP required for Iron rank: 3000 -> 2000"
                 style="@style/GuideDialog_Description"/>
 
             <TextView
@@ -36,9 +48,22 @@ Removed:\n-Unnecessary crates were temporarily removed from game."
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
-                android:text="-Spending research points.\n-Adding new items with Uncommon and Rare rarity.\n-Material researching.\n-Bonuses.\n-More crates.\n-Rewards for new rank.\n
--Weapon and material archive.\n-Weapon sell price+amount of required clicks balance.\n-Sound effects.\n-Crate price increase."
+                android:text="-Spending research points.\n-Adding new items with Rare and Epic rarity.\n-Material researching.\n-Bonuses.\n-More crates.\n-Rewards for new rank.\n
+-Weapon and material archive.\n-Weapon sell price+amount of required clicks balance.\n-Even more sound effects.\n-Crate price increase."
                 style="@style/GuideDialog_Description"/>
+
+            <TextView
+                android:id="@+id/textView10"
+                style="@style/GuideDialog_Title"
+                android:layout_width="match_parent"
+                android:text="Credits:" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:text="l0calh05t - For Anvil Strike sound."
+                style="@style/GuideDialog_Description"/>
+
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

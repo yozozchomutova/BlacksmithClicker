@@ -41,7 +41,7 @@
         android:textColor="#FDFBFB"
         android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/select_item"
+        app:layout_constraintEnd_toStartOf="@+id/buy"
         app:layout_constraintStart_toEndOf="@+id/icon"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,7 +57,7 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toStartOf="@+id/select_item"
+        app:layout_constraintEnd_toStartOf="@+id/buy"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/name" />
 
@@ -72,7 +72,7 @@
         app:srcCompat="@drawable/coin" />
 
     <ImageButton
-        android:id="@+id/select_item"
+        android:id="@+id/buy"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginTop="5dp"

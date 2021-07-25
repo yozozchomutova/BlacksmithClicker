@@ -24,40 +24,35 @@
             <net.jozoproductions.blacksmithclicker.crates.CrateItem
                 android:id="@+id/crate_uncommon"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="invisible">
+                android:layout_height="80dp">
 
             </net.jozoproductions.blacksmithclicker.crates.CrateItem>
 
             <net.jozoproductions.blacksmithclicker.crates.CrateItem
                 android:id="@+id/crate_rare"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="invisible">
+                android:layout_height="80dp">
 
             </net.jozoproductions.blacksmithclicker.crates.CrateItem>
 
             <net.jozoproductions.blacksmithclicker.crates.CrateItem
                 android:id="@+id/crate_epic"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="invisible">
+                android:layout_height="80dp">
 
             </net.jozoproductions.blacksmithclicker.crates.CrateItem>
 
             <net.jozoproductions.blacksmithclicker.crates.CrateItem
                 android:id="@+id/crate_legendary"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="invisible">
+                android:layout_height="80dp">
 
             </net.jozoproductions.blacksmithclicker.crates.CrateItem>
 
             <net.jozoproductions.blacksmithclicker.crates.CrateItem
                 android:id="@+id/crate_mythic"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="invisible">
+                android:layout_height="80dp">
 
             </net.jozoproductions.blacksmithclicker.crates.CrateItem>
         </LinearLayout>
