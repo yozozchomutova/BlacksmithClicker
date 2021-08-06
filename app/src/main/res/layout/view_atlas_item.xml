@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="120dp"
+    android:layout_height="150dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#333333"
+        android:layout_marginEnd="10dp"
+        android:padding="2dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/item_name"
+            android:layout_width="0dp"
+            android:layout_height="18dp"
+            android:text="[item_name]"
+            android:lines="1"
+            android:textSize="12sp"
+            android:textColor="#FFFFFFFF"
+            app:autoSizeTextType="uniform"
+            app:autoSizeMinTextSize="1sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/item_rarity"
+            android:layout_width="104dp"
+            android:layout_height="104dp"
+            android:layout_marginTop="2dp"
+            android:alpha="0.7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_name"
+            app:srcCompat="@drawable/light1" />
+
+        <ImageView
+            android:id="@+id/item_icon"
+            android:layout_width="104dp"
+            android:layout_height="104dp"
+            android:layout_marginTop="2dp"
+            android:tintMode="src_in"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_name"
+            app:srcCompat="@drawable/anvil" />
+
+        <ImageView
+            android:id="@+id/item_ingredient_material"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitStart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/item_rarity"
+            app:layout_constraintStart_toStartOf="@+id/item_rarity"
+            app:layout_constraintTop_toBottomOf="@+id/item_icon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

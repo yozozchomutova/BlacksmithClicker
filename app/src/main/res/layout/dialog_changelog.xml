@@ -18,13 +18,12 @@
                 style="@style/GuideDialog_Title"
                 android:layout_width="match_parent"
                 android:paddingTop="0dp"
-                android:text="0.3.0v - Beta" />
+                android:text="0.5.0v - Beta" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
-                android:text="Features:\n-Profile and player ranking.\n-Player can now collect XP.\n-Player can now collect Research points.\n-Added mini-guide.\n\nFixes:\n-Weapon images rescaled.\n-Bad XP couting fixed.\n-Wrong rank visuals fixed.\n\n
-Removed:\n-Unnecessary crates were temporarily removed from game."
+                android:text="Features:\n-New item atlas.\n-First research points can be spend."
                 style="@style/GuideDialog_Description"/>
 
             <TextView
@@ -49,7 +48,7 @@ Removed:\n-Unnecessary crates were temporarily removed from game."
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:text="-Spending research points.\n-Adding new items with Rare and Epic rarity.\n-Material researching.\n-Bonuses.\n-More crates.\n-Rewards for new rank.\n
--Weapon and material archive.\n-Weapon sell price+amount of required clicks balance.\n-Even more sound effects.\n-Crate price increase."
+-Weapon and material archive.\n-Weapon sell price+amount of required clicks balance.\n-Even more sound effects."
                 style="@style/GuideDialog_Description"/>
 
             <TextView

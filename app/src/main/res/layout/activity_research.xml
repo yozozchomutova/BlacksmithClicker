@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -14,6 +15,95 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/research_window_background" />
+
+    <FrameLayout
+        android:id="@+id/research_nodes"
+        android:layout_width="8000px"
+        android:layout_height="8000px"
+        tools:translationX="-3640px"
+        tools:translationY="-3324px"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imageButton2"
+            android:layout_width="256px"
+            android:layout_height="256px"
+            android:translationX="100px"
+            android:translationY="100px"
+            android:scaleType="centerCrop"
+            android:src="@drawable/research_node_line"/>
+
+        <ImageView
+            android:id="@+id/imageButton6"
+            android:layout_width="20px"
+            android:layout_height="256px"
+            android:translationX="3887px"
+            android:translationY="3570px"
+            android:scaleType="centerCrop"
+            android:src="@drawable/research_node_line"/>
+
+        <net.jozoproductions.blacksmithclicker.research.ResearchNodeView
+            android:id="@+id/blacksmithStartup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:translationX="3804px"
+            android:translationY="3804px" />
+
+        <ImageView
+            android:id="@+id/imageButton7"
+            android:layout_width="20px"
+            android:layout_height="256px"
+            android:translationX="3887px"
+            android:translationY="3250px"
+            android:scaleType="centerCrop"
+            android:src="@drawable/research_node_line"/>
+
+        <net.jozoproductions.blacksmithclicker.research.ResearchNodeView
+            android:id="@+id/biggerResearchChance1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:translationX="3804px"
+            android:translationY="3450px" />
+
+        <ImageView
+            android:id="@+id/imageButton8"
+            android:layout_width="20px"
+            android:layout_height="256px"
+            android:translationX="3887px"
+            android:translationY="2950px"
+            android:scaleType="centerCrop"
+            android:src="@drawable/research_node_line"/>
+
+        <net.jozoproductions.blacksmithclicker.research.ResearchNodeView
+            android:id="@+id/biggerResearchChance2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:translationX="3804px"
+            android:translationY="3120px" />
+
+        <ImageView
+            android:id="@+id/imageButton9"
+            android:layout_width="20px"
+            android:layout_height="256px"
+            android:translationX="3887px"
+            android:translationY="2600px"
+            android:scaleType="centerCrop"
+            android:src="@drawable/research_node_line"/>
+
+        <net.jozoproductions.blacksmithclicker.research.ResearchNodeView
+            android:id="@+id/biggerResearchChance3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:translationX="3804px"
+            android:translationY="2820px" />
+
+        <net.jozoproductions.blacksmithclicker.research.ResearchNodeView
+            android:id="@+id/biggerResearchChance4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:translationX="3804px"
+            android:translationY="2480px" />
+    </FrameLayout>
 
     <ImageView
         android:id="@+id/top_bcg"
@@ -33,6 +123,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/research" />
 
+    <ImageButton
+        android:id="@+id/close_activity"
+        android:layout_width="39dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="3dp"
+        android:background="#00000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/x" />
+
     <TextView
         android:id="@+id/research_text"
         android:layout_width="wrap_content"
@@ -48,17 +149,106 @@
         app:layout_constraintStart_toEndOf="@+id/imageView5"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Feature will be available in future updates..."
-        android:textColor="#FBFBFB"
-        android:textSize="24sp"
-        android:padding="4dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/research_panel"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/research_panel_background"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/close_panel"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="4dp"
+            android:background="#00000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.050000012"
+            app:srcCompat="@drawable/x" />
+
+        <ImageView
+            android:id="@+id/research_icon"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/research_researchpoints"
+            app:tint="#FFFFFF" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/research_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="110dp"
+            android:text="name"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:lines="1"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="@+id/close_panel"
+            app:layout_constraintEnd_toStartOf="@+id/close_panel"
+            app:layout_constraintStart_toStartOf="@+id/research_icon"
+            app:layout_constraintTop_toTopOf="@+id/close_panel" />
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            app:layout_constraintBottom_toBottomOf="@+id/research_icon"
+            app:layout_constraintEnd_toEndOf="@+id/research_name"
+            app:layout_constraintStart_toEndOf="@+id/research_icon"
+            app:layout_constraintTop_toTopOf="@+id/research_icon">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/research_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="desc."
+                    android:textColor="#FFFFFF" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/research_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:text="99999"
+            android:textColor="#FFDA99"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/research_icon"
+            app:layout_constraintEnd_toStartOf="@+id/research_buy" />
+
+        <ImageButton
+            android:id="@+id/research_buy"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="#00000000"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@+id/research_icon"
+            app:layout_constraintEnd_toEndOf="@+id/close_panel"
+            app:srcCompat="@drawable/research_node" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

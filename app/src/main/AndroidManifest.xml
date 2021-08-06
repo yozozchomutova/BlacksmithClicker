@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.ItemSelectActivity" android:screenOrientation="portrait">
+        <activity android:name=".activities.ItemAtlasActivity" android:screenOrientation="portrait">
         </activity>
 
         <activity android:name=".activities.CrateMenuActivity" android:screenOrientation="portrait">

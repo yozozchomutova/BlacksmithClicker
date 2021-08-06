@@ -49,7 +49,7 @@
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
-                android:text="You can unlock new items by opening crates. Each crate costs some money and with each opening price will be increased. Currently there is 1 crate (other crates will be added in the future)."
+                android:text="You can unlock new items by opening crates. Each crate costs some money and with each opening price will be increased. Currently there are 2 crates (other crates will be added in the future)."
                 style="@style/GuideDialog_Description"/>
 
             <TextView
@@ -62,7 +62,7 @@
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="match_parent"
-                android:text="By clicking, you sometimes receive research point. Currently there's no way to spend them, but you can collect them for future usage."
+                android:text="By clicking, you sometimes receive research point. With 0.5.0v beta update, you can finally spend these points."
                 style="@style/GuideDialog_Description"/>
 
             <TextView

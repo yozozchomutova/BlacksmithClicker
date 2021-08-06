@@ -122,10 +122,10 @@ public class CrateOpenFragment extends Fragment {
                             openBtn.setImageDrawable(getResources().getDrawable(droppedItem.iconId));
 
                             //Update texts
-                            int rarityColor = ContextCompat.getColor(getContext(), droppedItem.rarity.colorId);
+                            int rarityColor = ContextCompat.getColor(getContext(), droppedItem.itemGroup.rarity.colorId);
 
                             guaranteedRarityTV.setText(droppedItem.name);
-                            nextRarityChanceTV.setText(droppedItem.rarity.name + " Item");
+                            nextRarityChanceTV.setText(droppedItem.itemGroup.rarity.name + " Item");
                             nextRarityChanceTV.setTextColor(rarityColor);
                             ((ImageView) view.findViewById(R.id.background)).setColorFilter(rarityColor);
                         }
@@ -185,7 +185,7 @@ public class CrateOpenFragment extends Fragment {
             randomizedItem = Item.STICK;
         }
 
-        Player.AddItemRecipe(randomizedItem);
+        Player.UnlockItem(randomizedItem);
         return randomizedItem;
     }
 }

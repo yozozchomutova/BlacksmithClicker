@@ -6,6 +6,7 @@ import net.jozoproductions.blacksmithclicker.items.InventoryItem;
 import net.jozoproductions.blacksmithclicker.items.Item;
 import net.jozoproductions.blacksmithclicker.materials.Ingredient;
 import net.jozoproductions.blacksmithclicker.materials.Material;
+import net.jozoproductions.blacksmithclicker.research.Research;
 
 import java.util.ArrayList;
 
@@ -14,19 +15,19 @@ public class Player {
     public static String name;
 
     public static float money = 0;
-    public static float researchPoints = 0;
     public static float xp = 0;
 
-    public static float researchPointChance = 0.2f; //Chance of getting research point
-
     public static ArrayList<Ingredient> ingredients = new ArrayList<>();
-    public static ArrayList<Item> unlockedItemRecipes = new ArrayList<>();
+
+    //Player and research stuff
+    public static float researchPoints = 0;
+    public static float researchPointChance = 0; //Chance of getting research point
 
     //UI
     public static TextView moneyText;
 
     //Crate prices
-    public static Integer commonCrateOpenCount = new Integer(0);
+    public static Integer commonCrateOpenCount = 0;
     public static Integer uncommonCrateOpenCount = 0;
     public static Integer rareCrateOpenCount = 0;
     public static Integer epicCrateOpenCount = 0;
@@ -45,8 +46,8 @@ public class Player {
         moneyText.setText("" + money);
     }
 
-    public static void AddItemRecipe(Item item) {
-        unlockedItemRecipes.add(item);
+    public static void UnlockItem(Item item) {
+        item.owningItem = true;
     }
 
     public static void AddMaterial(Material material, int count) {
@@ -77,5 +78,26 @@ public class Player {
 
     public static void AddResearchPoints(int count) {
         researchPoints += count;
+    }
+
+    //This takes all upgrade nodes and converts it into real bonuses
+    public static void CalculateResearchUpgrades() {
+        //Reset values
+        researchPointChance = 0f;
+
+        //Counting
+        if (Research.BLACKSMITH.researched) {
+            researchPointChance += 0.2f;
+        }
+
+        if (Research.MORE_RESEARCHPOINTS_CHANCE1.researched) {
+            researchPointChance += 0.1f;
+        } if (Research.MORE_RESEARCHPOINTS_CHANCE2.researched) {
+            researchPointChance += 0.2f;
+        } if (Research.MORE_RESEARCHPOINTS_CHANCE3.researched) {
+            researchPointChance += 0.2f;
+        } if (Research.MORE_RESEARCHPOINTS_CHANCE4.researched) {
+            researchPointChance += 0.2f;
+        }
     }
 }

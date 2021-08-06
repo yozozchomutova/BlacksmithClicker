@@ -3,8 +3,6 @@ package net.jozoproductions.blacksmithclicker;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -17,36 +15,30 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import net.jozoproductions.blacksmithclicker.activities.CrateMenuActivity;
-import net.jozoproductions.blacksmithclicker.activities.ItemSelectActivity;
+import net.jozoproductions.blacksmithclicker.activities.ItemAtlasActivity;
 import net.jozoproductions.blacksmithclicker.activities.ProfileActivity;
 import net.jozoproductions.blacksmithclicker.activities.ResearchActivity;
 import net.jozoproductions.blacksmithclicker.audio.AudioSystem;
 import net.jozoproductions.blacksmithclicker.dialog.GuideDialog;
 import net.jozoproductions.blacksmithclicker.items.Item;
-import net.jozoproductions.blacksmithclicker.materials.Material;
 import net.jozoproductions.blacksmithclicker.particlemanaging.ParticlePack;
+import net.jozoproductions.blacksmithclicker.research.Research;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
-
-    public static final String DRAWABLE_PREFIX = "drawable://";
 
     public static Random random = new Random();
 
@@ -74,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Initialize items & rarities
         Item.InitializeRarityItemsArrayLists();
+        Item.InitializeItemGroupItemsArrayLists();
 
         //Load sounds
         AudioSystem.LoadAudio(this, "AnvilStrike", R.raw.anvil_strike);
@@ -92,101 +85,77 @@ public class MainActivity extends AppCompatActivity {
 
         ParticlePack.parent = findViewById(R.id.root);
 
-        clickableItem.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                float x = event.getRawX();
-                float y = event.getRawY();
+        clickableItem.setOnTouchListener((v, event) -> {
+            float x = event.getRawX();
+            float y = event.getRawY();
 
-                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    endlessThread.particlePacks.add(new ParticlePack(
-                            R.drawable.particle_spark,
-                            x,
-                            y,
-                            10
-                    ));
-                    clickableItem.startAnimation(itemClickAnim);
-                    SmithingItem.Click(x, y);
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                endlessThread.particlePacks.add(new ParticlePack(
+                        R.drawable.particle_spark,
+                        x,
+                        y,
+                        10
+                ));
+                clickableItem.startAnimation(itemClickAnim);
+                SmithingItem.Click(x, y);
 
-                    AudioSystem.PlayAudio("AnvilStrike");
+                AudioSystem.PlayAudio("AnvilStrike");
+            }
+            return false;
+        });
+
+        findViewById(R.id.select_item_btn).setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ItemAtlasActivity.class);
+            startActivity(intent);
+        });
+
+        findViewById(R.id.research).setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ResearchActivity.class);
+            startActivity(intent);
+        });
+
+        findViewById(R.id.storage).setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, CrateMenuActivity.class);
+            startActivity(intent);
+        });
+
+        findViewById(R.id.profile).setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+            startActivity(intent);
+        });
+
+        findViewById(R.id.info_btn).setOnClickListener(v -> {
+            GuideDialog guideDialog = new GuideDialog(MainActivity.this);
+            guideDialog.show();
+        });
+
+        findViewById(R.id.discord_btn).setOnClickListener(v -> {
+            AlertDialog.Builder discordDialog = new AlertDialog.Builder(MainActivity.this);
+            discordDialog.setTitle("Discord");
+            discordDialog.setMessage("Join our community, send feedback and talk with others.");
+            discordDialog.setPositiveButton("Copy link", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clip = ClipData.newPlainText("link", "https://discord.gg/mXFwmrdX9B");
+                    clipboard.setPrimaryClip(clip);
                 }
-                return false;
-            }
+            });
+
+            discordDialog.setNegativeButton("Open link", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://discord.gg/mXFwmrdX9B"));
+                    startActivity(browserIntent);
+                }
+            });
+            discordDialog.create().show();
         });
 
-        findViewById(R.id.select_item_btn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ItemSelectActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        findViewById(R.id.research).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ResearchActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        findViewById(R.id.storage).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CrateMenuActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        findViewById(R.id.profile).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        findViewById(R.id.info_btn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                GuideDialog guideDialog = new GuideDialog(MainActivity.this);
-                guideDialog.show();
-            }
-        });
-
-        findViewById(R.id.discord_btn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder discordDialog = new AlertDialog.Builder(MainActivity.this);
-                discordDialog.setTitle("Discord");
-                discordDialog.setMessage("Join our community, send feedback and talk with others.");
-                discordDialog.setPositiveButton("Copy link", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                        ClipData clip = ClipData.newPlainText("link", "https://discord.gg/mXFwmrdX9B");
-                        clipboard.setPrimaryClip(clip);
-                    }
-                });
-
-                discordDialog.setNegativeButton("Open link", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://discord.gg/mXFwmrdX9B"));
-                        startActivity(browserIntent);
-                    }
-                });
-                discordDialog.create().show();
-            }
-        });
-
-        findViewById(R.id.changelog_btn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Dialog dialog = new Dialog(MainActivity.this);
-                dialog.setContentView(R.layout.dialog_changelog);
-                dialog.show();
-            }
+        findViewById(R.id.changelog_btn).setOnClickListener(v -> {
+            Dialog dialog = new Dialog(MainActivity.this);
+            dialog.setContentView(R.layout.dialog_changelog);
+            dialog.show();
         });
 
         //Start endless thread
@@ -195,11 +164,12 @@ public class MainActivity extends AppCompatActivity {
 
         //Load save
         Load();
+
+        Player.CalculateResearchUpgrades();
     }
 
     @Override
     protected void onPause() {
-        System.out.println("rip");
         Save();
         super.onPause();
     }
@@ -213,10 +183,19 @@ public class MainActivity extends AppCompatActivity {
     private void Save() {
         //Convert items array to item names array
         Set<String> itemNames = new HashSet<>();
-        ArrayList<Item> items = Player.unlockedItemRecipes;
+        Set<String> researchNames = new HashSet<>();
 
-        for (int i = 0; i < items.size(); i++) {
-            itemNames.add(items.get(i).name());
+        Item[] items = Item.values();
+        Research[] research = Research.values();
+
+        for (int i = 0; i < items.length; i++) {
+            if (items[i].owningItem)
+                itemNames.add(items[i].name());
+        }
+
+        for (int i = 0; i < research.length; i++) {
+            if (research[i].researched)
+                researchNames.add(research[i].name());
         }
 
         //Save
@@ -236,11 +215,17 @@ public class MainActivity extends AppCompatActivity {
         editor.putInt("mythic_crate_open_count", Player.mythicCrateOpenCount);
 
         editor.putStringSet("items", itemNames);
+        editor.putStringSet("research", researchNames);
+
         editor.putBoolean("first_time_launch", false);
         editor.apply();
     }
 
     private void Load() {
+        //Happens every time, player launches game
+        Player.UnlockItem(Item.STICK);
+        Research.BLACKSMITH.researched = true;
+
         //Load
         SharedPreferences sp = getPreferences(Context.MODE_PRIVATE);
 
@@ -250,6 +235,7 @@ public class MainActivity extends AppCompatActivity {
         Player.researchPoints = sp.getFloat("researchPoints", 0);
 
         Set<String> itemNamesSet = sp.getStringSet("items", new HashSet<>());
+        Set<String> researchNamesSet = sp.getStringSet("research", new HashSet<>());
 
         if (sp.getBoolean("first_time_launch", true))
             FirstTimeLaunch();
@@ -259,7 +245,14 @@ public class MainActivity extends AppCompatActivity {
 
         for (int i = 0; i < itemNames.size(); i++) {
             Item item = Item.valueOf(itemNames.get(i));
-            Player.AddItemRecipe(item);
+            Player.UnlockItem(item);
+        }
+
+        //Convert research names array to research
+        ArrayList<String> researchNames = new ArrayList<>(researchNamesSet);
+
+        for (int i = 0; i < researchNames.size(); i++) {
+            Research.valueOf(researchNames.get(i)).researched = true;
         }
 
         Player.commonCrateOpenCount = sp.getInt("common_crate_open_count", Player.commonCrateOpenCount);
@@ -271,8 +264,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void FirstTimeLaunch() {
-        Player.AddItemRecipe(Item.STICK);
-
         //Message for new players
         AlertDialog.Builder message = new AlertDialog.Builder(this);
         message.setCancelable(false);

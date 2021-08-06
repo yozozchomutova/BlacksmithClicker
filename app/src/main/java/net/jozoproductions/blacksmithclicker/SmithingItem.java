@@ -41,7 +41,7 @@ public class SmithingItem {
                     R.drawable.research_add,
                     x,
                     y,
-                    5
+                    2
             ));
         }
 
@@ -62,7 +62,7 @@ public class SmithingItem {
         smithingItem = newItem;
 
         name.setText(smithingItem.name);
-        light.setColorFilter(light.getResources().getColor(newItem.rarity.colorId));
+        light.setColorFilter(light.getResources().getColor(newItem.itemGroup.rarity.colorId));
         clickableItem.setImageDrawable(clickableItem.getResources().getDrawable(smithingItem.iconId));
         progressBar.setMax(smithingItem.requiredClicks);
 
