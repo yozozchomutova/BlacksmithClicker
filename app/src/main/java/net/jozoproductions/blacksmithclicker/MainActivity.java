@@ -13,6 +13,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -89,7 +90,8 @@ public class MainActivity extends AppCompatActivity {
             float x = event.getRawX();
             float y = event.getRawY();
 
-            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            int actionId = event.getAction();
+            if (actionId == MotionEvent.ACTION_DOWN || actionId == MotionEvent.ACTION_POINTER_1_DOWN) {
                 endlessThread.particlePacks.add(new ParticlePack(
                         R.drawable.particle_spark,
                         x,
@@ -101,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
 
                 AudioSystem.PlayAudio("AnvilStrike");
             }
-            return false;
+            return true;
         });
 
         findViewById(R.id.select_item_btn).setOnClickListener(v -> {

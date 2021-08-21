@@ -6,7 +6,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#111111">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -16,28 +17,28 @@
 
             <TextView
                 android:id="@+id/textView"
+                style="@style/GuideDialog_Title"
                 android:layout_width="match_parent"
-                android:text="Introduction"
                 android:paddingTop="0dp"
-                style="@style/GuideDialog_Title" />
+                android:text="Introduction" />
 
             <TextView
                 android:id="@+id/textView2"
+                style="@style/GuideDialog_Description"
                 android:layout_width="match_parent"
-                android:text="Welcome to this game. This game is about clicking, researching and discovering new stuff."
-                style="@style/GuideDialog_Description"/>
+                android:text="Welcome to this game. This game is about clicking, researching and discovering new stuff." />
 
             <TextView
                 android:id="@+id/textView3"
+                style="@style/GuideDialog_Title"
                 android:layout_width="match_parent"
-                android:text="[1] Clicking"
-                style="@style/GuideDialog_Title" />
+                android:text="[1] Clicking" />
 
             <TextView
                 android:id="@+id/textView4"
+                style="@style/GuideDialog_Description"
                 android:layout_width="match_parent"
-                android:text="Every item needs certain amount of clicks. After enough clicks, you receive money, XP and maybe some research points."
-                style="@style/GuideDialog_Description"/>
+                android:text="Every item needs certain amount of clicks. After enough clicks, you receive money, XP and maybe some research points." />
 
             <TextView
                 android:id="@+id/textView5"
@@ -48,9 +49,9 @@
 
             <TextView
                 android:id="@+id/textView6"
+                style="@style/GuideDialog_Description"
                 android:layout_width="match_parent"
-                android:text="You can unlock new items by opening crates. Each crate costs some money and with each opening price will be increased. Currently there are 2 crates (other crates will be added in the future)."
-                style="@style/GuideDialog_Description"/>
+                android:text="You can unlock new items by opening crates. Each crate costs some money and with each opening price will be increased. Currently there are 2 crates (other crates will be added in the future)." />
 
             <TextView
                 android:id="@+id/textView7"
@@ -61,9 +62,9 @@
 
             <TextView
                 android:id="@+id/textView8"
+                style="@style/GuideDialog_Description"
                 android:layout_width="match_parent"
-                android:text="By clicking, you sometimes receive research point. With 0.5.0v beta update, you can finally spend these points."
-                style="@style/GuideDialog_Description"/>
+                android:text="By clicking, you sometimes receive research point. With 0.5.0v beta update, you can finally spend these points." />
 
             <TextView
                 android:id="@+id/textView9"
@@ -74,9 +75,9 @@
 
             <TextView
                 android:id="@+id/textView10"
+                style="@style/GuideDialog_Description"
                 android:layout_width="match_parent"
-                android:text="You can rank up by gathering XP. XP's are gathered by clicking of course. Ranks currently are useless. But in the future they will be unlocking new crates and new technologies to research."
-                style="@style/GuideDialog_Description"/>
+                android:text="You can rank up by gathering XP. XP's are gathered by clicking of course. With new update, you are unlocking new crates." />
 
             <TextView
                 android:id="@+id/textView11"
@@ -87,9 +88,22 @@
 
             <TextView
                 android:id="@+id/textView12"
+                style="@style/GuideDialog_Description"
                 android:layout_width="match_parent"
-                android:text="Game rarity list:\n-COMMON\n-UNCOMMON\n-RARE\n-EPIC\n-LEGENDARY\n-MYTHIC\n\nGame rank list:\n-BRONZE\n-IRON\n-GOLD\n-PLATINUM\n-DIAMOND\n-RUBY\n-AMETHYST\n-AURORA"
-                style="@style/GuideDialog_Description"/>
+                android:text="Game rarity list:\n-COMMON\n-UNCOMMON\n-RARE\n-EPIC\n-LEGENDARY\n-MYTHIC\n\nGame rank list:\n-BRONZE\n-IRON\n-GOLD\n-PLATINUM\n-DIAMOND\n-RUBY\n-AMETHYST\n-AURORA" />
+
+            <TextView
+                android:id="@+id/textView13"
+                style="@style/GuideDialog_Title"
+                android:layout_width="match_parent"
+                android:text="About"
+                app:autoSizeTextType="uniform" />
+
+            <TextView
+                android:id="@+id/textView14"
+                style="@style/GuideDialog_Description"
+                android:layout_width="match_parent"
+                android:text="This game is my first app ever published on google play. I was excited when publishing this. Game may won't be so much fun, but I'am preparing more fun apps. I'll be glad for every feedback. Or you can join us on the discord.\n\n\t\t\t\t-YozoZChomutova" />
 
         </LinearLayout>
     </ScrollView>

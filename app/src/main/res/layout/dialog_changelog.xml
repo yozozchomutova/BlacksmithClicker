@@ -5,7 +5,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#111111">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,7 +24,7 @@
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
-                android:text="Features:\n-New item atlas.\n-First research points can be spend."
+                android:text="Features:\n-New item atlas.\n-First research points can be spend.\n-New 13 items.\n-2 finger click support added.\n-Purchase of not working crates is disabled.\n-New crate available: Rare crate\n-Dark theme added for Changelog and\n Guide... Relax your eyes :3.\n\nChanges:\n-Changed Guide dialog.\n\nBuffs:\n-Common crate - price increase rate: 1.2 -> 1.18\n-Common crate - base price: 50 -> 40\n-XP required for Gold rank: 10,000 -> 9,000"
                 style="@style/GuideDialog_Description"/>
 
             <TextView
@@ -47,7 +48,7 @@
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
-                android:text="-Spending research points.\n-Adding new items with Rare and Epic rarity.\n-Material researching.\n-Bonuses.\n-More crates.\n-Rewards for new rank.\n
+                android:text="-Spending even more research points.\n-Adding new items with Rare, Epic and Legendary rarity.\n-Material researching.\n-Bonuses.\n-More crates.\n-Rewards for new rank.\n
 -Weapon and material archive.\n-Weapon sell price+amount of required clicks balance.\n-Even more sound effects."
                 style="@style/GuideDialog_Description"/>
 
@@ -60,7 +61,7 @@
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="match_parent"
-                android:text="l0calh05t - For Anvil Strike sound."
+                android:text="l0calh05t - For Anvil Strike sound.\nhttps://freesound.org/people/l0calh05t/sounds/19015/\nNo changes were made!\nLicensed under CC3:\nhttps://creativecommons.org/licenses/by/3.0/"
                 style="@style/GuideDialog_Description"/>
 
         </LinearLayout>

@@ -1,6 +1,7 @@
 package net.jozoproductions.blacksmithclicker.activities;
 
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -41,5 +42,13 @@ public class ProfileActivity extends AppCompatActivity {
         ProgressBar progressBar = findViewById(R.id.rank_exp_pb);
         progressBar.setMax(nextPlayerRank.neededExpToAdvance);
         progressBar.setProgress((int) Player.xp);
+
+        //CHEAT!! REMOVE, WHEN GOING TO PRODUCTION!!!
+        findViewById(R.id.pfpPicture).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Player.AddMoney(1000);
+            }
+        });
     }
 }

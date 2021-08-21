@@ -34,10 +34,10 @@ public class Player {
     public static Integer legendaryCrateOpenCount = 0;
     public static Integer mythicCrateOpenCount = 0;
 
-    public static final float commonCrateBasePrice = 50;
+    public static final float commonCrateBasePrice = 40;
     public static final float uncommonCrateBasePrice = 100;
-    public static final float rareCrateBasePrice = 999999999;
-    public static final float epicCrateBasePrice = 999999999;
+    public static final float rareCrateBasePrice = 300;
+    public static final float epicCrateBasePrice = 1000;
     public static final float legendaryCrateBasePrice = 999999999;
     public static final float mythicCrateBasePrice = 999999999;
 

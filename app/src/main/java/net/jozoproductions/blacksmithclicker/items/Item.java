@@ -70,13 +70,28 @@ public enum Item {
     AMETHYST_CHESTPLATE("Amethyst Chestplate", ItemGroup.CHESTPLATES, 70, 58, R.drawable.item_amethyst_chestplate, Material.AMETHYST),
     CERUSSITE_CHESTPLATE("Cerussite Chestplate", ItemGroup.CHESTPLATES, 70, 60, R.drawable.item_cerussite_chestplate, Material.CERUSSITE),
 
-    RED_STAFF("Red Staff", ItemGroup.BETTER_STAFFS, 70, 60, R.drawable.item_red_staff, Material.RED_ESSENCE),
-    ORANGE_STAFF("Orange Staff", ItemGroup.BETTER_STAFFS, 70, 65, R.drawable.item_orange_staff, Material.ORANGE_ESSENCE),
-    YELLOW_STAFF("Yellow Staff", ItemGroup.BETTER_STAFFS, 80, 55, R.drawable.item_yellow_staff, Material.YELLOW_ESSENCE),
-    GREEN_STAFF("Green Staff", ItemGroup.BETTER_STAFFS, 80, 60, R.drawable.item_green_staff, Material.GREEN_ESSENCE),
-    BLUE_STAFF("Blue Staff", ItemGroup.BETTER_STAFFS, 80, 75, R.drawable.item_blue_staff, Material.BLUE_ESSENCE),
-    MAGENTA_STAFF("Magenta Staff", ItemGroup.BETTER_STAFFS, 90, 80, R.drawable.item_magenta_staff, Material.MAGENTA_ESSENCE),
-    WHITE_STAFF("White Staff", ItemGroup.BETTER_STAFFS, 100, 95, R.drawable.item_white_staff, Material.WHITE_ESSENCE),
+    EMERALD_SHOES("Emerald Shoes", ItemGroup.SHOES, 70, 60, R.drawable.item_emerald_shoes, Material.EMERALD),
+    RUBY_SHOES("Ruby Shoes", ItemGroup.SHOES, 70, 65, R.drawable.item_ruby_shoes, Material.RUBY),
+    TOPAZ_SHOES("Topaz Shoes", ItemGroup.SHOES, 80, 55, R.drawable.item_topaz_shoes, Material.TOPAZ),
+    SAPPHIRE_SHOES("Sapphire Shoes", ItemGroup.SHOES, 80, 60, R.drawable.item_sapphire_shoes, Material.SAPPHIRE),
+    AMETHYST_SHOES("Amethyst Shoes", ItemGroup.SHOES, 80, 75, R.drawable.item_amethyst_shoes, Material.AMETHYST),
+    CERUSSITE_SHOES("Cerussite Shoes", ItemGroup.SHOES, 90, 80, R.drawable.item_cerussite_shoes, Material.CERUSSITE),
+
+    RED_STAFF("Red Staff", ItemGroup.BETTER_STAFFS, 100, 95, R.drawable.item_red_staff, Material.RED_ESSENCE),
+    ORANGE_STAFF("Orange Staff", ItemGroup.BETTER_STAFFS, 100, 97, R.drawable.item_orange_staff, Material.ORANGE_ESSENCE),
+    YELLOW_STAFF("Yellow Staff", ItemGroup.BETTER_STAFFS, 100, 98, R.drawable.item_yellow_staff, Material.YELLOW_ESSENCE),
+    GREEN_STAFF("Green Staff", ItemGroup.BETTER_STAFFS, 100, 100, R.drawable.item_green_staff, Material.GREEN_ESSENCE),
+    BLUE_STAFF("Blue Staff", ItemGroup.BETTER_STAFFS, 110, 111, R.drawable.item_blue_staff, Material.BLUE_ESSENCE),
+    MAGENTA_STAFF("Magenta Staff", ItemGroup.BETTER_STAFFS, 110, 115, R.drawable.item_magenta_staff, Material.MAGENTA_ESSENCE),
+    WHITE_STAFF("White Staff", ItemGroup.BETTER_STAFFS, 117, 123, R.drawable.item_white_staff, Material.WHITE_ESSENCE),
+
+    RED_BOOTS("Red Boots", ItemGroup.BOOTS, 125, 135, R.drawable.item_red_boots, Material.RED_ESSENCE),
+    ORANGE_BOOTS("Orange Boots", ItemGroup.BOOTS, 125, 137, R.drawable.item_orange_boots, Material.ORANGE_ESSENCE),
+    YELLOW_BOOTS("Yellow Boots", ItemGroup.BOOTS, 130, 145, R.drawable.item_yellow_boots, Material.YELLOW_ESSENCE),
+    GREEN_BOOTS("Green Boots", ItemGroup.BOOTS, 130, 148, R.drawable.item_green_boots, Material.GREEN_ESSENCE),
+    BLUE_BOOTS("Blue Boots", ItemGroup.BOOTS, 133, 155, R.drawable.item_blue_boots, Material.BLUE_ESSENCE),
+    MAGENTA_BOOTS("Magenta Boots", ItemGroup.BOOTS, 136, 160, R.drawable.item_magenta_boots, Material.MAGENTA_ESSENCE),
+    WHITE_BOOTS("White Boots", ItemGroup.BOOTS, 140, 166, R.drawable.item_white_boots, Material.WHITE_ESSENCE),
     ;
 
     public String name;

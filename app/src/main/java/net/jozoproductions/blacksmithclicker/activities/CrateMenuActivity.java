@@ -14,7 +14,7 @@ public class CrateMenuActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getSupportActionBar().setTitle("Crates");
+        getSupportActionBar().hide();
 
         //Fullscreen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -23,4 +23,8 @@ public class CrateMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_crate_menu);
     }
 
+    @Override
+    public void onBackPressed() {
+        //Prevent from closing it
+    }
 }

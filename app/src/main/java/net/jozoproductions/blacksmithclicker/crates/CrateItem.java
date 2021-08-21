@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -40,7 +41,7 @@ public class CrateItem extends ConstraintLayout {
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
-    public void Inflate(Context context, Crate crate_, float basePrice, int openCount) {
+    public void Inflate(Context context, Crate crate_, float basePrice, int openCount, boolean currentlyAvailable) {
         this.crate = crate_;
 
         this.price = CalculateCratePrice(basePrice, openCount);
@@ -70,7 +71,9 @@ public class CrateItem extends ConstraintLayout {
         buyBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Player.money >= price && unlocked) {
+                if (!currentlyAvailable) {
+                    Toast.makeText(getContext(), "Crate is currently unavailable.", Toast.LENGTH_SHORT).show();
+                } else if (Player.money >= price && unlocked) {
 
                     if (crate == Crate.COMMON_CRATE)
                         Player.commonCrateOpenCount++;
@@ -92,13 +95,17 @@ public class CrateItem extends ConstraintLayout {
                 }
             }
         });
+
+        //Coming soon?
+        if (!currentlyAvailable)
+            priceTV.setText("Coming soon!");
     }
 
     private int CalculateCratePrice(float baseCratePrice, int openCount) {
         float totalPrice = baseCratePrice;
 
         for (int i = 0; i < openCount; i++) {
-            totalPrice = totalPrice * 1.2f;
+            totalPrice = totalPrice * 1.18f;
         }
 
         return (int) totalPrice;

@@ -12,7 +12,9 @@ public enum ItemGroup {
     STAFFS("Staffs", Rarity.UNCOMMON),
     SHURIKENS("Shurikens", Rarity.UNCOMMON),
     CHESTPLATES("Chestplates", Rarity.RARE),
+    SHOES("Shoes", Rarity.RARE),
     BETTER_STAFFS("Staffs", Rarity.RARE),
+    BOOTS("Boots", Rarity.EPIC),
     ;
 
     public String groupName;

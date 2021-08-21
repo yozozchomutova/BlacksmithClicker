@@ -7,11 +7,11 @@ import net.jozoproductions.blacksmithclicker.rank.Rank;
 
 public enum Crate {
     COMMON_CRATE("Common Crate", R.drawable.crate_common, R.color.rarity_common, Rank.BRONZE, 10f, 2f, 0f, 0.0f, 0.0f),
-    UNCOMMON_CRATE("Uncommon Crate", R.drawable.crate_uncommon, R.color.rarity_uncommon, Rank.IRON, 55f, 10f, 0f, 0.0f, 0.0f), //Epic chance = 1
-    RARE_CRATE("Rare Crate", R.drawable.crate_rare, R.color.rarity_rare, Rank.GOLD, 80f, 50f, 8f, 1f, 0.3f),
-    EPIC_CRATE("Epic Crate", R.drawable.crate_epic, R.color.rarity_epic, Rank.PLATINUM, 98f, 70f, 45f, 1f, 0.5f),
-    LEGENDARY_CRATE("Legendary Crate", R.drawable.crate_legendary, R.color.rarity_legendary, Rank.DIAMOND, 100f, 85f, 65.0f, 40.0f, 1f),
-    MYTHIC_CRATE("Mythic Crate", R.drawable.crate_mythic, R.color.rarity_mythic, Rank.RUBY, 100f, 100f, 85f, 70.0f, 5f);
+    UNCOMMON_CRATE("Uncommon Crate", R.drawable.crate_uncommon, R.color.rarity_uncommon, Rank.IRON, 55f, 10f, 1f, 0.0f, 0.0f),
+    RARE_CRATE("Rare Crate", R.drawable.crate_rare, R.color.rarity_rare, Rank.GOLD, 80f, 50f, 8f, 0f, 0.3f), // Legendary = 1f
+    EPIC_CRATE("Epic Crate", R.drawable.crate_epic, R.color.rarity_epic, Rank.PLATINUM, 98f, 70f, 45f, 0f, 0.5f), // Legendary = 2f
+    LEGENDARY_CRATE("Legendary Crate", R.drawable.crate_legendary, R.color.rarity_legendary, Rank.DIAMOND, 100f, 85f, 65.0f, 0.0f, 1f), // Legendary = 40f
+    MYTHIC_CRATE("Mythic Crate", R.drawable.crate_mythic, R.color.rarity_mythic, Rank.RUBY, 100f, 100f, 85f, 0.0f, 5f); // Legendary = 70f
 
     public String name;
     public int drawableId;

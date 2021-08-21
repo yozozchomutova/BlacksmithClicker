@@ -6,7 +6,7 @@
     android:background="#111111">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/pfpPicture"
         android:layout_width="128dp"
         android:layout_height="128dp"
         android:layout_marginStart="4dp"
@@ -30,7 +30,7 @@
         android:textSize="48sp"
         app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/pfpPicture"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -46,7 +46,7 @@
         android:textSize="20sp"
         app:autoSizeTextType="none"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/pfpPicture"
         app:layout_constraintTop_toBottomOf="@+id/player_name" />
 
     <ImageView
