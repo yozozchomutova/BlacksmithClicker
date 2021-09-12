@@ -15,28 +15,28 @@
             android:padding="4dp">
 
             <TextView
+                android:id="@+id/textView8"
+                style="@style/GuideDialog_Title"
+                android:layout_width="match_parent"
+                android:text="0.6.0v - Beta"
+                android:paddingTop="0dp"/>
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:text="Features:\n-Added more nodes to research.\n-New useless stats in profile window.\n-Improved profile window graphics.\n-Improved main window graphics.\n-Text pointing on guide dialog button (Shows only for first time launch)\n-New 21 items.\n\nFixes:\n-Effects from research didn't apply after purchase.\n\nBuffs:\n-Cheaper research nodes.\n-All crates were buffed alot."
+                style="@style/GuideDialog_Description"/>
+
+            <TextView
                 android:id="@+id/textView"
                 style="@style/GuideDialog_Title"
                 android:layout_width="match_parent"
-                android:paddingTop="0dp"
                 android:text="0.5.0v - Beta" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:text="Features:\n-New item atlas.\n-First research points can be spend.\n-New 13 items.\n-2 finger click support added.\n-Purchase of not working crates is disabled.\n-New crate available: Rare crate\n-Dark theme added for Changelog and\n Guide... Relax your eyes :3.\n\nChanges:\n-Changed Guide dialog.\n\nBuffs:\n-Common crate - price increase rate: 1.2 -> 1.18\n-Common crate - base price: 50 -> 40\n-XP required for Gold rank: 10,000 -> 9,000"
-                style="@style/GuideDialog_Description"/>
-
-            <TextView
-                android:id="@+id/textView8"
-                style="@style/GuideDialog_Title"
-                android:layout_width="match_parent"
-                android:text="0.4.0v - Beta" />
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="match_parent"
-                android:text="Features:\n-Sound system + first sound\n-Improved background.\n-Light color on main screen is now being changed by item rarity.\n-Crate prices are now increasing.\n-New 22 weapons\n-New crate available: Uncommon crate\n-Crates now require minimum rank.\n\nNerfs:\n-Common crate - Uncommon drop chance: 15% -> 10%\n\nBuffs:\n-Common crate - Rare drop chance: 0% -> 1%\n-XP required for Iron rank: 3000 -> 2000"
                 style="@style/GuideDialog_Description"/>
 
             <TextView
@@ -48,8 +48,7 @@
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
-                android:text="-Spending even more research points.\n-Adding new items with Rare, Epic and Legendary rarity.\n-Material researching.\n-Bonuses.\n-More crates.\n-Rewards for new rank.\n
--Weapon and material archive.\n-Weapon sell price+amount of required clicks balance.\n-Even more sound effects."
+                android:text="-Spending even more research points.\n-Adding new items with Rare, Epic and Legendary rarity.\n-Material researching.\n-Bonuses.\n-More crates.\n-Rewards for new rank.\n-Weapon sell price+amount of required clicks balance.\n-Even more sound effects."
                 style="@style/GuideDialog_Description"/>
 
             <TextView

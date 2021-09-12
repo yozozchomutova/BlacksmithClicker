@@ -48,33 +48,23 @@
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:scaleType="fitXY"
-        android:tint="#94000000"
         app:layout_constraintBottom_toBottomOf="@+id/background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@android:drawable/progress_horizontal"
-        tools:ignore="UseAppTint" />
-
-    <ImageView
-        android:id="@+id/anvil_ic_bcg"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:scaleType="fitXY"
-        android:tint="#94000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/progress_horizontal"
+        app:srcCompat="@drawable/profile_activity_topbar"
         tools:ignore="UseAppTint" />
 
     <ImageButton
         android:id="@+id/select_item_btn"
         android:layout_width="55dp"
         android:layout_height="55dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
         android:background="#00FFFFFF"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/anvil" />
+        app:srcCompat="@drawable/atlass" />
 
     <ImageView
         android:id="@+id/light"
@@ -198,4 +188,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/discord_btn"
         app:srcCompat="@drawable/changelog" />
+
+    <TextView
+        android:id="@+id/guideHelpText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:visibility="gone"
+        android:text="&lt;- Click here for guide."
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/info_btn"
+        app:layout_constraintStart_toEndOf="@+id/info_btn"
+        app:layout_constraintTop_toTopOf="@+id/info_btn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,7 +20,7 @@
         android:id="@+id/research_nodes"
         android:layout_width="8000px"
         android:layout_height="8000px"
-        tools:translationX="-3640px"
+        tools:translationX="-3950px"
         tools:translationY="-3324px"
         tools:ignore="MissingConstraints">
 
@@ -34,11 +34,61 @@
             android:src="@drawable/research_node_line"/>
 
         <ImageView
-            android:id="@+id/imageButton6"
             android:layout_width="20px"
             android:layout_height="256px"
             android:translationX="3887px"
             android:translationY="3570px"
+            android:scaleType="centerCrop"
+            android:src="@drawable/research_node_line"/>
+
+        <ImageView
+            android:layout_width="20px"
+            android:layout_height="256px"
+            android:translationX="3887px"
+            android:translationY="3250px"
+            android:scaleType="centerCrop"
+            android:src="@drawable/research_node_line"/>
+
+        <ImageView
+            android:layout_width="20px"
+            android:layout_height="256px"
+            android:translationX="3887px"
+            android:translationY="2950px"
+            android:scaleType="centerCrop"
+            android:src="@drawable/research_node_line"/>
+
+        <ImageView
+            android:layout_width="20px"
+            android:layout_height="256px"
+            android:translationX="3887px"
+            android:translationY="2600px"
+            android:scaleType="centerCrop"
+            android:src="@drawable/research_node_line"/>
+
+        <ImageView
+            android:layout_width="20px"
+            android:layout_height="256px"
+            android:translationX="4070px"
+            android:translationY="3670px"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            android:src="@drawable/research_node_line"/>
+
+        <ImageView
+            android:layout_width="20px"
+            android:layout_height="256px"
+            android:translationX="4400px"
+            android:translationY="3670px"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            android:src="@drawable/research_node_line"/>
+
+        <ImageView
+            android:layout_width="20px"
+            android:layout_height="256px"
+            android:translationX="4750px"
+            android:translationY="3670px"
+            android:rotation="60"
             android:scaleType="centerCrop"
             android:src="@drawable/research_node_line"/>
 
@@ -49,15 +99,6 @@
             android:translationX="3804px"
             android:translationY="3804px" />
 
-        <ImageView
-            android:id="@+id/imageButton7"
-            android:layout_width="20px"
-            android:layout_height="256px"
-            android:translationX="3887px"
-            android:translationY="3250px"
-            android:scaleType="centerCrop"
-            android:src="@drawable/research_node_line"/>
-
         <net.jozoproductions.blacksmithclicker.research.ResearchNodeView
             android:id="@+id/biggerResearchChance1"
             android:layout_width="wrap_content"
@@ -65,30 +106,12 @@
             android:translationX="3804px"
             android:translationY="3450px" />
 
-        <ImageView
-            android:id="@+id/imageButton8"
-            android:layout_width="20px"
-            android:layout_height="256px"
-            android:translationX="3887px"
-            android:translationY="2950px"
-            android:scaleType="centerCrop"
-            android:src="@drawable/research_node_line"/>
-
         <net.jozoproductions.blacksmithclicker.research.ResearchNodeView
             android:id="@+id/biggerResearchChance2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:translationX="3804px"
             android:translationY="3120px" />
-
-        <ImageView
-            android:id="@+id/imageButton9"
-            android:layout_width="20px"
-            android:layout_height="256px"
-            android:translationX="3887px"
-            android:translationY="2600px"
-            android:scaleType="centerCrop"
-            android:src="@drawable/research_node_line"/>
 
         <net.jozoproductions.blacksmithclicker.research.ResearchNodeView
             android:id="@+id/biggerResearchChance3"
@@ -103,6 +126,27 @@
             android:layout_height="wrap_content"
             android:translationX="3804px"
             android:translationY="2480px" />
+
+        <net.jozoproductions.blacksmithclicker.research.ResearchNodeView
+            android:id="@+id/forgeEffectivity1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:translationX="4150px"
+            android:translationY="3605px" />
+
+        <net.jozoproductions.blacksmithclicker.research.ResearchNodeView
+            android:id="@+id/forgeEffectivity2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:translationX="4480px"
+            android:translationY="3804px" />
+
+        <net.jozoproductions.blacksmithclicker.research.ResearchNodeView
+            android:id="@+id/forgeEffectivity3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:translationX="4820px"
+            android:translationY="3605px" />
     </FrameLayout>
 
     <ImageView

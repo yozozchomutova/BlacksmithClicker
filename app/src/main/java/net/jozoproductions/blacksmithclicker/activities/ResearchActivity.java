@@ -129,6 +129,7 @@ public class ResearchActivity extends AppCompatActivity implements View.OnClickL
 
                 UpdateResearchPoints();
                 InitializeResearchNodes();
+                Player.CalculateResearchUpgrades();
             } else {
                 Toast.makeText(this, "Not enough research points.", Toast.LENGTH_SHORT).show();
             }
@@ -156,5 +157,9 @@ public class ResearchActivity extends AppCompatActivity implements View.OnClickL
         ((ResearchNodeView) findViewById(R.id.biggerResearchChance2)).setResearch(Research.MORE_RESEARCHPOINTS_CHANCE2);
         ((ResearchNodeView) findViewById(R.id.biggerResearchChance3)).setResearch(Research.MORE_RESEARCHPOINTS_CHANCE3);
         ((ResearchNodeView) findViewById(R.id.biggerResearchChance4)).setResearch(Research.MORE_RESEARCHPOINTS_CHANCE4);
+
+        ((ResearchNodeView) findViewById(R.id.forgeEffectivity1)).setResearch(Research.FORGE_EFFECTIVNESS1);
+        ((ResearchNodeView) findViewById(R.id.forgeEffectivity2)).setResearch(Research.FORGE_EFFECTIVNESS2);
+        ((ResearchNodeView) findViewById(R.id.forgeEffectivity3)).setResearch(Research.FORGE_EFFECTIVNESS3);
     }
 }

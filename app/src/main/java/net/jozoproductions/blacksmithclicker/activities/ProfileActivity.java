@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import net.jozoproductions.blacksmithclicker.BuildConfig;
 import net.jozoproductions.blacksmithclicker.Player;
 import net.jozoproductions.blacksmithclicker.R;
 import net.jozoproductions.blacksmithclicker.rank.Rank;
@@ -21,7 +22,7 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getSupportActionBar().setTitle("Profile");
+        getSupportActionBar().hide();
 
         //Fullscreen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -43,11 +44,25 @@ public class ProfileActivity extends AppCompatActivity {
         progressBar.setMax(nextPlayerRank.neededExpToAdvance);
         progressBar.setProgress((int) Player.xp);
 
-        //CHEAT!! REMOVE, WHEN GOING TO PRODUCTION!!!
-        findViewById(R.id.pfpPicture).setOnClickListener(new View.OnClickListener() {
+        //Stats Initialize
+        ((TextView) findViewById(R.id.stats)).setText("Total clicks: " + Player.totalClicks +
+                "\nTotal forged items: " + Player.totalForgedItems +
+                "\nTotal money made: " + Player.totalMoneyMade +
+                "\nTotal crates opened: " + Player.totalCratesOpened);
+
+        //Close activity
+        findViewById(R.id.close_activity).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Player.AddMoney(1000);
+                finish();
+            }
+        });
+
+        //CHEAT
+        findViewById(R.id.pfpPicture).setOnClickListener(view -> {
+            if (BuildConfig.DEBUG) {
+                Player.AddMoney(1000);
+                Player.AddResearchPoints(100);
             }
         });
     }

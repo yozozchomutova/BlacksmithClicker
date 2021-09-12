@@ -19,9 +19,18 @@ public class Player {
 
     public static ArrayList<Ingredient> ingredients = new ArrayList<>();
 
+    //Useless stats
+    public static int totalClicks = 0;
+    public static int totalForgedItems = 0;
+    public static int totalMoneyMade = 0;
+    public static int totalCratesOpened = 0;
+
     //Player and research stuff
     public static float researchPoints = 0;
     public static float researchPointChance = 0; //Chance of getting research point
+
+    //Forging
+    public static float forgeEffectiveness = 0f;
 
     //UI
     public static TextView moneyText;
@@ -34,11 +43,11 @@ public class Player {
     public static Integer legendaryCrateOpenCount = 0;
     public static Integer mythicCrateOpenCount = 0;
 
-    public static final float commonCrateBasePrice = 40;
-    public static final float uncommonCrateBasePrice = 100;
-    public static final float rareCrateBasePrice = 300;
+    public static final float commonCrateBasePrice = 25;
+    public static final float uncommonCrateBasePrice = 70;
+    public static final float rareCrateBasePrice = 190;
     public static final float epicCrateBasePrice = 1000;
-    public static final float legendaryCrateBasePrice = 999999999;
+    public static final float legendaryCrateBasePrice = 10000;
     public static final float mythicCrateBasePrice = 999999999;
 
     public static void setMoneyText(TextView moneyText_) {
@@ -67,6 +76,13 @@ public class Player {
     }
 
     public static void AddMoney(float count) {
+        AddMoney(count, true);
+    }
+
+    public static void AddMoney(float count, boolean writeToStats) {
+        if (writeToStats && count > 0)
+            totalMoneyMade += count;
+
         money += count;
 
         //XP Cannot be lost!
@@ -84,6 +100,7 @@ public class Player {
     public static void CalculateResearchUpgrades() {
         //Reset values
         researchPointChance = 0f;
+        forgeEffectiveness = 0f;
 
         //Counting
         if (Research.BLACKSMITH.researched) {
@@ -98,6 +115,19 @@ public class Player {
             researchPointChance += 0.2f;
         } if (Research.MORE_RESEARCHPOINTS_CHANCE4.researched) {
             researchPointChance += 0.2f;
+        }
+
+        //Forge effectivenes
+        if (Research.BLACKSMITH.researched) {
+            forgeEffectiveness += 0.5f;
+        }
+
+        if (Research.FORGE_EFFECTIVNESS1.researched) {
+            forgeEffectiveness += 0.1f;
+        } if (Research.FORGE_EFFECTIVNESS2.researched) {
+            forgeEffectiveness += 0.1f;
+        } if (Research.FORGE_EFFECTIVNESS3.researched) {
+            forgeEffectiveness += 0.1f;
         }
     }
 }

@@ -15,7 +15,7 @@ import net.jozoproductions.blacksmithclicker.particlemanaging.ParticlePack;
 public class SmithingItem {
 
     public static Item smithingItem;
-    private static int progress;
+    private static float progress;
 
     //UI
     public static TextView name;
@@ -46,14 +46,16 @@ public class SmithingItem {
         }
 
         //Progress
-        progress++;
+        progress += Player.forgeEffectiveness;
 
         if (progress >= smithingItem.requiredClicks) {
             progress = 0;
             Player.AddMoney(smithingItem.sellPrice);
+            Player.totalForgedItems++;
             MainActivity.endlessThread.particlePacks.add(new ParticlePack(R.drawable.particle_star, 60, 60, 20));
         }
 
+        Player.totalClicks++;
         UpdateProgressBar();
     }
 
@@ -71,6 +73,6 @@ public class SmithingItem {
     }
 
     public static void UpdateProgressBar() {
-        progressBar.setProgress(progress);
+        progressBar.setProgress((int)progress);
     }
 }

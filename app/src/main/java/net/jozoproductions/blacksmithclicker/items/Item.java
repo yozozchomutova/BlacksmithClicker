@@ -82,8 +82,16 @@ public enum Item {
     YELLOW_STAFF("Yellow Staff", ItemGroup.BETTER_STAFFS, 100, 98, R.drawable.item_yellow_staff, Material.YELLOW_ESSENCE),
     GREEN_STAFF("Green Staff", ItemGroup.BETTER_STAFFS, 100, 100, R.drawable.item_green_staff, Material.GREEN_ESSENCE),
     BLUE_STAFF("Blue Staff", ItemGroup.BETTER_STAFFS, 110, 111, R.drawable.item_blue_staff, Material.BLUE_ESSENCE),
-    MAGENTA_STAFF("Magenta Staff", ItemGroup.BETTER_STAFFS, 110, 115, R.drawable.item_magenta_staff, Material.MAGENTA_ESSENCE),
-    WHITE_STAFF("White Staff", ItemGroup.BETTER_STAFFS, 117, 123, R.drawable.item_white_staff, Material.WHITE_ESSENCE),
+    MAGENTA_STAFF("Magenta Staff", ItemGroup.BETTER_STAFFS, 111, 115, R.drawable.item_magenta_staff, Material.MAGENTA_ESSENCE),
+    WHITE_STAFF("White Staff", ItemGroup.BETTER_STAFFS, 113, 119, R.drawable.item_white_staff, Material.WHITE_ESSENCE),
+
+    RED_HELMET("Red Helmet", ItemGroup.HELMETS, 115, 121, R.drawable.item_red_helmet, Material.RED_ESSENCE),
+    ORANGE_HELMET("Orange Helmet", ItemGroup.HELMETS, 115, 122, R.drawable.item_orange_helmet, Material.ORANGE_ESSENCE),
+    YELLOW_HELMET("Yellow Helmet", ItemGroup.HELMETS, 117, 123, R.drawable.item_yellow_helmet, Material.YELLOW_ESSENCE),
+    GREEN_HELMET("Green Helmet", ItemGroup.HELMETS, 117, 125, R.drawable.item_green_helmet, Material.GREEN_ESSENCE),
+    BLUE_HELMET("Blue Helmet", ItemGroup.HELMETS, 119, 128, R.drawable.item_blue_helmet, Material.BLUE_ESSENCE),
+    MAGENTA_HELMET("Magenta Helmet", ItemGroup.HELMETS, 119, 129, R.drawable.item_magenta_helmet, Material.MAGENTA_ESSENCE),
+    WHITE_HELMET("White Helmet", ItemGroup.HELMETS, 121, 132, R.drawable.item_white_helmet, Material.WHITE_ESSENCE),
 
     RED_BOOTS("Red Boots", ItemGroup.BOOTS, 125, 135, R.drawable.item_red_boots, Material.RED_ESSENCE),
     ORANGE_BOOTS("Orange Boots", ItemGroup.BOOTS, 125, 137, R.drawable.item_orange_boots, Material.ORANGE_ESSENCE),
@@ -92,6 +100,22 @@ public enum Item {
     BLUE_BOOTS("Blue Boots", ItemGroup.BOOTS, 133, 155, R.drawable.item_blue_boots, Material.BLUE_ESSENCE),
     MAGENTA_BOOTS("Magenta Boots", ItemGroup.BOOTS, 136, 160, R.drawable.item_magenta_boots, Material.MAGENTA_ESSENCE),
     WHITE_BOOTS("White Boots", ItemGroup.BOOTS, 140, 166, R.drawable.item_white_boots, Material.WHITE_ESSENCE),
+
+    RED_TRION("Red Trion", ItemGroup.TRIONS, 145, 172, R.drawable.item_red_trion, Material.RED_ESSENCE),
+    ORANGE_TRION("Orange Trion", ItemGroup.TRIONS, 144, 172, R.drawable.item_orange_trion, Material.ORANGE_ESSENCE),
+    YELLOW_TRION("Yellow Trion", ItemGroup.TRIONS, 147, 176, R.drawable.item_yellow_trion, Material.YELLOW_ESSENCE),
+    GREEN_TRION("Green Trion", ItemGroup.TRIONS, 148, 178, R.drawable.item_green_trion, Material.GREEN_ESSENCE),
+    BLUE_TRION("Blue Trion", ItemGroup.TRIONS, 150, 182, R.drawable.item_blue_trion, Material.BLUE_ESSENCE),
+    MAGENTA_TRION("Magenta Trion", ItemGroup.TRIONS, 149, 182, R.drawable.item_magenta_trion, Material.MAGENTA_ESSENCE),
+    WHITE_TRION("White Trion", ItemGroup.TRIONS, 152, 185, R.drawable.item_white_trion, Material.WHITE_ESSENCE),
+
+    RED_HEXAGON("Red Hexagon", ItemGroup.HEXAGONS, 154, 188, R.drawable.item_red_hexagon, Material.RED_ESSENCE),
+    ORANGE_HEXAGON("Orange Hexagon", ItemGroup.HEXAGONS, 155, 190, R.drawable.item_orange_hexagon, Material.ORANGE_ESSENCE),
+    YELLOW_HEXAGON("Yellow Hexagon", ItemGroup.HEXAGONS, 156, 192, R.drawable.item_yellow_hexagon, Material.YELLOW_ESSENCE),
+    GREEN_HEXAGON("Green Hexagon", ItemGroup.HEXAGONS, 157, 194, R.drawable.item_green_hexagon, Material.GREEN_ESSENCE),
+    BLUE_HEXAGON("Blue Hexagon", ItemGroup.HEXAGONS, 160, 200, R.drawable.item_blue_hexagon, Material.BLUE_ESSENCE),
+    MAGENTA_HEXAGON("Magenta Hexagon", ItemGroup.HEXAGONS, 160, 210, R.drawable.item_magenta_hexagon, Material.MAGENTA_ESSENCE),
+    WHITE_HEXAGON("White Hexagon", ItemGroup.HEXAGONS, 170, 225, R.drawable.item_white_hexagon, Material.WHITE_ESSENCE),
     ;
 
     public String name;

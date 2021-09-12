@@ -88,6 +88,7 @@ public class CrateItem extends ConstraintLayout {
                     else if (crate == Crate.MYTHIC_CRATE)
                         Player.mythicCrateOpenCount++;
 
+                    Player.totalCratesOpened++;
                     Player.AddMoney(-price);
                     CrateOpenFragment.openingCrate = crate;
 

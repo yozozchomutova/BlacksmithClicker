@@ -129,6 +129,8 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.info_btn).setOnClickListener(v -> {
             GuideDialog guideDialog = new GuideDialog(MainActivity.this);
             guideDialog.show();
+
+            findViewById(R.id.guideHelpText).setVisibility(View.GONE);
         });
 
         findViewById(R.id.discord_btn).setOnClickListener(v -> {
@@ -209,6 +211,12 @@ public class MainActivity extends AppCompatActivity {
         editor.putFloat("xp", Player.xp);
         editor.putFloat("researchPoints", Player.researchPoints);
 
+        //Save player stats
+        editor.putInt("totalClicks", Player.totalClicks);
+        editor.putInt("totalForgedItems", Player.totalForgedItems);
+        editor.putInt("totalMoneyMade", Player.totalMoneyMade);
+        editor.putInt("totalCratesOpened", Player.totalCratesOpened);
+
         editor.putInt("common_crate_open_count", Player.commonCrateOpenCount);
         editor.putInt("uncommon_crate_open_count", Player.uncommonCrateOpenCount);
         editor.putInt("rare_crate_open_count", Player.rareCrateOpenCount);
@@ -231,8 +239,14 @@ public class MainActivity extends AppCompatActivity {
         //Load
         SharedPreferences sp = getPreferences(Context.MODE_PRIVATE);
 
+        //Load player stats
+        Player.totalClicks = sp.getInt("totalClicks", 0);
+        Player.totalForgedItems = sp.getInt("totalForgedItems", 0);
+        Player.totalMoneyMade = sp.getInt("totalMoneyMade", 0);
+        Player.totalCratesOpened = sp.getInt("totalCratesOpened", 0);
+
         Player.name = sp.getString("name", "Guest32557");
-        Player.AddMoney(sp.getFloat("money", 0f));
+        Player.AddMoney(sp.getFloat("money", 0f), false);
         Player.xp = sp.getFloat("xp", Player.money);
         Player.researchPoints = sp.getFloat("researchPoints", 0);
 
@@ -266,6 +280,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void FirstTimeLaunch() {
+        //Tutorial
+        findViewById(R.id.guideHelpText).setVisibility(View.VISIBLE);
+
         //Message for new players
         AlertDialog.Builder message = new AlertDialog.Builder(this);
         message.setCancelable(false);

@@ -14,7 +14,10 @@ public enum ItemGroup {
     CHESTPLATES("Chestplates", Rarity.RARE),
     SHOES("Shoes", Rarity.RARE),
     BETTER_STAFFS("Staffs", Rarity.RARE),
+    HELMETS("Helmets", Rarity.RARE),
     BOOTS("Boots", Rarity.EPIC),
+    TRIONS("Trions", Rarity.EPIC),
+    HEXAGONS("Hexagons", Rarity.EPIC),
     ;
 
     public String groupName;
