@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/profile_activity_background">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profile_activity_topbar" />
+
+    <ImageButton
+        android:id="@+id/close_activity"
+        android:layout_width="39dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="3dp"
+        android:background="#00000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/x" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginBottom="6dp"
+        android:text="Info"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="3dp">
+
+            <TextView
+                style="@style/GuideDialog_Title"
+                android:layout_width="match_parent"
+                android:text="Guide"
+                android:paddingTop="0dp" />
+
+            <TextView
+                android:id="@+id/textView"
+                style="@style/GuideDialog_SubTitle"
+                android:layout_width="match_parent"
+                android:paddingTop="0dp"
+                android:text="Introduction" />
+
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/GuideDialog_Description"
+                android:layout_width="match_parent"
+                android:text="Welcome to this game. This game is about clicking, researching and discovering new stuff. Sounds fun, right?" />
+
+            <TextView
+                android:id="@+id/textView3"
+                style="@style/GuideDialog_SubTitle"
+                android:layout_width="match_parent"
+                android:text="[1] Clicking" />
+
+            <TextView
+                android:id="@+id/textView4"
+                style="@style/GuideDialog_Description"
+                android:layout_width="match_parent"
+                android:text="Every item needs certain amount of clicks. After enough clicks, you receive money, XP and maybe some research points." />
+
+            <TextView
+                android:id="@+id/textView5"
+                style="@style/GuideDialog_SubTitle"
+                android:layout_width="match_parent"
+                android:text="[2] Unlocking new Items"
+                app:autoSizeTextType="uniform" />
+
+            <TextView
+                android:id="@+id/textView6"
+                style="@style/GuideDialog_Description"
+                android:layout_width="match_parent"
+                android:text="You can unlock new items by opening crates. Each crate costs some money and with each opening price will be increased." />
+
+            <TextView
+                android:id="@+id/textView7"
+                style="@style/GuideDialog_SubTitle"
+                android:layout_width="match_parent"
+                android:text="[3] Research"
+                app:autoSizeTextType="uniform" />
+
+            <TextView
+                android:id="@+id/textView8"
+                style="@style/GuideDialog_Description"
+                android:layout_width="match_parent"
+                android:text="By clicking, you sometimes receive research point. With 0.5.0v beta update, you can finally spend these points." />
+
+            <TextView
+                android:id="@+id/textView9"
+                style="@style/GuideDialog_SubTitle"
+                android:layout_width="match_parent"
+                android:text="[4] Ranking up"
+                app:autoSizeTextType="uniform" />
+
+            <TextView
+                android:id="@+id/textView10"
+                style="@style/GuideDialog_Description"
+                android:layout_width="match_parent"
+                android:text="You can rank up by gathering XP. XP's are gathered by clicking. By ranking you are unlocking new crates." />
+
+            <TextView
+                android:id="@+id/textView13"
+                style="@style/GuideDialog_SubTitle"
+                android:layout_width="match_parent"
+                android:text="About"
+                app:autoSizeTextType="uniform" />
+
+            <TextView
+                android:id="@+id/textView14"
+                style="@style/GuideDialog_Description"
+                android:layout_width="match_parent"
+                android:text="This game is my first app ever published on google play. I was excited when publishing this. Game may won't be so much fun, but I'am preparing more fun apps. I'll be glad for every feedback. Or you can join us on the discord.\n\n\t\t\t\t-YozoZChomutova" />
+
+
+            <TextView
+                style="@style/GuideDialog_Title"
+                android:layout_width="match_parent"
+                android:text="Changelog" />
+
+            <TextView
+                style="@style/GuideDialog_SubTitle"
+                android:layout_width="match_parent"
+                android:text="0.7.0v - Beta"
+                android:paddingTop="0dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Features:\n-New/Changed visuals.\n-You will get 50% refund of price of crate, if you get item, you already have.\n\nBalance:\n-Crates are now more expensive from start, but they are cheaper later.\n-All items rebalanced.\n-Ranks Iron, Gold, Platinum are now easier to reach.\n\nFixes:\n-Unintended 2x slow forging."
+                style="@style/GuideDialog_Description"/>
+
+            <TextView
+                style="@style/GuideDialog_SubTitle"
+                android:layout_width="match_parent"
+                android:text="0.6.0v - Beta" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Features:\n-Added more nodes to research.\n-New useless stats in profile window.\n-Improved profile window graphics.\n-Improved main window graphics.\n-Text pointing on guide dialog button (Shows only for first time launch)\n-New 21 items.\n\nFixes:\n-Effects from research didn't apply after purchase.\n\nBuffs:\n-Cheaper research nodes.\n-All crates were buffed alot."
+                style="@style/GuideDialog_Description"/>
+
+            <TextView
+                style="@style/GuideDialog_Title"
+                android:layout_width="match_parent"
+                android:text="Credits:" />
+
+            <TextView
+                style="@style/GuideDialog_SubTitle"
+                android:layout_width="match_parent"
+                android:text="[Sound] Anvil Strike"
+                android:paddingTop="0dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Author - l0calh05t\nhttps://freesound.org/people/l0calh05t/sounds/19015/\nNo changes were made!\nLicensed under CC3:\nhttps://creativecommons.org/licenses/by/3.0/"
+                style="@style/GuideDialog_Description"/>
+
+            <TextView
+                style="@style/GuideDialog_SubTitle"
+                android:layout_width="match_parent"
+                android:text="[Font] Gemunu Libre"
+                android:paddingTop="0dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Author - Mooniak\nhttps://fonts.google.com/specimen/Gemunu+Libre?preview.text=Diamond%20Sword&amp;preview.text_type=custom#standard-styles\nNo changes were made!\nLicensed under SIL Open Font License (OFL):\nhttps://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=OFL"
+                style="@style/GuideDialog_Description"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

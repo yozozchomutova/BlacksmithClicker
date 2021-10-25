@@ -61,7 +61,7 @@ public class ProfileActivity extends AppCompatActivity {
         //CHEAT
         findViewById(R.id.pfpPicture).setOnClickListener(view -> {
             if (BuildConfig.DEBUG) {
-                Player.AddMoney(1000);
+                Player.AddMoney(50000);
                 Player.AddResearchPoints(100);
             }
         });

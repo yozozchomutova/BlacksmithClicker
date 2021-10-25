@@ -27,6 +27,11 @@ public enum Material {
     BLUE_ESSENCE("Blue Essence", R.drawable.mat_blue_essence),
     MAGENTA_ESSENCE("Magenta Essence", R.drawable.mat_magenta_essence),
     WHITE_ESSENCE("White Essence", R.drawable.mat_white_essence),
+
+    CRYSTALITE("Crysta-Lite", R.drawable.mat_white_essence),
+    GEOLITE("Geo-Lite", R.drawable.mat_white_essence),
+    MONOLITE("Mono-Lite", R.drawable.mat_white_essence),
+    IRIDIOLITE("Iridio-Lite", R.drawable.mat_white_essence),
     ;
 
     public String name;

@@ -20,8 +20,8 @@
         android:id="@+id/research_nodes"
         android:layout_width="8000px"
         android:layout_height="8000px"
-        tools:translationX="-3950px"
-        tools:translationY="-3324px"
+        tools:translationX="-3000px"
+        tools:translationY="-2900px"
         tools:ignore="MissingConstraints">
 
         <ImageView
@@ -92,6 +92,50 @@
             android:scaleType="centerCrop"
             android:src="@drawable/research_node_line"/>
 
+        <ImageView
+            android:layout_width="20px"
+            android:layout_height="256px"
+            android:translationX="3710px"
+            android:translationY="3670px"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            android:src="@drawable/research_node_line"/>
+
+        <ImageView
+            android:layout_width="20px"
+            android:layout_height="256px"
+            android:translationX="3383px"
+            android:translationY="3670px"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            android:src="@drawable/research_node_line"/>
+
+        <ImageView
+            android:layout_width="20px"
+            android:layout_height="256px"
+            android:translationX="3018px"
+            android:translationY="3670px"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            android:src="@drawable/research_node_line"/>
+
+        <ImageView
+            android:layout_width="20px"
+            android:layout_height="256px"
+            android:translationX="3383px"
+            android:translationY="3475px"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            android:src="@drawable/research_node_line"/>
+
+        <ImageView
+            android:layout_width="20px"
+            android:layout_height="256px"
+            android:translationX="3205px"
+            android:translationY="3180px"
+            android:scaleType="centerCrop"
+            android:src="@drawable/research_node_line"/>
+
         <net.jozoproductions.blacksmithclicker.research.ResearchNodeView
             android:id="@+id/blacksmithStartup"
             android:layout_width="wrap_content"
@@ -147,6 +191,42 @@
             android:layout_height="wrap_content"
             android:translationX="4820px"
             android:translationY="3605px" />
+
+        <net.jozoproductions.blacksmithclicker.research.ResearchNodeView
+            android:id="@+id/criticalHitChance1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:translationX="3460px"
+            android:translationY="3604px" />
+
+        <net.jozoproductions.blacksmithclicker.research.ResearchNodeView
+            android:id="@+id/criticalHitChance2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:translationX="3115px"
+            android:translationY="3804px" />
+
+        <net.jozoproductions.blacksmithclicker.research.ResearchNodeView
+            android:id="@+id/criticalHitChance3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:translationX="2765px"
+            android:translationY="3604px" />
+
+        <net.jozoproductions.blacksmithclicker.research.ResearchNodeView
+            android:id="@+id/criticalHitBonus1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:translationX="3115px"
+            android:translationY="3400px" />
+
+        <net.jozoproductions.blacksmithclicker.research.ResearchNodeView
+            android:id="@+id/criticalHitBonus2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:translationX="3115px"
+            android:translationY="3030px" />
+
     </FrameLayout>
 
     <ImageView
@@ -183,7 +263,7 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
+        android:fontFamily="monospace"
         android:gravity="center_vertical"
         android:text="reserach_points_count"
         android:textColor="#FAF8F8"

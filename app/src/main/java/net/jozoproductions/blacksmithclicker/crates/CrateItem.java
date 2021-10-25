@@ -91,6 +91,7 @@ public class CrateItem extends ConstraintLayout {
                     Player.totalCratesOpened++;
                     Player.AddMoney(-price);
                     CrateOpenFragment.openingCrate = crate;
+                    CrateOpenFragment.crateprice = price;
 
                     ((AppCompatActivity) getContext()).getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, new CrateOpenFragment()).commit();
                 }
@@ -106,7 +107,7 @@ public class CrateItem extends ConstraintLayout {
         float totalPrice = baseCratePrice;
 
         for (int i = 0; i < openCount; i++) {
-            totalPrice = totalPrice * 1.18f;
+            totalPrice = totalPrice * 1.016f;
         }
 
         return (int) totalPrice;

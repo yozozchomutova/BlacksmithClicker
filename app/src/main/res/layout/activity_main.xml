@@ -11,6 +11,7 @@
         android:id="@+id/background"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="40dp"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,12 +35,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="4dp"
+        android:background="#55FF2222"
+        android:fontFamily="monospace"
         android:text="'money'"
         android:textColor="#FFFCFC"
         android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/select_item_btn"
         app:layout_constraintStart_toEndOf="@+id/coin_icon"
         app:layout_constraintTop_toTopOf="@+id/background" />
 
@@ -48,7 +50,7 @@
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="@+id/background"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/profile_activity_topbar"
@@ -91,7 +93,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
+        android:background="#44FF2222"
+        android:fontFamily="@font/gemunulibre_variablefont_wght"
         android:text="Stick"
         android:textColor="#F8F5F5"
         android:textSize="34sp"
@@ -176,19 +179,6 @@
         app:layout_constraintTop_toBottomOf="@+id/info_btn"
         app:srcCompat="@drawable/discord" />
 
-    <ImageButton
-        android:id="@+id/changelog_btn"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="4dp"
-        android:background="#00000000"
-        android:scaleType="fitCenter"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/discord_btn"
-        app:srcCompat="@drawable/changelog" />
-
     <TextView
         android:id="@+id/guideHelpText"
         android:layout_width="wrap_content"
@@ -201,4 +191,22 @@
         app:layout_constraintBottom_toBottomOf="@+id/info_btn"
         app:layout_constraintStart_toEndOf="@+id/info_btn"
         app:layout_constraintTop_toTopOf="@+id/info_btn" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/loading_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#BB000000"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

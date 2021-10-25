@@ -3,9 +3,9 @@ package net.jozoproductions.blacksmithclicker.rank;
 import net.jozoproductions.blacksmithclicker.R;
 
 public enum Rank {
-    BRONZE(R.drawable.rank_bronze, R.color.rank_bronze, "Bronze", 2000), //2,000
-    IRON(R.drawable.rank_iron, R.color.rank_iron, "Iron", 9000), //7,000
-    GOLD(R.drawable.rank_gold, R.color.rank_gold, "Gold", 50000), //50,000
+    BRONZE(R.drawable.rank_bronze, R.color.rank_bronze, "Bronze", 1200), //1,200
+    IRON(R.drawable.rank_iron, R.color.rank_iron, "Iron", 7000), //7,000
+    GOLD(R.drawable.rank_gold, R.color.rank_gold, "Gold", 40000), //40,000
     PLATINUM(R.drawable.rank_platinum, R.color.rank_platinum, "Platinum", 250000), //250,000
     DIAMOND(R.drawable.rank_diamond, R.color.rank_diamond, "Diamond", 1100000), //1,100,000
     RUBY(R.drawable.rank_ruby, R.color.rank_ruby, "Ruby", 5000000), //5,000,000

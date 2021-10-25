@@ -32,6 +32,10 @@ public class Player {
     //Forging
     public static float forgeEffectiveness = 0f;
 
+    //Critical hit stuff
+    public static float criticalHitChance = 0f;
+    public static float criticalHitBonus = 0f;
+
     //UI
     public static TextView moneyText;
 
@@ -43,10 +47,10 @@ public class Player {
     public static Integer legendaryCrateOpenCount = 0;
     public static Integer mythicCrateOpenCount = 0;
 
-    public static final float commonCrateBasePrice = 25;
-    public static final float uncommonCrateBasePrice = 70;
-    public static final float rareCrateBasePrice = 190;
-    public static final float epicCrateBasePrice = 1000;
+    public static final float commonCrateBasePrice = 20;
+    public static final float uncommonCrateBasePrice = 80;
+    public static final float rareCrateBasePrice = 210;
+    public static final float epicCrateBasePrice = 1500;
     public static final float legendaryCrateBasePrice = 10000;
     public static final float mythicCrateBasePrice = 999999999;
 
@@ -57,6 +61,10 @@ public class Player {
 
     public static void UnlockItem(Item item) {
         item.owningItem = true;
+    }
+
+    public static boolean HasItem(Item item) {
+        return item.owningItem;
     }
 
     public static void AddMaterial(Material material, int count) {
@@ -89,7 +97,7 @@ public class Player {
         if (count > 0)
             xp += count;
 
-        moneyText.setText("" + money);
+        moneyText.setText("" + (int) money);
     }
 
     public static void AddResearchPoints(int count) {
@@ -101,6 +109,8 @@ public class Player {
         //Reset values
         researchPointChance = 0f;
         forgeEffectiveness = 0f;
+        criticalHitChance = 0f;
+        criticalHitBonus = 0f;
 
         //Counting
         if (Research.BLACKSMITH.researched) {
@@ -117,9 +127,9 @@ public class Player {
             researchPointChance += 0.2f;
         }
 
-        //Forge effectivenes
+        //Forge effectivness
         if (Research.BLACKSMITH.researched) {
-            forgeEffectiveness += 0.5f;
+            forgeEffectiveness += 1f;
         }
 
         if (Research.FORGE_EFFECTIVNESS1.researched) {
@@ -128,6 +138,30 @@ public class Player {
             forgeEffectiveness += 0.1f;
         } if (Research.FORGE_EFFECTIVNESS3.researched) {
             forgeEffectiveness += 0.1f;
+        }
+
+        //Critical hit chance
+        if (Research.BLACKSMITH.researched) {
+            criticalHitChance += 0.1f;
+        }
+
+        if (Research.CRITICAL_HIT_CHANCE1.researched) {
+            criticalHitChance += 0.05f;
+        } if (Research.CRITICAL_HIT_CHANCE2.researched) {
+            criticalHitChance += 0.05f;
+        } if (Research.CRITICAL_HIT_CHANCE3.researched) {
+            criticalHitChance += 0.05f;
+        }
+
+        //Critical hit bonus
+        if (Research.BLACKSMITH.researched) {
+            criticalHitBonus += 1.25f;
+        }
+
+        if (Research.CRITICAL_HIT_BONUS1.researched) {
+            criticalHitBonus += 0.05f;
+        } if (Research.CRITICAL_HIT_BONUS2.researched) {
+            criticalHitBonus += 0.05f;
         }
     }
 }

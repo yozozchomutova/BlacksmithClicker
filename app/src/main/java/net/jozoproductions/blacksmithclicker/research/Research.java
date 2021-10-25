@@ -13,6 +13,13 @@ public enum Research {
     FORGE_EFFECTIVNESS1("Forge effectiveness 1", "Increases forge effectiveness. (+10%)", R.drawable.research_forge_effectivnes, 2, BLACKSMITH),
     FORGE_EFFECTIVNESS2("Forge effectiveness 2", "Increases forge effectiveness. (+10%)", R.drawable.research_forge_effectivnes, 5, FORGE_EFFECTIVNESS1),
     FORGE_EFFECTIVNESS3("Forge effectiveness 3", "Increases forge effectiveness. (+10%)", R.drawable.research_forge_effectivnes, 10, FORGE_EFFECTIVNESS2),
+
+    CRITICAL_HIT_CHANCE1("Critical hit chance 1", "Increases chance of getting critical hit when forging item. (+5%)", R.drawable.research_critical_hit_chance, 2, BLACKSMITH),
+    CRITICAL_HIT_CHANCE2("Critical hit chance 2", "Increases chance of getting critical hit when forging item. (+5%)", R.drawable.research_critical_hit_chance, 4, CRITICAL_HIT_CHANCE1),
+    CRITICAL_HIT_CHANCE3("Critical hit chance 3", "Increases chance of getting critical hit when forging item. (+5%)", R.drawable.research_critical_hit_chance, 7, CRITICAL_HIT_CHANCE2),
+
+    CRITICAL_HIT_BONUS1("Critical hit bonus 1", "Increases amount of bonus, when you get critical hit. (+5%)", R.drawable.research_critical_hit_bonus, 3, CRITICAL_HIT_CHANCE1),
+    CRITICAL_HIT_BONUS2("Critical hit bonus 2", "Increases amount of bonus, when you get critical hit. (+5%)", R.drawable.research_critical_hit_bonus, 5, CRITICAL_HIT_BONUS1),
     ;
 
     public String name;

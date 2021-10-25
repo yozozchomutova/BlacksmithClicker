@@ -161,5 +161,12 @@ public class ResearchActivity extends AppCompatActivity implements View.OnClickL
         ((ResearchNodeView) findViewById(R.id.forgeEffectivity1)).setResearch(Research.FORGE_EFFECTIVNESS1);
         ((ResearchNodeView) findViewById(R.id.forgeEffectivity2)).setResearch(Research.FORGE_EFFECTIVNESS2);
         ((ResearchNodeView) findViewById(R.id.forgeEffectivity3)).setResearch(Research.FORGE_EFFECTIVNESS3);
+
+        ((ResearchNodeView) findViewById(R.id.criticalHitChance1)).setResearch(Research.CRITICAL_HIT_CHANCE1);
+        ((ResearchNodeView) findViewById(R.id.criticalHitChance2)).setResearch(Research.CRITICAL_HIT_CHANCE2);
+        ((ResearchNodeView) findViewById(R.id.criticalHitChance3)).setResearch(Research.CRITICAL_HIT_CHANCE3);
+
+        ((ResearchNodeView) findViewById(R.id.criticalHitBonus1)).setResearch(Research.CRITICAL_HIT_BONUS1);
+        ((ResearchNodeView) findViewById(R.id.criticalHitBonus2)).setResearch(Research.CRITICAL_HIT_BONUS2);
     }
 }

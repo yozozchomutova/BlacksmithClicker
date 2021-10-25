@@ -40,7 +40,7 @@ public class CrateListFragment extends Fragment implements View.OnClickListener 
         ((CrateItem) view.findViewById(R.id.crate_uncommon)).Inflate(getContext(), crates[1], Player.uncommonCrateBasePrice, Player.uncommonCrateOpenCount, true);
         ((CrateItem) view.findViewById(R.id.crate_rare)).Inflate(getContext(), crates[2], Player.rareCrateBasePrice, Player.rareCrateOpenCount, true);
         ((CrateItem) view.findViewById(R.id.crate_epic)).Inflate(getContext(), crates[3], Player.epicCrateBasePrice, Player.epicCrateOpenCount, true);
-        ((CrateItem) view.findViewById(R.id.crate_legendary)).Inflate(getContext(), crates[4], Player.legendaryCrateBasePrice, Player.legendaryCrateOpenCount, false);
+        ((CrateItem) view.findViewById(R.id.crate_legendary)).Inflate(getContext(), crates[4], Player.legendaryCrateBasePrice, Player.legendaryCrateOpenCount, true);
         ((CrateItem) view.findViewById(R.id.crate_mythic)).Inflate(getContext(), crates[5], Player.mythicCrateBasePrice, Player.mythicCrateOpenCount, false);
     }
 

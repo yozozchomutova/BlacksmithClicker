@@ -17,9 +17,20 @@
     <style name="GuideDialog_Title">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">#c0c0c0</item>
-        <item name="android:textSize">34sp</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:paddingTop">36dp</item>
+        <item name="android:fontFamily">monospace</item>
+    </style>
+
+    <style name="GuideDialog_SubTitle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#c0c0c0</item>
+        <item name="android:textSize">26sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:paddingTop">36dp</item>
+        <item name="android:fontFamily">monospace</item>
     </style>
 
     <style name="GuideDialog_Description">

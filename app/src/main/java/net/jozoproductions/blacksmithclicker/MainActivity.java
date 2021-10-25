@@ -2,8 +2,8 @@ package net.jozoproductions.blacksmithclicker;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.app.Dialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -13,7 +13,6 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -22,11 +21,11 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import net.jozoproductions.blacksmithclicker.activities.CrateMenuActivity;
+import net.jozoproductions.blacksmithclicker.activities.InfoActivity;
 import net.jozoproductions.blacksmithclicker.activities.ItemAtlasActivity;
 import net.jozoproductions.blacksmithclicker.activities.ProfileActivity;
 import net.jozoproductions.blacksmithclicker.activities.ResearchActivity;
 import net.jozoproductions.blacksmithclicker.audio.AudioSystem;
-import net.jozoproductions.blacksmithclicker.dialog.GuideDialog;
 import net.jozoproductions.blacksmithclicker.items.Item;
 import net.jozoproductions.blacksmithclicker.particlemanaging.ParticlePack;
 import net.jozoproductions.blacksmithclicker.research.Research;
@@ -47,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
 
     public static float SCREEN_WIDTH;
     public static float SCREEN_HEIGHT;
+
+    public static ConstraintLayout loadingScreen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Load sounds
         AudioSystem.LoadAudio(this, "AnvilStrike", R.raw.anvil_strike);
+        //AudioSystem.SetMusic(this, R.raw.music1);
 
         //24/7 thread
         endlessThread = new EndlessThread();
@@ -92,23 +94,43 @@ public class MainActivity extends AppCompatActivity {
 
             int actionId = event.getAction();
             if (actionId == MotionEvent.ACTION_DOWN || actionId == MotionEvent.ACTION_POINTER_1_DOWN) {
-                endlessThread.particlePacks.add(new ParticlePack(
-                        R.drawable.particle_spark,
-                        x,
-                        y,
-                        10
-                ));
+                boolean isCriticalHit = random.nextFloat() < Player.criticalHitChance;
+
+                if (isCriticalHit) {
+                    endlessThread.particlePacks.add(new ParticlePack(
+                            R.drawable.particle_spark_critical_hit,
+                            x,
+                            y,
+                            10
+                    ));
+                } else {
+                    endlessThread.particlePacks.add(new ParticlePack(
+                            R.drawable.particle_spark,
+                            x,
+                            y,
+                            10
+                    ));
+                }
                 clickableItem.startAnimation(itemClickAnim);
-                SmithingItem.Click(x, y);
+                SmithingItem.Click(x, y, isCriticalHit);
 
                 AudioSystem.PlayAudio("AnvilStrike");
             }
             return true;
         });
 
+        loadingScreen = findViewById(R.id.loading_screen);
+
         findViewById(R.id.select_item_btn).setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, ItemAtlasActivity.class);
-            startActivity(intent);
+            loadingScreen.setVisibility(View.VISIBLE);
+
+            //Loading thread
+            Thread loadingThread = new Thread(() -> {
+                Intent intent = new Intent(MainActivity.this, ItemAtlasActivity.class);
+                startActivity(intent);
+            });
+
+            loadingThread.start();
         });
 
         findViewById(R.id.research).setOnClickListener(v -> {
@@ -127,8 +149,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         findViewById(R.id.info_btn).setOnClickListener(v -> {
-            GuideDialog guideDialog = new GuideDialog(MainActivity.this);
-            guideDialog.show();
+            Intent intent = new Intent(this, InfoActivity.class);
+            startActivity(intent);
 
             findViewById(R.id.guideHelpText).setVisibility(View.GONE);
         });
@@ -154,12 +176,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
             discordDialog.create().show();
-        });
-
-        findViewById(R.id.changelog_btn).setOnClickListener(v -> {
-            Dialog dialog = new Dialog(MainActivity.this);
-            dialog.setContentView(R.layout.dialog_changelog);
-            dialog.show();
         });
 
         //Start endless thread

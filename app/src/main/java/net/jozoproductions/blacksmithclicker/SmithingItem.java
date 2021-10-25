@@ -30,7 +30,7 @@ public class SmithingItem {
         clickableItem = clickableItem_;
     }
 
-    public static void Click(float x, float y) {
+    public static void Click(float x, float y, boolean isCriticalHit) {
         //Research points
         float randomPercent = MainActivity.random.nextFloat() * 100;
         if (randomPercent < Player.researchPointChance) {
@@ -46,7 +46,12 @@ public class SmithingItem {
         }
 
         //Progress
-        progress += Player.forgeEffectiveness;
+        if (isCriticalHit) {
+            progress += Player.forgeEffectiveness * Player.criticalHitBonus;
+        } else {
+            progress += Player.forgeEffectiveness;
+        }
+
 
         if (progress >= smithingItem.requiredClicks) {
             progress = 0;

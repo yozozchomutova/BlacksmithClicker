@@ -40,6 +40,7 @@ public class CrateOpenFragment extends Fragment {
     private TextView nextRarityChanceTV;
 
     public static Crate openingCrate;
+    public static float crateprice;
     public static Rarity curRarity;
     public static boolean stillOpening;
 
@@ -85,6 +86,8 @@ public class CrateOpenFragment extends Fragment {
                     if (stillOpening) {
                         float randomNumber = random.nextFloat() * 100f;
                         float percentageRequired;
+
+                        System.out.println("RN: " + randomNumber);
 
                         //Setup percentageRequired
                         if (curRarity == Rarity.COMMON) {
@@ -185,7 +188,13 @@ public class CrateOpenFragment extends Fragment {
             randomizedItem = Item.STICK;
         }
 
-        Player.UnlockItem(randomizedItem);
+        //Player already have item? if yes -> refund 50% of crate price
+        if (Player.HasItem(randomizedItem)) {
+            Player.AddMoney(crateprice / 2f);
+        } else {
+            Player.UnlockItem(randomizedItem);
+        }
+
         return randomizedItem;
     }
 }

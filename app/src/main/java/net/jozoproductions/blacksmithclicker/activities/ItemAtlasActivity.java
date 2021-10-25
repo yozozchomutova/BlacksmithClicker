@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.tabs.TabLayout;
 
+import net.jozoproductions.blacksmithclicker.MainActivity;
 import net.jozoproductions.blacksmithclicker.R;
 import net.jozoproductions.blacksmithclicker.items.Item;
 import net.jozoproductions.blacksmithclicker.items.ItemGroup;
@@ -46,13 +47,21 @@ public class ItemAtlasActivity extends AppCompatActivity implements TabLayout.On
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getSupportActionBar().setTitle("Select item");
+        getSupportActionBar().hide();
 
         //Fullscreen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_item_atlas);
+
+        //Close activity listener
+        findViewById(R.id.close_activity).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         //Fetch views
         commonItems = findViewById(R.id.commonItems);
@@ -78,6 +87,14 @@ public class ItemAtlasActivity extends AppCompatActivity implements TabLayout.On
         //TabLayout
         tabLayout = findViewById(R.id.itemRarityTab);
         tabLayout.addOnTabSelectedListener(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        //Loading completed
+        MainActivity.loadingScreen.setVisibility(View.GONE);
     }
 
     @Override

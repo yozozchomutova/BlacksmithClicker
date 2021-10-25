@@ -18,6 +18,9 @@ public enum ItemGroup {
     BOOTS("Boots", Rarity.EPIC),
     TRIONS("Trions", Rarity.EPIC),
     HEXAGONS("Hexagons", Rarity.EPIC),
+    BLADES("Blades", Rarity.LEGENDARY),
+    HEAVY("Heavies", Rarity.LEGENDARY),
+    MONO("Monos", Rarity.LEGENDARY),
     ;
 
     public String groupName;
