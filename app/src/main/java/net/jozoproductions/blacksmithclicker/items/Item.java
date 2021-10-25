@@ -101,39 +101,34 @@ public enum Item {
     MAGENTA_BOOTS("Magenta Boots", ItemGroup.BOOTS, 190, 321, R.drawable.item_magenta_boots, Material.MAGENTA_ESSENCE),
     WHITE_BOOTS("White Boots", ItemGroup.BOOTS, 193, 328, R.drawable.item_white_boots, Material.WHITE_ESSENCE),
 
-    //TODO - rebalance
-    RED_TRION("Red Trion", ItemGroup.TRIONS, 145, 200, R.drawable.item_red_trion, Material.RED_ESSENCE),
-    ORANGE_TRION("Orange Trion", ItemGroup.TRIONS, 144, 210, R.drawable.item_orange_trion, Material.ORANGE_ESSENCE),
-    YELLOW_TRION("Yellow Trion", ItemGroup.TRIONS, 147, 220, R.drawable.item_yellow_trion, Material.YELLOW_ESSENCE),
-    GREEN_TRION("Green Trion", ItemGroup.TRIONS, 148, 230, R.drawable.item_green_trion, Material.GREEN_ESSENCE),
-    BLUE_TRION("Blue Trion", ItemGroup.TRIONS, 150, 235, R.drawable.item_blue_trion, Material.BLUE_ESSENCE),
-    MAGENTA_TRION("Magenta Trion", ItemGroup.TRIONS, 149, 240, R.drawable.item_magenta_trion, Material.MAGENTA_ESSENCE),
-    WHITE_TRION("White Trion", ItemGroup.TRIONS, 152, 250, R.drawable.item_white_trion, Material.WHITE_ESSENCE),
+    RED_TRION("Red Trion", ItemGroup.TRIONS, 198, 335, R.drawable.item_red_trion, Material.RED_ESSENCE),
+    ORANGE_TRION("Orange Trion", ItemGroup.TRIONS, 201, 342, R.drawable.item_orange_trion, Material.ORANGE_ESSENCE),
+    YELLOW_TRION("Yellow Trion", ItemGroup.TRIONS, 205, 349, R.drawable.item_yellow_trion, Material.YELLOW_ESSENCE),
+    GREEN_TRION("Green Trion", ItemGroup.TRIONS, 210, 358, R.drawable.item_green_trion, Material.GREEN_ESSENCE),
+    BLUE_TRION("Blue Trion", ItemGroup.TRIONS, 215, 367, R.drawable.item_blue_trion, Material.BLUE_ESSENCE),
+    MAGENTA_TRION("Magenta Trion", ItemGroup.TRIONS, 219, 375, R.drawable.item_magenta_trion, Material.MAGENTA_ESSENCE),
+    WHITE_TRION("White Trion", ItemGroup.TRIONS, 223, 382, R.drawable.item_white_trion, Material.WHITE_ESSENCE),
 
-    //TODO - rebalance
-    RED_HEXAGON("Red Hexagon", ItemGroup.HEXAGONS, 154, 310, R.drawable.item_red_hexagon, Material.RED_ESSENCE),
-    ORANGE_HEXAGON("Orange Hexagon", ItemGroup.HEXAGONS, 155, 322, R.drawable.item_orange_hexagon, Material.ORANGE_ESSENCE),
-    YELLOW_HEXAGON("Yellow Hexagon", ItemGroup.HEXAGONS, 156, 338, R.drawable.item_yellow_hexagon, Material.YELLOW_ESSENCE),
-    GREEN_HEXAGON("Green Hexagon", ItemGroup.HEXAGONS, 157, 350, R.drawable.item_green_hexagon, Material.GREEN_ESSENCE),
-    BLUE_HEXAGON("Blue Hexagon", ItemGroup.HEXAGONS, 160, 355, R.drawable.item_blue_hexagon, Material.BLUE_ESSENCE),
-    MAGENTA_HEXAGON("Magenta Hexagon", ItemGroup.HEXAGONS, 160, 360, R.drawable.item_magenta_hexagon, Material.MAGENTA_ESSENCE),
-    WHITE_HEXAGON("White Hexagon", ItemGroup.HEXAGONS, 170, 365, R.drawable.item_white_hexagon, Material.WHITE_ESSENCE),
+    RED_HEXAGON("Red Hexagon", ItemGroup.HEXAGONS, 228, 390, R.drawable.item_red_hexagon, Material.RED_ESSENCE),
+    ORANGE_HEXAGON("Orange Hexagon", ItemGroup.HEXAGONS, 233, 399, R.drawable.item_orange_hexagon, Material.ORANGE_ESSENCE),
+    YELLOW_HEXAGON("Yellow Hexagon", ItemGroup.HEXAGONS, 238, 409, R.drawable.item_yellow_hexagon, Material.YELLOW_ESSENCE),
+    GREEN_HEXAGON("Green Hexagon", ItemGroup.HEXAGONS, 248, 419, R.drawable.item_green_hexagon, Material.GREEN_ESSENCE),
+    BLUE_HEXAGON("Blue Hexagon", ItemGroup.HEXAGONS, 258, 430, R.drawable.item_blue_hexagon, Material.BLUE_ESSENCE),
+    MAGENTA_HEXAGON("Magenta Hexagon", ItemGroup.HEXAGONS, 269, 438, R.drawable.item_magenta_hexagon, Material.MAGENTA_ESSENCE),
+    WHITE_HEXAGON("White Hexagon", ItemGroup.HEXAGONS, 280, 449, R.drawable.item_white_hexagon, Material.WHITE_ESSENCE),
 
-    //TODO - rebalance
-    BLADE_TYPE1("Blade [Type 1]", ItemGroup.BLADES, 210, 525, R.drawable.item_crystalite_blade, Material.CRYSTALITE),
-    BLADE_TYPE2("Blade [Type 2]", ItemGroup.BLADES, 221, 550, R.drawable.item_crystalite_blade2, Material.CRYSTALITE),
-    BLADE_TYPE3("Blade [Type 3]", ItemGroup.BLADES, 232, 562, R.drawable.item_crystalite_blade3, Material.CRYSTALITE),
+    BLADE_TYPE1("Blade [Type 1]", ItemGroup.BLADES, 290, 458, R.drawable.item_crystalite_blade, Material.CRYSTALITE),
+    BLADE_TYPE2("Blade [Type 2]", ItemGroup.BLADES, 300, 468, R.drawable.item_crystalite_blade2, Material.CRYSTALITE),
+    BLADE_TYPE3("Blade [Type 3]", ItemGroup.BLADES, 309, 479, R.drawable.item_crystalite_blade3, Material.CRYSTALITE),
 
-    //TODO - rebalance
-    HEAVY_TYPE1("Heavy [Type 1]", ItemGroup.HEAVY, 264, 610, R.drawable.item_geolite_heavy1, Material.GEOLITE),
-    HEAVY_TYPE2("Heavy [Type 2]", ItemGroup.HEAVY, 275, 658, R.drawable.item_geolite_heavy2, Material.GEOLITE),
-    HEAVY_TYPE3("Heavy [Type 3]", ItemGroup.HEAVY, 280, 699, R.drawable.item_geolite_heavy3, Material.GEOLITE),
-    HEAVY_TYPE4("Heavy [Type 4]", ItemGroup.HEAVY, 300, 731, R.drawable.item_geolite_heavy4, Material.GEOLITE),
+    HEAVY_TYPE1("Heavy [Type 1]", ItemGroup.HEAVY, 320, 500, R.drawable.item_geolite_heavy1, Material.GEOLITE),
+    HEAVY_TYPE2("Heavy [Type 2]", ItemGroup.HEAVY, 332, 520, R.drawable.item_geolite_heavy2, Material.GEOLITE),
+    HEAVY_TYPE3("Heavy [Type 3]", ItemGroup.HEAVY, 348, 545, R.drawable.item_geolite_heavy3, Material.GEOLITE),
+    HEAVY_TYPE4("Heavy [Type 4]", ItemGroup.HEAVY, 368, 585, R.drawable.item_geolite_heavy4, Material.GEOLITE),
 
-    //TODO - rebalance
-    MONO_TYPE1("Mono [Type 1]", ItemGroup.MONO, 345, 791, R.drawable.item_monolite_mono1, Material.MONOLITE),
-    MONO_TYPE2("Mono [Type 2]", ItemGroup.MONO, 378, 831, R.drawable.item_monolite_mono2, Material.MONOLITE),
-    MONO_TYPE3("Mono [Type 3]", ItemGroup.MONO, 395, 858, R.drawable.item_monolite_mono3, Material.MONOLITE),
+    MONO_TYPE1("Mono [Type 1]", ItemGroup.MONO, 380, 640, R.drawable.item_monolite_mono1, Material.MONOLITE),
+    MONO_TYPE2("Mono [Type 2]", ItemGroup.MONO, 395, 700, R.drawable.item_monolite_mono2, Material.MONOLITE),
+    MONO_TYPE3("Mono [Type 3]", ItemGroup.MONO, 418, 780, R.drawable.item_monolite_mono3, Material.MONOLITE),
     ;
 
     public String name;

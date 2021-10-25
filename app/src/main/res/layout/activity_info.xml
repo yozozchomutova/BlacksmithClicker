@@ -149,7 +149,7 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:text="Features:\n-New/Changed visuals.\n-You will get 50% refund of price of crate, if you get item, you already have.\n\nBalance:\n-Crates are now more expensive from start, but they are cheaper later.\n-All items rebalanced.\n-Ranks Iron, Gold, Platinum are now easier to reach.\n\nFixes:\n-Unintended 2x slow forging."
+                android:text="Features:\n-New/Changed visuals.\n-You will get 50% refund of price of crate, if you get item, you already have.\n\nBalance:\n-Crates are now more expensive from start, but they are cheaper later.\n-All items rebalanced.\n-All crates have higher chance of getting higher rarity.\n-Ranks Iron, Gold, Platinum are now easier to reach.\n\nFixes:\n-Unintended 2x slow forging."
                 style="@style/GuideDialog_Description"/>
 
             <TextView

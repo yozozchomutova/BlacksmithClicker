@@ -28,9 +28,9 @@ public enum Material {
     MAGENTA_ESSENCE("Magenta Essence", R.drawable.mat_magenta_essence),
     WHITE_ESSENCE("White Essence", R.drawable.mat_white_essence),
 
-    CRYSTALITE("Crysta-Lite", R.drawable.mat_white_essence),
-    GEOLITE("Geo-Lite", R.drawable.mat_white_essence),
-    MONOLITE("Mono-Lite", R.drawable.mat_white_essence),
+    CRYSTALITE("Crysta-Lite", R.drawable.mat_crystalite),
+    GEOLITE("Geo-Lite", R.drawable.mat_geolite),
+    MONOLITE("Mono-Lite", R.drawable.mat_monolite),
     IRIDIOLITE("Iridio-Lite", R.drawable.mat_white_essence),
     ;
 
