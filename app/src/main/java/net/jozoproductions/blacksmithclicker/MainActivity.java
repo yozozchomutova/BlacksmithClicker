@@ -23,9 +23,11 @@ import android.widget.ImageView;
 import net.jozoproductions.blacksmithclicker.activities.CrateMenuActivity;
 import net.jozoproductions.blacksmithclicker.activities.InfoActivity;
 import net.jozoproductions.blacksmithclicker.activities.ItemAtlasActivity;
+import net.jozoproductions.blacksmithclicker.activities.MaterialInfoActivity;
 import net.jozoproductions.blacksmithclicker.activities.ProfileActivity;
 import net.jozoproductions.blacksmithclicker.activities.ResearchActivity;
 import net.jozoproductions.blacksmithclicker.audio.AudioSystem;
+import net.jozoproductions.blacksmithclicker.crates.Crate;
 import net.jozoproductions.blacksmithclicker.items.Item;
 import net.jozoproductions.blacksmithclicker.particlemanaging.ParticlePack;
 import net.jozoproductions.blacksmithclicker.research.Research;
@@ -72,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Load sounds
         AudioSystem.LoadAudio(this, "AnvilStrike", R.raw.anvil_strike);
-        //AudioSystem.SetMusic(this, R.raw.music1);
+        AudioSystem.SetMusic(this, R.raw.theme);
 
         //24/7 thread
         endlessThread = new EndlessThread();
@@ -133,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
             loadingThread.start();
         });
 
-        findViewById(R.id.research).setOnClickListener(v -> {
+        findViewById(R.id.research_list).setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, ResearchActivity.class);
             startActivity(intent);
         });
@@ -153,6 +155,11 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
 
             findViewById(R.id.guideHelpText).setVisibility(View.GONE);
+        });
+
+        findViewById(R.id.materialsInfo).setOnClickListener(v -> {
+            Intent intent = new Intent(this, MaterialInfoActivity.class);
+            startActivity(intent);
         });
 
         findViewById(R.id.discord_btn).setOnClickListener(v -> {
@@ -203,19 +210,12 @@ public class MainActivity extends AppCompatActivity {
     private void Save() {
         //Convert items array to item names array
         Set<String> itemNames = new HashSet<>();
-        Set<String> researchNames = new HashSet<>();
 
         Item[] items = Item.values();
-        Research[] research = Research.values();
 
         for (int i = 0; i < items.length; i++) {
             if (items[i].owningItem)
                 itemNames.add(items[i].name());
-        }
-
-        for (int i = 0; i < research.length; i++) {
-            if (research[i].researched)
-                researchNames.add(research[i].name());
         }
 
         //Save
@@ -233,15 +233,22 @@ public class MainActivity extends AppCompatActivity {
         editor.putInt("totalMoneyMade", Player.totalMoneyMade);
         editor.putInt("totalCratesOpened", Player.totalCratesOpened);
 
-        editor.putInt("common_crate_open_count", Player.commonCrateOpenCount);
-        editor.putInt("uncommon_crate_open_count", Player.uncommonCrateOpenCount);
-        editor.putInt("rare_crate_open_count", Player.rareCrateOpenCount);
-        editor.putInt("epic_crate_open_count", Player.epicCrateOpenCount);
-        editor.putInt("legendary_crate_open_count", Player.legendaryCrateOpenCount);
-        editor.putInt("mythic_crate_open_count", Player.mythicCrateOpenCount);
+        editor.putInt("common_crate_open_count", Crate.COMMON_CRATE.openCount);
+        editor.putInt("uncommon_crate_open_count", Crate.UNCOMMON_CRATE.openCount);
+        editor.putInt("rare_crate_open_count", Crate.RARE_CRATE.openCount);
+        editor.putInt("epic_crate_open_count", Crate.EPIC_CRATE.openCount);
+        editor.putInt("legendary_crate_open_count", Crate.LEGENDARY_CRATE.openCount);
+        editor.putInt("mythic_crate_open_count", Crate.MYTHIC_CRATE.openCount);
+        editor.putInt("christmas_crate_open_count", Crate.CHRISTMAS_CRATE.openCount);
 
         editor.putStringSet("items", itemNames);
-        editor.putStringSet("research", researchNames);
+
+        //Save Research stats
+        Research[] research = Research.values();
+
+        for (int i = 0; i < research.length; i++) {
+            editor.putInt(research[i].name() + "_lvl_", research[i].curLevel);
+        }
 
         editor.putBoolean("first_time_launch", false);
         editor.apply();
@@ -250,7 +257,6 @@ public class MainActivity extends AppCompatActivity {
     private void Load() {
         //Happens every time, player launches game
         Player.UnlockItem(Item.STICK);
-        Research.BLACKSMITH.researched = true;
 
         //Load
         SharedPreferences sp = getPreferences(Context.MODE_PRIVATE);
@@ -280,19 +286,20 @@ public class MainActivity extends AppCompatActivity {
             Player.UnlockItem(item);
         }
 
-        //Convert research names array to research
-        ArrayList<String> researchNames = new ArrayList<>(researchNamesSet);
+        Crate.COMMON_CRATE.openCount = sp.getInt("common_crate_open_count", 0);
+        Crate.UNCOMMON_CRATE.openCount = sp.getInt("uncommon_crate_open_count", 0);
+        Crate.RARE_CRATE.openCount = sp.getInt("rare_crate_open_count", 0);
+        Crate.EPIC_CRATE.openCount = sp.getInt("epic_crate_open_count", 0);
+        Crate.LEGENDARY_CRATE.openCount = sp.getInt("legendary_crate_open_count", 0);
+        Crate.MYTHIC_CRATE.openCount = sp.getInt("mythic_crate_open_count", 0);
+        Crate.CHRISTMAS_CRATE.openCount = sp.getInt("christmas_crate_open_count", 0);
 
-        for (int i = 0; i < researchNames.size(); i++) {
-            Research.valueOf(researchNames.get(i)).researched = true;
+        //Load Research stats
+        Research[] research = Research.values();
+
+        for (int i = 0; i < research.length; i++) {
+            research[i].curLevel = sp.getInt(research[i].name() + "_lvl_", research[i].curLevel);
         }
-
-        Player.commonCrateOpenCount = sp.getInt("common_crate_open_count", Player.commonCrateOpenCount);
-        Player.uncommonCrateOpenCount = sp.getInt("uncommon_crate_open_count", Player.uncommonCrateOpenCount);
-        Player.rareCrateOpenCount = sp.getInt("rare_crate_open_count", Player.rareCrateOpenCount);
-        Player.epicCrateOpenCount = sp.getInt("epic_crate_open_count", Player.epicCrateOpenCount);
-        Player.legendaryCrateOpenCount = sp.getInt("legendary_crate_open_count", Player.legendaryCrateOpenCount);
-        Player.mythicCrateOpenCount = sp.getInt("mythic_crate_open_count", Player.mythicCrateOpenCount);
     }
 
     private void FirstTimeLaunch() {
@@ -310,7 +317,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         message.setTitle("Welcome");
-        message.setMessage("Please take in mind, that this is Beta and im going to update it often. You can press <!> button (at the top-left corner) for help/guide. If you want to give me feedback, join my discord server (button at top-left corner).");
+        message.setMessage("Welcome on ");
 
         message.show();
     }

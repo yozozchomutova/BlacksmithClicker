@@ -41,10 +41,10 @@ public class CrateItem extends ConstraintLayout {
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
-    public void Inflate(Context context, Crate crate_, float basePrice, int openCount, boolean currentlyAvailable) {
-        this.crate = crate_;
+    public void Inflate(Context context, Crate crate) {
+        this.crate = crate;
 
-        this.price = CalculateCratePrice(basePrice, openCount);
+        this.price = (int) crate.getRealPrice();
 
         View inflatedView = LayoutInflater.from(context).inflate(R.layout.item_crate, this, true);
 
@@ -61,7 +61,7 @@ public class CrateItem extends ConstraintLayout {
         iconIV.setImageDrawable(getResources().getDrawable(crate.drawableId));
         rarityIV.setColorFilter(ContextCompat.getColor(context, crate.colorId), android.graphics.PorterDuff.Mode.MULTIPLY);
 
-        //Unlocked?
+        //Unlocked? (by rank)
         if (crate.minimalRequirementRank.ordinal() == 0) {}
         else if (Rank.values()[crate.minimalRequirementRank.ordinal()-1].neededExpToAdvance > Player.xp) {
             unlocked = false;
@@ -71,45 +71,8 @@ public class CrateItem extends ConstraintLayout {
         buyBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!currentlyAvailable) {
-                    Toast.makeText(getContext(), "Crate is currently unavailable.", Toast.LENGTH_SHORT).show();
-                } else if (Player.money >= price && unlocked) {
-
-                    if (crate == Crate.COMMON_CRATE)
-                        Player.commonCrateOpenCount++;
-                    else if (crate == Crate.UNCOMMON_CRATE)
-                        Player.uncommonCrateOpenCount++;
-                    else if (crate == Crate.RARE_CRATE)
-                        Player.rareCrateOpenCount++;
-                    else if (crate == Crate.EPIC_CRATE)
-                        Player.epicCrateOpenCount++;
-                    else if (crate == Crate.LEGENDARY_CRATE)
-                        Player.legendaryCrateOpenCount++;
-                    else if (crate == Crate.MYTHIC_CRATE)
-                        Player.mythicCrateOpenCount++;
-
-                    Player.totalCratesOpened++;
-                    Player.AddMoney(-price);
-                    CrateOpenFragment.openingCrate = crate;
-                    CrateOpenFragment.crateprice = price;
-
-                    ((AppCompatActivity) getContext()).getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, new CrateOpenFragment()).commit();
-                }
+                ((AppCompatActivity) getContext()).getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, new CrateOpenFragment(crate)).commit();
             }
         });
-
-        //Coming soon?
-        if (!currentlyAvailable)
-            priceTV.setText("Coming soon!");
-    }
-
-    private int CalculateCratePrice(float baseCratePrice, int openCount) {
-        float totalPrice = baseCratePrice;
-
-        for (int i = 0; i < openCount; i++) {
-            totalPrice = totalPrice * 1.016f;
-        }
-
-        return (int) totalPrice;
     }
 }

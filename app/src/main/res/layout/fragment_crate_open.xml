@@ -1,81 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#111111">
-
-    <ImageView
-        android:id="@+id/background"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/light1" />
-
-    <ImageButton
-        android:id="@+id/anvil"
-        android:layout_width="0dp"
-        android:layout_height="310dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="50dp"
-        android:background="#00000000"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/anvil" />
+    android:background="@drawable/profile_activity_background">
 
     <TextView
-        android:id="@+id/garantuedTV"
+        android:id="@+id/crate_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="garantuedTV"
-        android:textColor="@color/rarity_common"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:translationY="-30dp"
-        app:layout_constraintEnd_toEndOf="@+id/anvil"
-        app:layout_constraintStart_toStartOf="@+id/anvil"
-        app:layout_constraintTop_toBottomOf="@+id/anvil" />
-
-    <TextView
-        android:id="@+id/nextRarityTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="TextView"
+        android:layout_marginStart="6dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="crate_name"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:textStyle="italic"
-        android:translationY="-30dp"
-        app:layout_constraintEnd_toEndOf="@+id/anvil"
-        app:layout_constraintStart_toStartOf="@+id/anvil"
-        app:layout_constraintTop_toBottomOf="@+id/garantuedTV" />
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@+id/crate_icon"
+        app:layout_constraintStart_toEndOf="@+id/crate_icon"
+        app:layout_constraintTop_toTopOf="@+id/crate_icon" />
 
     <TextView
-        android:id="@+id/info"
-        android:layout_width="0dp"
+        android:id="@+id/money"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="4dp"
-        android:fontFamily="monospace"
-        android:gravity="center"
-        android:text="Tap to open"
+        android:text="0"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+    <SurfaceView
+        android:id="@+id/itemTiles"
+        android:layout_width="match_parent"
+        android:layout_height="256px"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/crate_icon"
+        app:layout_constraintTop_toBottomOf="@+id/crate_icon"
+        app:srcCompat="@drawable/coin" />
+
+    <ImageView
+        android:id="@+id/crate_icon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/crate_common" />
+
+    <ImageView
+        android:id="@+id/centerLine"
+        android:layout_width="wrap_content"
+        android:layout_height="256px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/research_node_line" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/buy_panel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="false"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/close"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/x" />
+
+        <ImageButton
+            android:id="@+id/buy"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="#00000000"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/buy" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="6dp"
+            android:gravity="center_vertical|end"
+            android:text="crate_price"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+            app:layout_constraintEnd_toStartOf="@+id/imageView8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView8" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/buy"
+            app:layout_constraintEnd_toStartOf="@+id/buy"
+            app:layout_constraintTop_toTopOf="@+id/buy"
+            app:srcCompat="@drawable/coin" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/skip_panel"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/skip_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="12dp"
+            android:gravity="center_vertical|end"
+            android:text="Skip ->"
+            android:textColor="#FFFFFF"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -123,7 +123,7 @@
                 android:text="You can rank up by gathering XP. XP's are gathered by clicking. By ranking you are unlocking new crates." />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/crate_name"
                 style="@style/GuideDialog_SubTitle"
                 android:layout_width="match_parent"
                 android:text="About"
@@ -135,7 +135,6 @@
                 android:layout_width="match_parent"
                 android:text="This game is my first app ever published on google play. I was excited when publishing this. Game may won't be so much fun, but I'am preparing more fun apps. I'll be glad for every feedback. Or you can join us on the discord.\n\n\t\t\t\t-YozoZChomutova" />
 
-
             <TextView
                 style="@style/GuideDialog_Title"
                 android:layout_width="match_parent"
@@ -144,22 +143,22 @@
             <TextView
                 style="@style/GuideDialog_SubTitle"
                 android:layout_width="match_parent"
-                android:text="0.7.0v - Beta"
+                android:text="1.0.0v - Release"
                 android:paddingTop="0dp"/>
 
             <TextView
                 android:layout_width="match_parent"
-                android:text="Features:\n-New/Changed visuals.\n-You will get 50% refund of price of crate, if you get item, you already have.\n\nBalance:\n-Crates are now more expensive from start, but they are cheaper later.\n-All items rebalanced.\n-All crates have higher chance of getting higher rarity.\n-Ranks Iron, Gold, Platinum are now easier to reach.\n\nFixes:\n-Unintended 2x slow forging."
+                android:text="Finally it's here. I think it's time to finish this game and start to work on the other games. There still may be little content updates (Maybe if I get bored at home).\n\n[Christmas update]\n-11 Candy canes to unlock. They are useless, but nice to flex in front of your friends.\n-Christmas crate - Drops only candy canes lol.\n-New material - Sugar (Another great material for smithing)\n\n[Content]\n-New 7 mythic items.\n-New 3 legendary items.\n-New 4 materials to unlock.\n\n[Material System]\n-Materials now have their own value.\n-Before you smith an item, you need to mine it's material.\n"
                 style="@style/GuideDialog_Description"/>
 
             <TextView
                 style="@style/GuideDialog_SubTitle"
                 android:layout_width="match_parent"
-                android:text="0.6.0v - Beta" />
+                android:text="0.7.0v - Beta"/>
 
             <TextView
                 android:layout_width="match_parent"
-                android:text="Features:\n-Added more nodes to research.\n-New useless stats in profile window.\n-Improved profile window graphics.\n-Improved main window graphics.\n-Text pointing on guide dialog button (Shows only for first time launch)\n-New 21 items.\n\nFixes:\n-Effects from research didn't apply after purchase.\n\nBuffs:\n-Cheaper research nodes.\n-All crates were buffed alot."
+                android:text="Features:\n-New/Changed visuals.\n-You will get 50% refund of price of crate, if you get item, you already have.\n\nBalance:\n-Crates are now more expensive from start, but they are cheaper later.\n-All items rebalanced.\n-All crates have higher chance of getting higher rarity.\n-Ranks Iron, Gold, Platinum are now easier to reach.\n\nFixes:\n-Unintended 2x slow forging."
                 style="@style/GuideDialog_Description"/>
 
             <TextView

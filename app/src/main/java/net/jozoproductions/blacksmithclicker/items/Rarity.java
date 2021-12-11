@@ -10,7 +10,8 @@ public enum Rarity {
     RARE("Rare", R.color.rarity_rare),
     EPIC("Epic", R.color.rarity_epic),
     LEGENDARY("Legendary", R.color.rarity_legendary),
-    MYTHIC("Mythic", R.color.rarity_mythic);
+    MYTHIC("Mythic", R.color.rarity_mythic),
+    CHRISTMAS("Christmas", R.color.white);
 
     public String name;
     public int colorId;

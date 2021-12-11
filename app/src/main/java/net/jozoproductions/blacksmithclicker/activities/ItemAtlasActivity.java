@@ -43,6 +43,9 @@ public class ItemAtlasActivity extends AppCompatActivity implements TabLayout.On
     private ScrollView mythicItems;
     private LinearLayout mythicItemsList;
 
+    private ScrollView christmasItems;
+    private LinearLayout christmasItemsList;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,6 +85,9 @@ public class ItemAtlasActivity extends AppCompatActivity implements TabLayout.On
         mythicItems = findViewById(R.id.mythicItems);
         mythicItemsList = findViewById(R.id.mythicItemsList);
 
+        christmasItems = findViewById(R.id.christmasItems);
+        christmasItemsList = findViewById(R.id.christmasItemsList);
+
         GenerateItemAtlas();
 
         //TabLayout
@@ -115,6 +121,8 @@ public class ItemAtlasActivity extends AppCompatActivity implements TabLayout.On
             legendaryItems.setVisibility(View.VISIBLE);
         } else if (tabPosition == 5) {
             mythicItems.setVisibility(View.VISIBLE);
+        } else if (tabPosition == 6) {
+            christmasItems.setVisibility(View.VISIBLE);
         }
     }
 
@@ -128,6 +136,7 @@ public class ItemAtlasActivity extends AppCompatActivity implements TabLayout.On
         epicItems.setVisibility(View.INVISIBLE);
         legendaryItems.setVisibility(View.INVISIBLE);
         mythicItems.setVisibility(View.INVISIBLE);
+        christmasItems.setVisibility(View.INVISIBLE);
     }
 
     private void GenerateItemAtlas() {
@@ -139,6 +148,7 @@ public class ItemAtlasActivity extends AppCompatActivity implements TabLayout.On
         AddItemGroupToItemList(itemGroups, epicItemsList, Rarity.EPIC);
         AddItemGroupToItemList(itemGroups, legendaryItemsList, Rarity.LEGENDARY);
         AddItemGroupToItemList(itemGroups, mythicItemsList, Rarity.MYTHIC);
+        AddItemGroupToItemList(itemGroups, christmasItemsList, Rarity.CHRISTMAS);
     }
 
     private void AddItemGroupToItemList(ItemGroup[] itemGroups, LinearLayout itemList, Rarity rarity) {

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="192px"
+    android:layout_height="258px"
+    android:background="@drawable/item_in_crate_bcg"
+    android:backgroundTintMode="multiply">
+
+    <ImageView
+        android:id="@+id/item_icon"
+        android:layout_width="160px"
+        android:layout_height="160px"
+        android:translationX="16px"
+        android:translationY="48px"
+        app:srcCompat="@drawable/anvil"
+        app:tint="#000000" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -128,7 +128,33 @@ public enum Item {
 
     MONO_TYPE1("Mono [Type 1]", ItemGroup.MONO, 380, 640, R.drawable.item_monolite_mono1, Material.MONOLITE),
     MONO_TYPE2("Mono [Type 2]", ItemGroup.MONO, 395, 700, R.drawable.item_monolite_mono2, Material.MONOLITE),
-    MONO_TYPE3("Mono [Type 3]", ItemGroup.MONO, 418, 780, R.drawable.item_monolite_mono3, Material.MONOLITE),
+    MONO_TYPE3("Mono [Type 3]", ItemGroup.MONO, 418, 770, R.drawable.item_monolite_mono3, Material.MONOLITE),
+
+    TECHNOSCYTHE1("TechnoScythe [Type 1]", ItemGroup.TECHNOSCYTHE, 440, 855, R.drawable.item_iridiolite_technoscythe1, Material.IRIDIOLITE),
+    TECHNOSCYTHE2("TechnoScythe [Type 2]", ItemGroup.TECHNOSCYTHE, 465, 940, R.drawable.item_iridiolite_technoscythe2, Material.IRIDIOLITE),
+    TECHNOSCYTHE3("TechnoScythe [Type 3]", ItemGroup.TECHNOSCYTHE, 491, 1050, R.drawable.item_iridiolite_technoscythe3, Material.IRIDIOLITE),
+
+    CATALYST1("Catalyst Dagger [Type 1]", ItemGroup.CATALYST, 686, 1310, R.drawable.item_catalyst_dagger1, Material.CATALYST),
+    CATALYST2("Catalyst Dagger [Type 2]", ItemGroup.CATALYST, 794, 1586, R.drawable.item_catalyst_dagger2, Material.CATALYST),
+    CATALYST3("Catalyst Dagger [Type 3]", ItemGroup.CATALYST, 902, 1875, R.drawable.item_catalyst_dagger3, Material.CATALYST),
+
+    NEONIDE1("Neonide [Type 1]", ItemGroup.NEONIDE, 902, 1875, R.drawable.item_neoniste_neonide1, Material.NEONISTE),
+    NEONIDE2("Neonide [Type 2]", ItemGroup.NEONIDE, 1000, 2650, R.drawable.item_neoniste_neonide2, Material.NEONISTE),
+    NEONIDE3("Neonide [Type 3]", ItemGroup.NEONIDE, 1150, 3550, R.drawable.item_neoniste_neonide3, Material.NEONISTE),
+
+    LUNARTIC("LUNARTIC", ItemGroup.LUNARTIC, 1350, 5150, R.drawable.item_lunartism_lunartic, Material.LUNARTISM),
+
+    CANDY_CANE1("Candy Cane - Red", ItemGroup.CANDY_CANE, 3, 1, R.drawable.item_candy_cane1, Material.SUGAR),
+    CANDY_CANE2("Candy Cane - Blue", ItemGroup.CANDY_CANE, 3, 1, R.drawable.item_candy_cane2, Material.SUGAR),
+    CANDY_CANE3("Candy Cane - Green", ItemGroup.CANDY_CANE, 3, 1, R.drawable.item_candy_cane3, Material.SUGAR),
+    CANDY_CANE4("Candy Cane - Yellow", ItemGroup.CANDY_CANE, 3, 1, R.drawable.item_candy_cane4, Material.SUGAR),
+    CANDY_CANE5("Candy Cane - Pink", ItemGroup.CANDY_CANE, 3, 1, R.drawable.item_candy_cane5, Material.SUGAR),
+    CANDY_CANE6("Candy Cane - Purple", ItemGroup.CANDY_CANE, 3, 1, R.drawable.item_candy_cane6, Material.SUGAR),
+    CANDY_CANE7("Candy Cane - Orange", ItemGroup.CANDY_CANE, 3, 1, R.drawable.item_candy_cane7, Material.SUGAR),
+    CANDY_CANE8("Candy Cane - Gray", ItemGroup.CANDY_CANE, 3, 1, R.drawable.item_candy_cane8, Material.SUGAR),
+    CANDY_CANE9("Candy Cane - Aqua", ItemGroup.CANDY_CANE, 3, 1, R.drawable.item_candy_cane9, Material.SUGAR),
+    CANDY_CANE10("Candy Cane - Brown", ItemGroup.CANDY_CANE, 3, 1, R.drawable.item_candy_cane10, Material.SUGAR),
+    CANDY_CANE11("Candy Cane - White", ItemGroup.CANDY_CANE, 3, 1, R.drawable.item_candy_cane11, Material.SUGAR),
     ;
 
     public String name;

@@ -21,6 +21,11 @@ public enum ItemGroup {
     BLADES("Blades", Rarity.LEGENDARY),
     HEAVY("Heavies", Rarity.LEGENDARY),
     MONO("Monos", Rarity.LEGENDARY),
+    TECHNOSCYTHE("TechnoScythes", Rarity.LEGENDARY),
+    CATALYST("Catalysts", Rarity.MYTHIC),
+    NEONIDE("Neonides", Rarity.MYTHIC),
+    LUNARTIC("Lunartics", Rarity.MYTHIC),
+    CANDY_CANE("Candy canes", Rarity.CHRISTMAS),
     ;
 
     public String groupName;

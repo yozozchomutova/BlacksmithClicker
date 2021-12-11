@@ -60,6 +60,13 @@
                 android:layout_height="80dp">
 
             </net.jozoproductions.blacksmithclicker.crates.CrateItem>
+
+            <net.jozoproductions.blacksmithclicker.crates.CrateItem
+                android:id="@+id/crate_christmas"
+                android:layout_width="match_parent"
+                android:layout_height="80dp">
+
+            </net.jozoproductions.blacksmithclicker.crates.CrateItem>
         </LinearLayout>
     </ScrollView>
 
@@ -72,7 +79,7 @@
         app:srcCompat="@drawable/x" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/crate_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

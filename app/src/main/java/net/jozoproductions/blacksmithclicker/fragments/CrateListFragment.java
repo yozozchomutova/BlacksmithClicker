@@ -34,16 +34,14 @@ public class CrateListFragment extends Fragment implements View.OnClickListener 
         view.findViewById(R.id.close).setOnClickListener(this);
 
         //Initialize crates
-        Crate[] crates = Crate.values();
-
-        ((CrateItem) view.findViewById(R.id.crate_common)).Inflate(getContext(), crates[0], Player.commonCrateBasePrice, Player.commonCrateOpenCount, true);
-        ((CrateItem) view.findViewById(R.id.crate_uncommon)).Inflate(getContext(), crates[1], Player.uncommonCrateBasePrice, Player.uncommonCrateOpenCount, true);
-        ((CrateItem) view.findViewById(R.id.crate_rare)).Inflate(getContext(), crates[2], Player.rareCrateBasePrice, Player.rareCrateOpenCount, true);
-        ((CrateItem) view.findViewById(R.id.crate_epic)).Inflate(getContext(), crates[3], Player.epicCrateBasePrice, Player.epicCrateOpenCount, true);
-        ((CrateItem) view.findViewById(R.id.crate_legendary)).Inflate(getContext(), crates[4], Player.legendaryCrateBasePrice, Player.legendaryCrateOpenCount, true);
-        ((CrateItem) view.findViewById(R.id.crate_mythic)).Inflate(getContext(), crates[5], Player.mythicCrateBasePrice, Player.mythicCrateOpenCount, false);
+        ((CrateItem) view.findViewById(R.id.crate_common)).Inflate(getContext(), Crate.COMMON_CRATE);
+        ((CrateItem) view.findViewById(R.id.crate_uncommon)).Inflate(getContext(), Crate.UNCOMMON_CRATE);
+        ((CrateItem) view.findViewById(R.id.crate_rare)).Inflate(getContext(), Crate.RARE_CRATE);
+        ((CrateItem) view.findViewById(R.id.crate_epic)).Inflate(getContext(), Crate.EPIC_CRATE);
+        ((CrateItem) view.findViewById(R.id.crate_legendary)).Inflate(getContext(), Crate.LEGENDARY_CRATE);
+        ((CrateItem) view.findViewById(R.id.crate_mythic)).Inflate(getContext(), Crate.MYTHIC_CRATE);
+        ((CrateItem) view.findViewById(R.id.crate_christmas)).Inflate(getContext(), Crate.CHRISTMAS_CRATE);
     }
-
 
     @Override
     public void onClick(View view) {

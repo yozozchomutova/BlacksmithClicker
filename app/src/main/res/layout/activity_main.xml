@@ -15,8 +15,10 @@
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/smith_black" />
 
     <ImageView
@@ -68,6 +70,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/atlass" />
 
+    <ImageButton
+        android:id="@+id/forgeMine_switch"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:background="#00FFFFFF"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/select_item_btn"
+        app:srcCompat="@drawable/forge_mine_switch" />
+
     <ImageView
         android:id="@+id/light"
         android:layout_width="320dp"
@@ -114,41 +128,53 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageButton
-        android:id="@+id/research"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="2dp"
-        android:background="#00FFFFFF"
-        android:scaleType="centerInside"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/bottom_bar_bcg"
-        app:layout_constraintWidth_percent="0.33333333"
-        app:srcCompat="@drawable/research" />
+        app:layout_constraintStart_toStartOf="parent">
 
-    <ImageButton
-        android:id="@+id/storage"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="2dp"
-        android:background="#00FFFFFF"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/research"
-        app:layout_constraintWidth_percent="0.33333333"
-        app:srcCompat="@drawable/storage" />
+        <ImageButton
+            android:id="@+id/research_list"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="2dp"
+            android:background="#00FFFFFF"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/research" />
 
-    <ImageButton
-        android:id="@+id/profile"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="2dp"
-        android:background="#00FFFFFF"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/storage"
-        app:layout_constraintWidth_percent="0.33333333"
-        app:srcCompat="@drawable/profile" />
+        <ImageButton
+            android:id="@+id/storage"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="2dp"
+            android:background="#00FFFFFF"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/storage" />
+
+        <ImageButton
+            android:id="@+id/materialsInfo"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="2dp"
+            android:layout_weight="1"
+            android:background="#00FFFFFF"
+            android:scaleType="centerInside"
+            android:src="@drawable/materialinfo" />
+
+        <ImageButton
+            android:id="@+id/profile"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="2dp"
+            android:background="#00FFFFFF"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/profile" />
+    </LinearLayout>
 
     <ImageButton
         android:id="@+id/info_btn"
@@ -175,6 +201,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/info_btn"
         app:srcCompat="@drawable/discord" />
+
+    <ImageButton
+        android:id="@+id/settings_btn"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:background="#00000000"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/discord_btn"
+        app:srcCompat="@drawable/settings" />
 
     <TextView
         android:id="@+id/guideHelpText"

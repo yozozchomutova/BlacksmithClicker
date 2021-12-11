@@ -44,6 +44,11 @@
             android:id="@+id/mythicTab"
             style="@style/AtlasItem_TabItem"
             android:text="Mythic" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/christmasTab"
+            style="@style/AtlasItem_TabItem"
+            android:text="Christmas" />
     </com.google.android.material.tabs.TabLayout>
 
     <ScrollView
@@ -114,6 +119,18 @@
 
         <LinearLayout
             android:id="@+id/mythicItemsList"
+            style="@style/AtlasActivity_LinearLayout"/>
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/christmasItems"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/itemRarityTab"
+        style="@style/AtlasActivity_Scrollview"
+        android:visibility="invisible">
+
+        <LinearLayout
+            android:id="@+id/christmasItemsList"
             style="@style/AtlasActivity_LinearLayout"/>
     </ScrollView>
 

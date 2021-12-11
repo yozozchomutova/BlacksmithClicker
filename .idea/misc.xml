@@ -4,12 +4,21 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/danek/Documents/GitHub/BlacksmithClicker/app/src/main/res/layout/activity_crate_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/danek/Documents/GitHub/BlacksmithClicker/app/src/main/res/layout/activity_info.xml" value="0.30890741553312856" />
         <entry key="..\:/Users/danek/Documents/GitHub/BlacksmithClicker/app/src/main/res/layout/activity_item_atlas.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/danek/Documents/GitHub/BlacksmithClicker/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/danek/Documents/GitHub/BlacksmithClicker/app/src/main/res/layout/activity_profile.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/danek/Documents/GitHub/BlacksmithClicker/app/src/main/res/layout/activity_materialinfo.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/danek/Documents/GitHub/BlacksmithClicker/app/src/main/res/layout/activity_profile.xml" value="0.33" />
+        <entry key="..\:/Users/danek/Documents/GitHub/BlacksmithClicker/app/src/main/res/layout/activity_research.xml" value="0.33" />
         <entry key="..\:/Users/danek/Documents/GitHub/BlacksmithClicker/app/src/main/res/layout/dialog_changelog.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/danek/Documents/GitHub/BlacksmithClicker/app/src/main/res/layout/dialog_guide.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/danek/Documents/GitHub/BlacksmithClicker/app/src/main/res/layout/fragment_crate_list.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/danek/Documents/GitHub/BlacksmithClicker/app/src/main/res/layout/fragment_crate_open.xml" value="0.33" />
+        <entry key="..\:/Users/danek/Documents/GitHub/BlacksmithClicker/app/src/main/res/layout/item_crate.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/danek/Documents/GitHub/BlacksmithClicker/app/src/main/res/layout/item_material_reasearch_progress.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/danek/Documents/GitHub/BlacksmithClicker/app/src/main/res/layout/view_item_in_crate.xml" value="0.75" />
+        <entry key="..\:/Users/danek/Documents/GitHub/BlacksmithClicker/app/src/main/res/layout/view_research_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/danek/Documents/GitHub/BlacksmithClicker/app/src/main/res/layout/view_research_node.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
@@ -18,5 +27,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.75" />
+      </ProjectState>
+    </option>
   </component>
 </project>
