@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "630983079059",
+    "project_id": "blacksmithclicker",
+    "storage_bucket": "blacksmithclicker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:630983079059:android:3853341af6eb2dc5dd4966",
+        "android_client_info": {
+          "package_name": "net.jozoproductions.blacksmithclicker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "630983079059-hieil5nop48jhsgho2h8jc2scqhcsh7o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcyJ4eEmxJHPcSwUZBZF5WNIsoY0-pRRc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "630983079059-hieil5nop48jhsgho2h8jc2scqhcsh7o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

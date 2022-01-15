@@ -1,5 +1,7 @@
 package net.jozoproductions.blacksmithclicker.activities;
 
+import static net.jozoproductions.blacksmithclicker.MainActivity.Save;
+
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -67,7 +69,14 @@ public class ResearchActivity extends AppCompatActivity implements View.OnClickL
         int viewId = v.getId();
 
         if (viewId == R.id.close_activity) {
+            Player.CalculateResearchUpgrades();
             finish();
         }
+    }
+
+    @Override
+    protected void onPause() {
+        Save();
+        super.onPause();
     }
 }

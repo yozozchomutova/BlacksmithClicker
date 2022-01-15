@@ -62,8 +62,8 @@
         android:id="@+id/select_item_btn"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
         android:background="#00FFFFFF"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,8 +74,8 @@
         android:id="@+id/forgeMine_switch"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
         android:background="#00FFFFFF"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
@@ -181,7 +181,6 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
         android:layout_marginTop="4dp"
         android:background="#00000000"
         android:scaleType="fitCenter"
@@ -189,30 +188,15 @@
         app:layout_constraintTop_toBottomOf="@+id/coin_icon"
         app:srcCompat="@drawable/info" />
 
-    <ImageButton
-        android:id="@+id/discord_btn"
+    <ImageView
+        android:id="@+id/shakeBonusIcon"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="4dp"
-        android:background="#00000000"
-        android:scaleType="fitCenter"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/info_btn"
         app:layout_constraintTop_toBottomOf="@+id/info_btn"
-        app:srcCompat="@drawable/discord" />
-
-    <ImageButton
-        android:id="@+id/settings_btn"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        android:background="#00000000"
-        android:scaleType="fitCenter"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/discord_btn"
-        app:srcCompat="@drawable/settings" />
+        app:srcCompat="@drawable/research_shake_bonus_allow"
+        android:visibility="invisible"
+        app:tint="@color/white" />
 
     <TextView
         android:id="@+id/guideHelpText"
@@ -226,6 +210,29 @@
         app:layout_constraintBottom_toBottomOf="@+id/info_btn"
         app:layout_constraintStart_toEndOf="@+id/info_btn"
         app:layout_constraintTop_toTopOf="@+id/info_btn" />
+
+    <ImageView
+        android:id="@+id/matIcon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/item_name"
+        app:layout_constraintStart_toStartOf="@+id/item_name"
+        app:srcCompat="@drawable/icon" />
+
+    <TextView
+        android:id="@+id/matCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:background="#44FF2222"
+        android:fontFamily="monospace"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/matIcon"
+        app:layout_constraintStart_toEndOf="@+id/matIcon"
+        app:layout_constraintTop_toTopOf="@+id/matIcon" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/loading_screen"
@@ -244,4 +251,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/forgingWarning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Not enough materials! Harvest some first!"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/matIcon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

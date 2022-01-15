@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="net.jozoproductions.blacksmithclicker">
 
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
@@ -9,6 +11,7 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.BlacksmithClicker">
+
         <activity android:name=".MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,6 +36,12 @@
         </activity>
 
         <activity android:name=".activities.MaterialInfoActivity" android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".activities.WorldMatsActivity" android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".activities.WinGameActivity" android:screenOrientation="portrait">
         </activity>
     </application>
 

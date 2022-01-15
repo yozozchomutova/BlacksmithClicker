@@ -1,18 +1,15 @@
 package net.jozoproductions.blacksmithclicker.fragments;
 
-import android.content.res.ColorStateList;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -28,19 +25,18 @@ import androidx.fragment.app.Fragment;
 import net.jozoproductions.blacksmithclicker.MainActivity;
 import net.jozoproductions.blacksmithclicker.Player;
 import net.jozoproductions.blacksmithclicker.R;
+import net.jozoproductions.blacksmithclicker.audio.AudioSystem;
 import net.jozoproductions.blacksmithclicker.crates.Crate;
-import net.jozoproductions.blacksmithclicker.crates.CrateItem;
 import net.jozoproductions.blacksmithclicker.items.Item;
 import net.jozoproductions.blacksmithclicker.items.Rarity;
-import net.jozoproductions.blacksmithclicker.particlemanaging.ParticlePack;
-import net.jozoproductions.blacksmithclicker.views.ItemInCrateView;
+import net.jozoproductions.blacksmithclicker.research.Research;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class CrateOpenFragment extends Fragment {
 
     private static final Random random = new Random();
+    private static float lastPrice;
 
     private TextView moneyTV;
 
@@ -60,7 +56,16 @@ public class CrateOpenFragment extends Fragment {
 
     private OpeningCrateThread openingCrateThread;
 
-    //public ItemInCrateView[] itemTiles;
+    //ItemPreview root
+    private ConstraintLayout itemPreviewRoot;
+
+    private TextView itemOwningInfo;
+    private TextView itemName;
+    private ImageView itemRarity;
+    private ImageView itemIcon;
+
+    private ImageView materialIcon;
+    private TextView materialProgress;
 
     public CrateOpenFragment(Crate openingCrate) {
         super(R.layout.fragment_crate_open);
@@ -90,6 +95,19 @@ public class CrateOpenFragment extends Fragment {
         buyPanel = view.findViewById(R.id.buy_panel);
         skipPanel = view.findViewById(R.id.skip_panel);
 
+        itemTiles = view.findViewById(R.id.itemTiles);
+
+        //Item preview root
+        itemPreviewRoot = view.findViewById(R.id.itemPreviewRoot);
+
+        itemOwningInfo = view.findViewById(R.id.item_owning_info);
+        itemName = view.findViewById(R.id.item_name);
+        itemRarity = view.findViewById(R.id.item_rarity);
+        itemIcon = view.findViewById(R.id.item_icon);
+
+        materialIcon = view.findViewById(R.id.mat_icon);
+        materialProgress = view.findViewById(R.id.mat_progress);
+
         //crate icon & crate name
         ((ImageView) view.findViewById(R.id.crate_icon)).setImageDrawable(ContextCompat.getDrawable(view.getContext(), openingCrate.drawableId));
         ((TextView) view.findViewById(R.id.crate_name)).setText(openingCrate.name);
@@ -102,16 +120,21 @@ public class CrateOpenFragment extends Fragment {
                 float cratePrice = openingCrate.getRealPrice();
 
                 if (Player.money >= cratePrice) {
+                    lastPrice = cratePrice;
+
                     Player.AddMoney(-cratePrice);
+                    openingCrate.openCount++;
 
                     //Hide buy panel & Show skip panel
-                    //buyPanel.setVisibility(View.GONE);
-                    //skipPanel.setVisibility(View.VISIBLE);
+                    buyPanel.setVisibility(View.GONE);
+                    skipPanel.setVisibility(View.VISIBLE);
 
                     //Roll the roulette
                     openingCrateThread = new OpeningCrateThread(CrateOpenFragment.this);
                     openingCrateThread.setDaemon(true);
                     openingCrateThread.start();
+
+                    updatePriceTV();
                 }
             }
         });
@@ -123,12 +146,18 @@ public class CrateOpenFragment extends Fragment {
             }
         });
 
+        view.findViewById(R.id.skip_txt).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openingCrateThread.run = false;
+                onOpeningCrateFinish(openingCrateThread.droppedItem);
+            }
+        });
+
         updatePriceTV();
 
-        //Perfom some calculations before generating tiles
+        //Perform some calculations before generating tiles
         maxTilesOnScreen = (int) Math.floor(MainActivity.SCREEN_WIDTH / 192f) + 2;
-
-        //generateItemTiles(root);
     }
 
     private void updatePriceTV() {
@@ -136,43 +165,25 @@ public class CrateOpenFragment extends Fragment {
         priceTV.setText("" + (int) openingCrate.getRealPrice());
     }
 
-    /*private void generateItemTiles(ConstraintLayout root) {
-        itemTiles = new ItemInCrateView[maxTilesOnScreen];
-
-        for (int i = 0; i < maxTilesOnScreen; i++) {
-            //Pick random Item
-            ItemInCrateView itemInCrateView = new ItemInCrateView(getContext());
-
-            pickRandomItemForItemInCrate(itemInCrateView);
-
-            itemInCrateView.setTranslationX(i * 192f);
-            itemInCrateView.setTranslationY(MainActivity.SCREEN_HEIGHT/2f-129f);
-
-            root.addView(itemInCrateView, 0);
-
-            itemTiles[i] = itemInCrateView;
-        }
-    }*/
-
-    public void pickRandomItemForItemInCrate(ItemInCrateView itemInCrateView) {
+    public Item pickRandomItemForItemInCrate() {
         float randomNum = random.nextFloat() * 100f;
 
         if (openingCrate == Crate.CHRISTMAS_CRATE) {
-            itemInCrateView.setItem(randomItem(Rarity.CHRISTMAS));
+            return randomItem(Rarity.CHRISTMAS);
         }
 
         else if (randomNum <= openingCrate.MYTHIC_CHANCE) {
-            itemInCrateView.setItem(randomItem(Rarity.MYTHIC));
+            return randomItem(Rarity.MYTHIC);
         } else if (randomNum <= openingCrate.LEGENDARY_CHANCE) {
-            itemInCrateView.setItem(randomItem(Rarity.LEGENDARY));
+            return randomItem(Rarity.LEGENDARY);
         } else if (randomNum <= openingCrate.EPIC_CHANCE) {
-            itemInCrateView.setItem(randomItem(Rarity.EPIC));
+            return randomItem(Rarity.EPIC);
         } else if (randomNum <= openingCrate.RARE_CHANCE) {
-            itemInCrateView.setItem(randomItem(Rarity.RARE));
+            return randomItem(Rarity.RARE);
         } else if (randomNum <= openingCrate.UNCOMMON_CHANCE) {
-            itemInCrateView.setItem(randomItem(Rarity.UNCOMMON));
+            return randomItem(Rarity.UNCOMMON);
         } else {
-            itemInCrateView.setItem(randomItem(Rarity.COMMON));
+            return randomItem(Rarity.COMMON);
         }
     }
 
@@ -181,14 +192,45 @@ public class CrateOpenFragment extends Fragment {
         return itemList[random.nextInt(itemList.length)];
     }
 
-    private void onOpeningCrateFinish() {
+    private void onOpeningCrateFinish(Item droppedItem) {
+        droppedItem.material.curResearches = Math.min(droppedItem.material.requiredResearches, droppedItem.material.curResearches + 1 + (int) Research.FASTER_MATERIAL_RESEARCH.getEffect());
+        Player.totalCratesOpened++;
 
+        ((AppCompatActivity) getContext()).runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                itemName.setText(droppedItem.name);
+                itemRarity.setColorFilter(getResources().getColor(droppedItem.itemGroup.rarity.colorId));
+                itemIcon.setImageDrawable(ContextCompat.getDrawable(getContext(), droppedItem.iconId));
+
+                materialIcon.setImageDrawable(ContextCompat.getDrawable(getContext(), droppedItem.material.drawableId));
+                materialProgress.setText(droppedItem.material.name + ": " + droppedItem.material.curResearches + "/" + droppedItem.material.requiredResearches);
+
+                itemPreviewRoot.setVisibility(View.VISIBLE);
+
+                buyPanel.setVisibility(View.VISIBLE);
+                skipPanel.setVisibility(View.GONE);
+
+                //Is it new item or player already has item?
+                if (droppedItem.owningItem) {
+                    float moneyToRefund = lastPrice * Research.CRATE_REFUND.getEffect();
+                    Player.AddMoney(moneyToRefund, true);
+                    updatePriceTV();
+
+                    itemOwningInfo.setText("Money refunded: " + ((int) moneyToRefund) + " (" + ((int) (Research.CRATE_REFUND.getEffect()*100)) + "%)");
+                } else {
+                    Player.UnlockItem(droppedItem);
+
+                    itemOwningInfo.setText("New item!");
+                }
+            }
+        });
     }
 
     public static class OpeningCrateThread extends Thread {
 
         private float speed;
-        private float speedDecreaseRate = 0.2f;
+        private float speedDecreaseRate = 0.12f;
         private float curX;
 
         private int curItemTileId = 0;
@@ -203,33 +245,18 @@ public class CrateOpenFragment extends Fragment {
 
         private volatile boolean run = true;
 
-        private static Paint defaultPaint;
+        private Item droppedItem;
 
-        private static Bitmap commonTile;
-        private static Bitmap uncommonTile;
-        private static Bitmap rareTile;
-        private static Bitmap epicTile;
-        private static Bitmap legendaryTile;
-        private static Bitmap mythicTile;
+        private static Paint defaultPaint;
 
         public OpeningCrateThread(CrateOpenFragment crateOpenFragment) {
             this.crateOpenFragment = crateOpenFragment;
             defaultPaint = new Paint();
-
-            BitmapFactory.Options opts = new BitmapFactory.Options();
-            opts.inScaled = false;
-
-            commonTile = BitmapFactory.decodeResource(crateOpenFragment.getResources(), R.drawable.item_tile_common, opts);
-            uncommonTile = BitmapFactory.decodeResource(crateOpenFragment.getResources(), R.drawable.item_tile_uncommon, opts);
-            rareTile = BitmapFactory.decodeResource(crateOpenFragment.getResources(), R.drawable.item_tile_rare, opts);
-            epicTile = BitmapFactory.decodeResource(crateOpenFragment.getResources(), R.drawable.item_tile_epic, opts);
-            legendaryTile = BitmapFactory.decodeResource(crateOpenFragment.getResources(), R.drawable.item_tile_legendary, opts);
-            mythicTile = BitmapFactory.decodeResource(crateOpenFragment.getResources(), R.drawable.item_tile_mythic, opts);
         }
 
         @Override
         public void run() {
-            speed = 20f;
+            speed = (random.nextInt(20) + 30);
             run = true;
 
             curItemTileId = 0;
@@ -238,7 +265,14 @@ public class CrateOpenFragment extends Fragment {
             trajectoryLength = speed * timeToCompleteStop - 0.5f * speedDecreaseRate * (timeToCompleteStop * timeToCompleteStop);//KINEMATIC: s = v0 * t - 1/2 * a * t2
 
             //Generate item
-            int itemTilesSize = (int) (trajectoryLength / 192f) + 1;
+            int itemTilesSize = (int) (trajectoryLength / 192f) + crateOpenFragment.maxTilesOnScreen + 1;
+            generatedItemTile = new Item[itemTilesSize];
+
+            for (int i = 0; i < itemTilesSize; i++) {
+                generatedItemTile[i] = crateOpenFragment.pickRandomItemForItemInCrate();
+            }
+
+            droppedItem = generatedItemTile[(int) ((trajectoryLength + MainActivity.SCREEN_WIDTH/2f) / 192f)];
 
             while (run) {
                 try {
@@ -247,10 +281,16 @@ public class CrateOpenFragment extends Fragment {
 
                     Canvas canvas1 = crateOpenFragment.itemTiles.getHolder().lockCanvas();
 
-                    for (int i = 0; i < crateOpenFragment.maxTilesOnScreen; i++) {
-                        canvas1.drawBitmap(commonTile, i * 192f - curX, 0, defaultPaint);
+                    defaultPaint.setColorFilter(null);
 
-                        canvas1.drawBitmap(commonTile, i * 192f - curX, 0, defaultPaint);
+                    for (int i = 0; i < crateOpenFragment.maxTilesOnScreen; i++) {
+                        canvas1.drawBitmap(generatedItemTile[i + curItemTileId].itemGroup.rarity.itemTileBcg, i * 192f - curX, 0, defaultPaint);
+                    }
+
+                    defaultPaint.setColorFilter(new PorterDuffColorFilter(Color.BLACK, PorterDuff.Mode.SRC_IN));
+
+                    for (int i = 0; i < crateOpenFragment.maxTilesOnScreen; i++) {
+                        canvas1.drawBitmap(generatedItemTile[i + curItemTileId].itemShadow, i * 192f - curX + 16, 48, defaultPaint);
                     }
 
                     crateOpenFragment.itemTiles.getHolder().unlockCanvasAndPost(canvas1);
@@ -258,17 +298,12 @@ public class CrateOpenFragment extends Fragment {
                     if (curX >= 192f) {
                         curX -= 192f;
                         curItemTileId++;
-
-                    /*for (int i = 0; i < crateOpenFragment.maxTilesOnScreen-1; i++) {
-                        crateOpenFragment.itemTiles[i].setItem(crateOpenFragment.itemTiles[i+1].item);
-                    }*/
-
-                        //crateOpenFragment.pickRandomItemForItemInCrate(crateOpenFragment.itemTiles[crateOpenFragment.itemTiles.length-1]);
+                        AudioSystem.PlayAudio(AudioSystem.CLICK1);
                     }
 
                     //End?
                     if (speed <= 0f) {
-                        crateOpenFragment.onOpeningCrateFinish();
+                        crateOpenFragment.onOpeningCrateFinish(droppedItem);
                         run = false;
                     }
                 } catch (Exception e) {

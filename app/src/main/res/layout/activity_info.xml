@@ -75,52 +75,97 @@
                 android:id="@+id/textView3"
                 style="@style/GuideDialog_SubTitle"
                 android:layout_width="match_parent"
-                android:text="[1] Clicking" />
+                android:text="Materials" />
 
             <TextView
                 android:id="@+id/textView4"
                 style="@style/GuideDialog_Description"
                 android:layout_width="match_parent"
-                android:text="Every item needs certain amount of clicks. After enough clicks, you receive money, XP and maybe some research points." />
+                android:text="Before you forge item, you need enough materials. With this button, you switch between forging item and harvesting it's material:" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:src="@drawable/forge_mine_switch"/>
+
+            <TextView
+                android:id="@+id/textView400"
+                style="@style/GuideDialog_Description"
+                android:layout_width="match_parent"
+                android:text="In addition, harvesting materials gives you XP.\n\nAlso, to forge item, you need to have researched it's material. To research material, you need to get it from crates several times." />
 
             <TextView
                 android:id="@+id/textView5"
                 style="@style/GuideDialog_SubTitle"
                 android:layout_width="match_parent"
-                android:text="[2] Unlocking new Items"
+                android:text="Items"
                 app:autoSizeTextType="uniform" />
 
             <TextView
                 android:id="@+id/textView6"
                 style="@style/GuideDialog_Description"
                 android:layout_width="match_parent"
-                android:text="You can unlock new items by opening crates. Each crate costs some money and with each opening price will be increased." />
+                android:text="There are over 120 items to unlock. Items are unlocked by opening crates. By forging item, you always receive money and xp. And sometimes you can receive research point." />
 
             <TextView
                 android:id="@+id/textView7"
                 style="@style/GuideDialog_SubTitle"
                 android:layout_width="match_parent"
-                android:text="[3] Research"
+                android:text="Crates"
                 app:autoSizeTextType="uniform" />
 
             <TextView
                 android:id="@+id/textView8"
                 style="@style/GuideDialog_Description"
                 android:layout_width="match_parent"
-                android:text="By clicking, you sometimes receive research point. With 0.5.0v beta update, you can finally spend these points." />
+                android:text="From crate, you always receive item and research progress to it's material. With each open, crate gets more and more expensive. If you get item that you already have, you receive portion of money back. (You need desired research for it)" />
+
+            <TextView
+                style="@style/GuideDialog_SubTitle"
+                android:layout_width="match_parent"
+                android:text="Research"
+                app:autoSizeTextType="uniform" />
+
+            <TextView
+                style="@style/GuideDialog_Description"
+                android:layout_width="match_parent"
+                android:text="There are few researches, which helps you lot. Some researches are infinite, some are not. Some researches needs desired rank. \nExplanation for shake bonus: if you see this icon:" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:src="@drawable/research_shake_bonus_allow"
+                app:tint="@color/white" />
+
+            <TextView
+                style="@style/GuideDialog_Description"
+                android:layout_width="match_parent"
+                android:text=", it means, you are ready to use shake bonus. Shake your phone to activate it. It gives you big forge/mine efficiency bonus for few seconds." />
+
+            <TextView
+                style="@style/GuideDialog_SubTitle"
+                android:layout_width="match_parent"
+                android:text="XP and Rank"
+                app:autoSizeTextType="uniform" />
+
+            <TextView
+                style="@style/GuideDialog_Description"
+                android:layout_width="match_parent"
+                android:text="XP is received by forging/mining item/material. There are 9 rank, better rank is received by receiving XP (Except last one. Last one needs also to have all items and materials). New rank gives you new researches and new crate. And also higher rank increases earnings." />
+
 
             <TextView
                 android:id="@+id/textView9"
                 style="@style/GuideDialog_SubTitle"
                 android:layout_width="match_parent"
-                android:text="[4] Ranking up"
+                android:text="Game over"
                 app:autoSizeTextType="uniform" />
 
             <TextView
                 android:id="@+id/textView10"
                 style="@style/GuideDialog_Description"
                 android:layout_width="match_parent"
-                android:text="You can rank up by gathering XP. XP's are gathered by clicking. By ranking you are unlocking new crates." />
+                android:text="If you unlock all items, research all materials, research all researches (not infinite) and achieve last rank -> you won this game." />
 
             <TextView
                 android:id="@+id/crate_name"
@@ -148,7 +193,7 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:text="Finally it's here. I think it's time to finish this game and start to work on the other games. There still may be little content updates (Maybe if I get bored at home).\n\n[Christmas update]\n-11 Candy canes to unlock. They are useless, but nice to flex in front of your friends.\n-Christmas crate - Drops only candy canes lol.\n-New material - Sugar (Another great material for smithing)\n\n[Content]\n-New 7 mythic items.\n-New 3 legendary items.\n-New 4 materials to unlock.\n\n[Material System]\n-Materials now have their own value.\n-Before you smith an item, you need to mine it's material.\n"
+                android:text="Finally it's here. I think it's time to finish this game and start to work on the other games. There still may be little content updates (Maybe if I get bored at home).\n\n[Christmas update]\n-11 Candy canes to unlock. They are useless, but nice to flex in front of your friends.\n-Christmas crate - Drops only candy canes lol.\n-New material - Sugar (Another great material for smithing)\n\n[Content]\n-New 11 mythic items.\n-New few legendary items.\n-New few materials to unlock.\n-New researches to research.\n\n[Material System]\n-Materials now have their own value.\n-Some materials will change their value every 30-90 minutes.\n-Before you smith an item, you need to mine it's material.\n\n[World container]\n-Send part of your money to server, which supports your continent. Continent with most money gets bonus for all it's players. (Needs internet connection!)\n-You can receive bonus after you reach Gold rank.\n-You can send money after you reach Platinum rank.\n\n[Sound system]\n-All sounds were optimised\n-Added background music (It's just looping 5 sec audio clip)\n-Added and replaced new sounds.\n-Music volume can be changed in profile window.\n\n[Research system]\n-Research map was turned into list.\n-Some researches are now infinite.\n-Some researches now requires rank to research.\n\n[Last touches]\n-Guide changed.\n-You can finally complete the game and win.\n-Some items have different forge particle.\n\n[Fixes]\n-Multitouch wasn't working for newer devices.\n-Some saving game issues fixed.\n\nAnd lot more, but I don't remember..."
                 style="@style/GuideDialog_Description"/>
 
             <TextView
@@ -174,7 +219,18 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:text="Author - l0calh05t\nhttps://freesound.org/people/l0calh05t/sounds/19015/\nNo changes were made!\nLicensed under CC3:\nhttps://creativecommons.org/licenses/by/3.0/"
+                android:text="Author - l0calh05t\nhttps://freesound.org/people/l0calh05t/sounds/18932/\nNo changes were made!\nLicensed under CC3:\nhttps://creativecommons.org/licenses/by/3.0/"
+                style="@style/GuideDialog_Description"/>
+
+            <TextView
+                style="@style/GuideDialog_SubTitle"
+                android:layout_width="match_parent"
+                android:text="[Sound] Click"
+                android:paddingTop="0dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Author - complex_waveform\nhttps://freesound.org/people/complex_waveform/sounds/213148/\nNo changes were made!\nLicensed under CC3:\nhttps://creativecommons.org/licenses/by/3.0/"
                 style="@style/GuideDialog_Description"/>
 
             <TextView
@@ -187,6 +243,64 @@
                 android:layout_width="match_parent"
                 android:text="Author - Mooniak\nhttps://fonts.google.com/specimen/Gemunu+Libre?preview.text=Diamond%20Sword&amp;preview.text_type=custom#standard-styles\nNo changes were made!\nLicensed under SIL Open Font License (OFL):\nhttps://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=OFL"
                 style="@style/GuideDialog_Description"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/discord"/>
+
+                <TextView
+                    style="@style/GuideDialog_Title"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="Discord" />
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/discord"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView08"
+                style="@style/GuideDialog_Description"
+                android:layout_width="match_parent"
+                android:text="Join our community, send feedback and talk with others." />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="6dp">
+
+            <Button
+                android:id="@+id/discCopy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="2dp"
+                android:text="Copy link"/>
+
+            <Button
+                android:id="@+id/discOpen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="2dp"
+                android:text="Open link"/>
+
+        </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

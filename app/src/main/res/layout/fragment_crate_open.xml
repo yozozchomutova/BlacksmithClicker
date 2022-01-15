@@ -31,15 +31,6 @@
         app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
-    <SurfaceView
-        android:id="@+id/itemTiles"
-        android:layout_width="match_parent"
-        android:layout_height="256px"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="24dp"
@@ -58,16 +49,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/crate_common" />
-
-    <ImageView
-        android:id="@+id/centerLine"
-        android:layout_width="wrap_content"
-        android:layout_height="256px"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/research_node_line" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/buy_panel"
@@ -125,14 +106,102 @@
             app:layout_constraintTop_toTopOf="@+id/buy"
             app:srcCompat="@drawable/coin" />
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/itemPreviewRoot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible">
+
+            <ImageView
+                android:id="@+id/item_rarity"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.75"
+                app:srcCompat="@drawable/light1" />
+
+            <ImageView
+                android:id="@+id/item_icon"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.35"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.6"
+                app:srcCompat="@drawable/anvil" />
+
+            <TextView
+                android:id="@+id/item_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toTopOf="@+id/item_rarity"
+                app:layout_constraintEnd_toEndOf="@+id/item_rarity"
+                app:layout_constraintStart_toStartOf="@+id/item_rarity" />
+
+            <TextView
+                android:id="@+id/item_owning_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toTopOf="@+id/item_name"
+                app:layout_constraintEnd_toEndOf="@+id/item_rarity"
+                app:layout_constraintStart_toStartOf="@+id/item_rarity" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/item_rarity"
+                app:layout_constraintStart_toStartOf="@+id/item_rarity"
+                app:layout_constraintTop_toBottomOf="@+id/item_rarity">
+
+                <ImageView
+                    android:id="@+id/mat_icon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="0"
+                    app:srcCompat="@drawable/anvil" />
+
+                <TextView
+                    android:id="@+id/mat_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="0"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/skip_panel"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="match_parent"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/skip_txt"
@@ -147,6 +216,24 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <SurfaceView
+            android:id="@+id/itemTiles"
+            android:layout_width="match_parent"
+            android:layout_height="256px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/centerLine"
+            android:layout_width="wrap_content"
+            android:layout_height="256px"
+            app:layout_constraintBottom_toBottomOf="@+id/itemTiles"
+            app:layout_constraintEnd_toEndOf="@+id/itemTiles"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/itemTiles"
+            app:srcCompat="@drawable/research_node_line" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

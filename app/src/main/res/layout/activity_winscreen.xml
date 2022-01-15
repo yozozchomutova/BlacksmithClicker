@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/profile_activity_background">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profile_activity_topbar" />
+
+    <ImageButton
+        android:id="@+id/close_activity"
+        android:layout_width="39dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="3dp"
+        android:background="#00000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/x" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="3dp">
+
+            <TextView
+                style="@style/GuideDialog_Title"
+                android:layout_width="match_parent"
+                android:text="Wow, you won!"
+                android:paddingTop="0dp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/GuideDialog_Description"
+                android:layout_width="match_parent"
+                android:text="If you see this text, it means you have won the game. Congrats! You've unlocked all items, all materials, all researches (not infinite) and unlocked last rank..." />
+
+            <TextView
+                android:id="@+id/textView3"
+                style="@style/GuideDialog_SubTitle"
+                android:layout_width="match_parent"
+                android:text="Ok, what now?" />
+
+            <TextView
+                android:id="@+id/textView4"
+                style="@style/GuideDialog_Description"
+                android:layout_width="match_parent"
+                android:text="Honestly, there's almost nothing to do. You can still make money and send it to world server to help others fight for bonus. Or gain stats and flex in front of your friends. Or just uninstall this.\nAnyway, thanks for playing and staying till the end. I appreciate it. :>" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -66,6 +66,7 @@ public class CrateItem extends ConstraintLayout {
         else if (Rank.values()[crate.minimalRequirementRank.ordinal()-1].neededExpToAdvance > Player.xp) {
             unlocked = false;
             buyBtn.setImageDrawable(ContextCompat.getDrawable(getContext(), crate.minimalRequirementRank.iconId));
+            buyBtn.setEnabled(false);
         }
 
         buyBtn.setOnClickListener(new OnClickListener() {

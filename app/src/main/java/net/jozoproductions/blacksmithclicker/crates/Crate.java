@@ -4,15 +4,16 @@ import android.widget.ScrollView;
 
 import net.jozoproductions.blacksmithclicker.R;
 import net.jozoproductions.blacksmithclicker.rank.Rank;
+import net.jozoproductions.blacksmithclicker.research.Research;
 
 public enum Crate {
-    COMMON_CRATE("Common Crate", R.drawable.crate_common, R.color.rarity_common, Rank.BRONZE,20f, 1.1f, 25f, 4f, 0f, 0.0f, 0.0f),
-    UNCOMMON_CRATE("Uncommon Crate", R.drawable.crate_uncommon, R.color.rarity_uncommon, Rank.IRON, 80f, 1.05f, 75f, 30f, 4f, 0.0f, 0.0f),
-    RARE_CRATE("Rare Crate", R.drawable.crate_rare, R.color.rarity_rare, Rank.GOLD, 210, 1.02f, 100f, 80f, 20f, 2f, 0.3f), // Mythic = 0.3f
-    EPIC_CRATE("Epic Crate", R.drawable.crate_epic, R.color.rarity_epic, Rank.PLATINUM, 1500, 1.02f, 100f, 93f, 60f, 11f, 0.5f), // Mythic = 0.5f
-    LEGENDARY_CRATE("Legendary Crate", R.drawable.crate_legendary, R.color.rarity_legendary, Rank.DIAMOND, 6000, 1.02f, 100f, 100f, 80f, 65f, 1f), // Mythic = 1f
-    MYTHIC_CRATE("Mythic Crate", R.drawable.crate_mythic, R.color.rarity_mythic, Rank.RUBY, 25500, 1.02f, 100f, 100f, 100f, 80f, 20f), // Mythic = 20f
-    CHRISTMAS_CRATE("Christmas Crate", R.drawable.crate_christmas, R.color.white, Rank.BRONZE, 100f, 1.1f, 0f, 0f, 0f, 0f, 0f);
+    COMMON_CRATE("Common Crate", R.drawable.crate_common, R.color.rarity_common, Rank.BRONZE,               10f,    5f, 25f, 4f, 0f, 0.0f, 0.0f),
+    UNCOMMON_CRATE("Uncommon Crate", R.drawable.crate_uncommon, R.color.rarity_uncommon, Rank.IRON,         50f,    10f, 75f, 30f, 4f, 0.0f, 0.0f),
+    RARE_CRATE("Rare Crate", R.drawable.crate_rare, R.color.rarity_rare, Rank.GOLD,                         200,    25f, 100f, 80f, 20f, 2f, 0.3f), // Mythic = 0.3f
+    EPIC_CRATE("Epic Crate", R.drawable.crate_epic, R.color.rarity_epic, Rank.PLATINUM,                     1000,   100f, 100f, 93f, 60f, 11f, 0.5f), // Mythic = 0.5f
+    LEGENDARY_CRATE("Legendary Crate", R.drawable.crate_legendary, R.color.rarity_legendary, Rank.DIAMOND,  3000,   300f, 100f, 100f, 80f, 65f, 1f), // Mythic = 1f
+    MYTHIC_CRATE("Mythic Crate", R.drawable.crate_mythic, R.color.rarity_mythic, Rank.RUBY,                 10500,  1500f, 100f, 100f, 100f, 80f, 20f), // Mythic = 20f
+    CHRISTMAS_CRATE("Christmas Crate", R.drawable.crate_christmas, R.color.white, Rank.BRONZE,              100f,   20f, 0f, 0f, 0f, 0f, 0f);
 
     public String name;
     public int drawableId;
@@ -49,6 +50,6 @@ public enum Crate {
     }
 
     public float getRealPrice() {
-        return (float) (baseCost * Math.pow(priceIncreaseRate, openCount));
+        return (float) ((baseCost + priceIncreaseRate * openCount) / (1f + Research.CRATE_DISCOUNT.getEffect()));
     }
 }

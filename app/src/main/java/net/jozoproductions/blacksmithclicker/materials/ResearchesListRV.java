@@ -14,7 +14,10 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import net.jozoproductions.blacksmithclicker.Player;
 import net.jozoproductions.blacksmithclicker.R;
+import net.jozoproductions.blacksmithclicker.activities.ResearchActivity;
+import net.jozoproductions.blacksmithclicker.rank.Rank;
 import net.jozoproductions.blacksmithclicker.research.Research;
 
 import java.util.List;
@@ -48,8 +51,25 @@ public class ResearchesListRV extends RecyclerView.Adapter<ResearchesListRV.View
 
         holder.nameTV.setText(researchItem.name);
         holder.descTV.setText(researchItem.description);
-        holder.levelTV.setText("" + researchItem.curLevel + " | (" + researchItem.getEffect() + ")");
-        holder.priceTV.setText("" + researchItem.getPrice());
+        holder.UpdateViews();
+
+        //Unlocked? (by rank) Or: Reached max level?
+        if (researchItem.minimumRank.ordinal() == 0) {
+            holder.researchBtn.setEnabled(true);
+            holder.researchBtn.setImageDrawable(ContextCompat.getDrawable(holder.nameTV.getContext(), R.drawable.research_node));
+        } else if (researchItem.curLevel >= researchItem.maxLevel && researchItem.maxLevel != -1) {
+            holder.researchBtn.setEnabled(false);
+            holder.researchBtn.setImageDrawable(ContextCompat.getDrawable(holder.nameTV.getContext(), R.drawable.max));
+            holder.priceTV.setText("");
+        }
+        else if (Rank.values()[researchItem.minimumRank.ordinal()-1].neededExpToAdvance > Player.xp) {
+            holder.researchBtn.setEnabled(false);
+            holder.researchBtn.setImageDrawable(ContextCompat.getDrawable(holder.nameTV.getContext(), researchItem.minimumRank.iconId));
+            holder.priceTV.setText("");
+        } else {
+            holder.researchBtn.setEnabled(true);
+            holder.researchBtn.setImageDrawable(ContextCompat.getDrawable(holder.nameTV.getContext(), R.drawable.research_node));
+        }
     }
 
     // total number of rows
@@ -91,7 +111,32 @@ public class ResearchesListRV extends RecyclerView.Adapter<ResearchesListRV.View
 
         @Override
         public void onClick(View view) {
+            if (Player.researchPoints >= research.getPrice()) {
+                Player.AddResearchPoints(-research.getPrice());
+                research.curLevel++;
 
+                UpdateViews();
+                ((ResearchActivity) levelTV.getContext()).UpdateResearchPoints();
+
+                //Check if reached max level
+                if (research.maxLevel != -1) {
+                    if (research.curLevel >= research.maxLevel) {
+                        researchBtn.setEnabled(false);
+                        researchBtn.setImageDrawable(ContextCompat.getDrawable(nameTV.getContext(), R.drawable.max));
+                        priceTV.setText("");
+                    }
+                }
+            }
+        }
+
+        public void UpdateViews() {
+            priceTV.setText("" + (int) research.getPrice());
+
+            if (research.maxLevel == -1) { //Is infinite?
+                levelTV.setText("" + research.curLevel + " | (" + research.getEffect() + ")");
+            } else {
+                levelTV.setText("" + research.curLevel + "/" + research.maxLevel + " | (" + research.getEffect() + ")");
+            }
         }
     }
 }

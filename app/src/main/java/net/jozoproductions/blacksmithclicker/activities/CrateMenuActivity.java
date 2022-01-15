@@ -1,5 +1,7 @@
 package net.jozoproductions.blacksmithclicker.activities;
 
+import static net.jozoproductions.blacksmithclicker.MainActivity.Save;
+
 import android.os.Bundle;
 import android.view.WindowManager;
 
@@ -26,5 +28,11 @@ public class CrateMenuActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         //Prevent from closing it
+    }
+
+    @Override
+    protected void onPause() {
+        Save();
+        super.onPause();
     }
 }

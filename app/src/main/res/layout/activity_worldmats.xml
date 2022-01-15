@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/bcg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/world_storage_bcg" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:alpha="0.5"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profile_activity_topbar" />
+
+    <ImageButton
+        android:id="@+id/close_activity"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="3dp"
+        android:background="#00000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/x" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginBottom="6dp"
+        android:text="World containers"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/yourCont"
+                android:layout_marginTop="0dp"
+                android:text="your-cont"
+                android:gravity="start"
+                android:textSize="18sp"
+                style="@style/WorldMats_Title"/>
+
+            <TextView
+                android:id="@+id/yourBonus"
+                style="@style/WorldMats_Title"
+                android:layout_marginTop="0dp"
+                android:gravity="start"
+                android:text="your-bonus"
+                android:textSize="18sp" />
+
+            <SeekBar
+                android:id="@+id/investAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:background="#88000000"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#88000000"
+                android:gravity="center_vertical|end"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/investMoneyTxt"
+                    style="@style/WorldMats_Desc"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="0"
+                    android:textSize="24sp" />
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/coin" />
+
+                <ImageButton
+                    android:id="@+id/investBtn"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="#00000000"
+                    android:scaleType="fitXY"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/buy" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/country1Title"
+                android:text="---"
+                style="@style/WorldMats_Title" />
+
+            <LinearLayout
+                style="@style/WorldMats_LinearLayout">
+
+                <ImageView
+                    style="@style/WorldMats_Coin" />
+
+                <TextView
+                    android:id="@+id/country1Money"
+                    android:layout_marginStart="6dp"
+                    android:text="0"
+                    style="@style/WorldMats_Desc" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/country2Title"
+                android:text="---"
+                style="@style/WorldMats_Title" />
+
+            <LinearLayout
+                style="@style/WorldMats_LinearLayout">
+
+                <ImageView
+                    style="@style/WorldMats_Coin" />
+
+                <TextView
+                    android:id="@+id/country2Money"
+                    android:layout_marginStart="6dp"
+                    android:text="0"
+                    style="@style/WorldMats_Desc" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/country3Title"
+                android:text="---"
+                style="@style/WorldMats_Title" />
+
+            <LinearLayout
+                style="@style/WorldMats_LinearLayout">
+
+                <ImageView
+                    style="@style/WorldMats_Coin" />
+
+                <TextView
+                    android:id="@+id/country3Money"
+                    android:layout_marginStart="6dp"
+                    android:text="0"
+                    style="@style/WorldMats_Desc" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/country4Title"
+                android:text="---"
+                style="@style/WorldMats_Title" />
+
+            <LinearLayout
+                style="@style/WorldMats_LinearLayout">
+
+                <ImageView
+                    style="@style/WorldMats_Coin" />
+
+                <TextView
+                    android:id="@+id/country4Money"
+                    android:layout_marginStart="6dp"
+                    android:text="0"
+                    style="@style/WorldMats_Desc" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/country5Title"
+                android:text="---"
+                style="@style/WorldMats_Title" />
+
+            <LinearLayout
+                style="@style/WorldMats_LinearLayout">
+
+                <ImageView
+                    style="@style/WorldMats_Coin" />
+
+                <TextView
+                    android:id="@+id/country5Money"
+                    android:layout_marginStart="6dp"
+                    android:text="0"
+                    style="@style/WorldMats_Desc" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/country6Title"
+                android:text="---"
+                style="@style/WorldMats_Title" />
+
+            <LinearLayout
+                style="@style/WorldMats_LinearLayout">
+
+                <ImageView
+                    style="@style/WorldMats_Coin" />
+
+                <TextView
+                    android:id="@+id/country6Money"
+                    android:layout_marginStart="6dp"
+                    android:text="0"
+                    style="@style/WorldMats_Desc" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

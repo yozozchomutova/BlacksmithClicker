@@ -1,11 +1,12 @@
 package net.jozoproductions.blacksmithclicker.activities;
 
+import static net.jozoproductions.blacksmithclicker.MainActivity.Save;
+
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,12 +15,9 @@ import com.google.android.material.tabs.TabLayout;
 
 import net.jozoproductions.blacksmithclicker.MainActivity;
 import net.jozoproductions.blacksmithclicker.R;
-import net.jozoproductions.blacksmithclicker.items.Item;
 import net.jozoproductions.blacksmithclicker.items.ItemGroup;
 import net.jozoproductions.blacksmithclicker.items.Rarity;
 import net.jozoproductions.blacksmithclicker.views.AtlasItemViewGroup;
-
-import org.w3c.dom.Text;
 
 public class ItemAtlasActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener {
 
@@ -91,7 +89,7 @@ public class ItemAtlasActivity extends AppCompatActivity implements TabLayout.On
         GenerateItemAtlas();
 
         //TabLayout
-        tabLayout = findViewById(R.id.itemRarityTab);
+        tabLayout = findViewById(R.id.panelSwitch);
         tabLayout.addOnTabSelectedListener(this);
     }
 
@@ -161,5 +159,11 @@ public class ItemAtlasActivity extends AppCompatActivity implements TabLayout.On
                 itemList.addView(atlasItemViewGroup);
             }
         }
+    }
+
+    @Override
+    protected void onPause() {
+        Save();
+        super.onPause();
     }
 }

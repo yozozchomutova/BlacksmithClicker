@@ -6,7 +6,7 @@
     android:background="#111111">
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/itemRarityTab"
+        android:id="@+id/panelSwitch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#1B1B1B"
@@ -16,12 +16,12 @@
         app:tabTextColor="#FFFFFF">
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/commonTab"
+            android:id="@+id/researchProgressTab"
             style="@style/AtlasItem_TabItem"
             android:text="Common" />
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/uncommonTab"
+            android:id="@+id/materialValuesTab"
             style="@style/AtlasItem_TabItem"
             android:text="Uncommon" />
 
@@ -54,7 +54,7 @@
     <ScrollView
         android:id="@+id/commonItems"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/itemRarityTab"
+        app:layout_constraintTop_toBottomOf="@+id/panelSwitch"
         style="@style/AtlasActivity_Scrollview">
 
         <LinearLayout
@@ -65,7 +65,7 @@
     <ScrollView
         android:id="@+id/uncommonItems"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/itemRarityTab"
+        app:layout_constraintTop_toBottomOf="@+id/panelSwitch"
         style="@style/AtlasActivity_Scrollview"
         android:visibility="invisible">
 
@@ -77,7 +77,7 @@
     <ScrollView
         android:id="@+id/rareItems"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/itemRarityTab"
+        app:layout_constraintTop_toBottomOf="@+id/panelSwitch"
         style="@style/AtlasActivity_Scrollview"
         android:visibility="invisible">
 
@@ -89,7 +89,7 @@
     <ScrollView
         android:id="@+id/epicItems"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/itemRarityTab"
+        app:layout_constraintTop_toBottomOf="@+id/panelSwitch"
         style="@style/AtlasActivity_Scrollview"
         android:visibility="invisible">
 
@@ -101,7 +101,7 @@
     <ScrollView
         android:id="@+id/legendaryItems"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/itemRarityTab"
+        app:layout_constraintTop_toBottomOf="@+id/panelSwitch"
         style="@style/AtlasActivity_Scrollview"
         android:visibility="invisible">
 
@@ -113,7 +113,7 @@
     <ScrollView
         android:id="@+id/mythicItems"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/itemRarityTab"
+        app:layout_constraintTop_toBottomOf="@+id/panelSwitch"
         style="@style/AtlasActivity_Scrollview"
         android:visibility="invisible">
 
@@ -125,7 +125,7 @@
     <ScrollView
         android:id="@+id/christmasItems"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/itemRarityTab"
+        app:layout_constraintTop_toBottomOf="@+id/panelSwitch"
         style="@style/AtlasActivity_Scrollview"
         android:visibility="invisible">
 
