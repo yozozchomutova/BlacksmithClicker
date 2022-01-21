@@ -7,16 +7,18 @@ import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import net.jozoproductions.blacksmithclicker.R;
+import net.jozoproductions.blacksmithclicker.crates.CrateItem;
+import net.jozoproductions.blacksmithclicker.fragments.CrateListFragment;
+import net.jozoproductions.blacksmithclicker.fragments.CrateOpenFragment;
 
 public class CrateMenuActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        getSupportActionBar().hide();
 
         //Fullscreen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -27,7 +29,15 @@ public class CrateMenuActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        //Prevent from closing it
+        //Prevent from accidental closing
+        Fragment curFragment = getSupportFragmentManager().findFragmentById(R.id.main_fragment);
+
+        if (curFragment instanceof CrateListFragment) {
+            finish();
+        } else if (curFragment instanceof CrateOpenFragment) {
+            if (!((CrateOpenFragment) curFragment).openingCrateThread.isAlive())
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, new CrateListFragment()).commit();
+        }
     }
 
     @Override

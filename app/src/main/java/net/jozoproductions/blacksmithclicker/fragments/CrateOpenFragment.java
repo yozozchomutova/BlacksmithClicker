@@ -54,7 +54,7 @@ public class CrateOpenFragment extends Fragment {
 
     private int maxTilesOnScreen;
 
-    private OpeningCrateThread openingCrateThread;
+    public OpeningCrateThread openingCrateThread;
 
     //ItemPreview root
     private ConstraintLayout itemPreviewRoot;

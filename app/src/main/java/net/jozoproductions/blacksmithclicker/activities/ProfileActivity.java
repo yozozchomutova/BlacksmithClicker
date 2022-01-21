@@ -34,8 +34,6 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getSupportActionBar().hide();
-
         //Fullscreen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -56,21 +54,6 @@ public class ProfileActivity extends AppCompatActivity {
             worldMatsBtn.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.rank_gold));
             worldMatsBtn.setEnabled(false);
         }
-
-        //Music volume
-        SeekBar musicVolume = findViewById(R.id.musicVolume);
-        musicVolume.setProgress((int) (AudioSystem.musicVolume * 100));
-        musicVolume.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                AudioSystem.ChangeMusicAudio(i / 100f);
-            }
-
-            @Override public void onStartTrackingTouch(SeekBar seekBar) {}
-
-            @Override public void onStopTrackingTouch(SeekBar seekBar) {}
-        });
 
         //UI Initialize
         Rank playerRank = Rank.GetRank(Player.xp);

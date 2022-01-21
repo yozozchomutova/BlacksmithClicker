@@ -91,7 +91,6 @@ public class WorldMatsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         //Fullscreen
-        getSupportActionBar().hide();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 

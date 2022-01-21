@@ -2,19 +2,16 @@ package net.jozoproductions.blacksmithclicker;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.VibrationEffect;
@@ -35,7 +32,6 @@ import net.jozoproductions.blacksmithclicker.activities.ItemAtlasActivity;
 import net.jozoproductions.blacksmithclicker.activities.MaterialInfoActivity;
 import net.jozoproductions.blacksmithclicker.activities.ProfileActivity;
 import net.jozoproductions.blacksmithclicker.activities.ResearchActivity;
-import net.jozoproductions.blacksmithclicker.activities.WorldMatsActivity;
 import net.jozoproductions.blacksmithclicker.audio.AudioSystem;
 import net.jozoproductions.blacksmithclicker.crates.Crate;
 import net.jozoproductions.blacksmithclicker.items.Item;
@@ -85,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         SCREEN_WIDTH = displayMetrics.widthPixels;
 
         //Fullscreen
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -99,7 +95,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         //Load sounds
         AudioSystem.Init(this, 2);
-        AudioSystem.SetMusic(this, R.raw.theme);
 
         //Setup shake sensor
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
@@ -293,9 +288,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         //Gold mine
         editor.putLong("currentMillisTime", System.currentTimeMillis());
 
-        //Save settings
-        editor.putFloat("musicVolume", AudioSystem.musicVolume);
-
         editor.putBoolean("first_time_launch", false);
         editor.commit();
     }
@@ -399,9 +391,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
             message.show();
         }
-
-        //Load settings
-        AudioSystem.ChangeMusicAudio(sp.getFloat("musicVolume", 1f));
     }
 
     private void FirstTimeLaunch() {

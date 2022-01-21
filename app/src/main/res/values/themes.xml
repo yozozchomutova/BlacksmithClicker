@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.BlacksmithClicker" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.AppCompat.BlacksmithClicker" parent="Theme.AppCompat.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">#FFFF0000</item>
         <item name="colorPrimaryVariant">#FFFF0000</item>
@@ -8,7 +8,7 @@
         <!-- Secondary brand color. -->
         <item name="colorSecondary">#FFFF0000</item>
         <item name="colorSecondaryVariant">#FFFF0000</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->

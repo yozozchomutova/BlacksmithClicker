@@ -19,10 +19,6 @@ public class AudioSystem {
     public static int CLICK1;
     public static int MINE1;
 
-    //Media player
-    public static MediaPlayer music;
-    public static float musicVolume;
-
     public static void Init(Context context, int maxStreams) {
         AudioAttributes audioAttributes = new AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_GAME)
                 .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
@@ -41,16 +37,5 @@ public class AudioSystem {
 
     public static void PlayAudio(int audioClip) {
         soundPool.play(audioClip, 1, 1, 0, 0, 1);
-    }
-
-    public static void SetMusic(Context context, int rawId) {
-        music = MediaPlayer.create(context, rawId);
-        music.setLooping(true);
-        music.start();
-    }
-
-    public static void ChangeMusicAudio(float volume) {
-        music.setVolume(volume, volume);
-        musicVolume = volume;
     }
 }

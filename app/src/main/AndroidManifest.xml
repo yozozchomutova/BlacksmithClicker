@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BlacksmithClicker">
+        android:theme="@style/Theme.AppCompat.BlacksmithClicker">
 
         <activity android:name=".MainActivity" android:screenOrientation="portrait">
             <intent-filter>
@@ -43,6 +43,7 @@
 
         <activity android:name=".activities.WinGameActivity" android:screenOrientation="portrait">
         </activity>
+
     </application>
 
 </manifest>
