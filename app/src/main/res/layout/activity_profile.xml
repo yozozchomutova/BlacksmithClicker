@@ -14,7 +14,7 @@
         android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:srcCompat="@drawable/default_profile" />
+        android:src="@drawable/default_profile" />
 
     <TextView
         android:id="@+id/player_name"
@@ -55,7 +55,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintWidth_percent="0.7"
-        app:srcCompat="@drawable/light1" />
+        android:src="@drawable/light1" />
 
     <ImageView
         android:id="@+id/rank_icon"
@@ -65,7 +65,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintWidth_percent="0.7"
-        app:srcCompat="@drawable/rank_bronze" />
+        android:src="@drawable/rank_bronze" />
 
     <TextView
         android:id="@+id/rank_name"
@@ -145,7 +145,7 @@
         android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/profile_activity_topbar" />
+        android:src="@drawable/profile_activity_topbar" />
 
     <ImageButton
         android:id="@+id/close_activity"
@@ -156,7 +156,7 @@
         android:background="#00000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/x" />
+        android:src="@drawable/x" />
 
     <ImageButton
         android:id="@+id/worldMats"
@@ -168,7 +168,7 @@
         android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/earth_icon" />
+        android:src="@drawable/earth_icon" />
 
     <TextView
         android:id="@+id/textView16"

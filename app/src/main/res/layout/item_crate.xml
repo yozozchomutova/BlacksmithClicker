@@ -17,7 +17,7 @@
         app:layout_constraintHorizontal_bias="0.23"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/crate_bcg" />
+        android:src="@drawable/crate_bcg" />
 
     <ImageView
         android:id="@+id/icon"
@@ -28,7 +28,7 @@
         android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/particle_star" />
+        android:src="@drawable/particle_star" />
 
     <TextView
         android:id="@+id/name"
@@ -69,7 +69,7 @@
         android:layout_marginLeft="8dp"
         app:layout_constraintStart_toEndOf="@+id/icon"
         app:layout_constraintTop_toBottomOf="@+id/name"
-        app:srcCompat="@drawable/coin" />
+        android:src="@drawable/coin" />
 
     <ImageButton
         android:id="@+id/buy"
@@ -82,5 +82,5 @@
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="@+id/rarity"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/buy" />
+        android:src="@drawable/buy" />
 </androidx.constraintlayout.widget.ConstraintLayout>

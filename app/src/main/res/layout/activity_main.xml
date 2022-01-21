@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/smith_black" />
+        android:src="@drawable/smith_black" />
 
     <ImageView
         android:id="@+id/coin_icon"
@@ -30,7 +30,7 @@
         android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/coin" />
+        android:src="@drawable/coin" />
 
     <TextView
         android:id="@+id/coin_count"
@@ -55,7 +55,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/profile_activity_topbar"
+        android:src="@drawable/profile_activity_topbar"
         tools:ignore="UseAppTint" />
 
     <ImageButton
@@ -68,7 +68,7 @@
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/atlass" />
+        android:src="@drawable/atlass" />
 
     <ImageButton
         android:id="@+id/forgeMine_switch"
@@ -80,7 +80,7 @@
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/select_item_btn"
-        app:srcCompat="@drawable/forge_mine_switch" />
+        android:src="@drawable/forge_mine_switch" />
 
     <ImageView
         android:id="@+id/light"
@@ -90,7 +90,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/light1" />
+        android:src="@drawable/light1" />
 
     <ImageView
         android:id="@+id/clickable_item"
@@ -100,7 +100,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/item_stick" />
+        android:src="@drawable/item_stick" />
 
     <TextView
         android:id="@+id/item_name"
@@ -143,7 +143,7 @@
             android:layout_marginBottom="2dp"
             android:background="#00FFFFFF"
             android:scaleType="centerInside"
-            app:srcCompat="@drawable/research" />
+            android:src="@drawable/research" />
 
         <ImageButton
             android:id="@+id/storage"
@@ -153,7 +153,7 @@
             android:layout_marginBottom="2dp"
             android:background="#00FFFFFF"
             android:scaleType="centerInside"
-            app:srcCompat="@drawable/storage" />
+            android:src="@drawable/storage" />
 
         <ImageButton
             android:id="@+id/materialsInfo"
@@ -173,7 +173,7 @@
             android:layout_marginBottom="2dp"
             android:background="#00FFFFFF"
             android:scaleType="centerInside"
-            app:srcCompat="@drawable/profile" />
+            android:src="@drawable/profile" />
 
     </LinearLayout>
 
@@ -187,7 +187,7 @@
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/coin_icon"
-        app:srcCompat="@drawable/info" />
+        android:src="@drawable/info" />
 
     <ImageView
         android:id="@+id/shakeBonusIcon"
@@ -195,7 +195,7 @@
         android:layout_height="48dp"
         app:layout_constraintStart_toStartOf="@+id/info_btn"
         app:layout_constraintTop_toBottomOf="@+id/info_btn"
-        app:srcCompat="@drawable/research_shake_bonus_allow"
+        android:src="@drawable/research_shake_bonus_allow"
         android:visibility="invisible"
         app:tint="@color/white" />
 
@@ -219,7 +219,7 @@
         android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toTopOf="@+id/item_name"
         app:layout_constraintStart_toStartOf="@+id/item_name"
-        app:srcCompat="@drawable/icon" />
+        android:src="@drawable/icon" />
 
     <TextView
         android:id="@+id/matCount"

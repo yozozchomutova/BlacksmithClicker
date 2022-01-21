@@ -76,7 +76,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/x" />
+        android:src="@drawable/x" />
 
     <TextView
         android:id="@+id/crate_name"

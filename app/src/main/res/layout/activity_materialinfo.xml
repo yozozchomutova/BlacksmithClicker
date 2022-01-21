@@ -13,7 +13,7 @@
         android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/profile_activity_topbar" />
+        android:src="@drawable/profile_activity_topbar" />
 
     <ImageButton
         android:id="@+id/close_activity"
@@ -24,7 +24,7 @@
         android:background="#00000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/x" />
+        android:src="@drawable/x" />
 
     <TextView
         android:id="@+id/title"
@@ -130,7 +130,7 @@
                     android:layout_height="32dp"
                     android:background="#00000000"
                     android:scaleType="fitCenter"
-                    app:srcCompat="@android:drawable/stat_notify_sync" />
+                    android:src="@android:drawable/stat_notify_sync" />
 
                 <LinearLayout
                     android:layout_width="match_parent"

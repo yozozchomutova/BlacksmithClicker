@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/crate_bcg" />
+        android:src="@drawable/crate_bcg" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -25,7 +25,7 @@
         android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/research_node_background" />
+        android:src="@drawable/research_node_background" />
 
     <ImageView
         android:id="@+id/research_icon"
@@ -35,7 +35,7 @@
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
         app:layout_constraintStart_toStartOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:srcCompat="@drawable/research_researchpoints" />
+        android:src="@drawable/research_researchpoints" />
 
     <ImageButton
         android:id="@+id/research_btn"
@@ -48,7 +48,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.25"
-        app:srcCompat="@drawable/research_node" />
+        android:src="@drawable/research_node" />
 
     <TextView
         android:id="@+id/research_name"

@@ -14,7 +14,7 @@
         android:layout_marginTop="2dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/materialinfo" />
+        android:src="@drawable/materialinfo" />
 
     <ProgressBar
         android:id="@+id/smith_progress2"

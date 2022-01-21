@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/research_window_background" />
+        android:src="@drawable/research_window_background" />
 
     <ImageView
         android:id="@+id/top_bcg"
@@ -24,7 +24,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/research_window_top_bar" />
+        android:src="@drawable/research_window_top_bar" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -32,7 +32,7 @@
         android:layout_height="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/research" />
+        android:src="@drawable/research" />
 
     <ImageButton
         android:id="@+id/close_activity"
@@ -43,7 +43,7 @@
         android:background="#00000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/x" />
+        android:src="@drawable/x" />
 
     <TextView
         android:id="@+id/research_text"

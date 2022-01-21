@@ -141,7 +141,7 @@
         android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/profile_activity_topbar" />
+        android:src="@drawable/profile_activity_topbar" />
 
     <ImageButton
         android:id="@+id/close_activity"
@@ -152,7 +152,7 @@
         android:background="#00000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/x" />
+        android:src="@drawable/x" />
 
     <TextView
         android:id="@+id/textView16"

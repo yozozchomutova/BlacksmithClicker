@@ -14,7 +14,7 @@
         android:layout_marginTop="6dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/materialinfo" />
+        android:src="@drawable/materialinfo" />
 
     <TextView
         android:id="@+id/name"
@@ -45,6 +45,6 @@
         android:layout_marginEnd="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/materialinfo" />
+        android:src="@drawable/materialinfo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

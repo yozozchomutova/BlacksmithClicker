@@ -38,7 +38,7 @@
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="@+id/crate_icon"
         app:layout_constraintTop_toBottomOf="@+id/crate_icon"
-        app:srcCompat="@drawable/coin" />
+        android:src="@drawable/coin" />
 
     <ImageView
         android:id="@+id/crate_icon"
@@ -48,7 +48,7 @@
         android:layout_marginTop="6dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/crate_common" />
+        android:src="@drawable/crate_common" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/buy_panel"
@@ -66,7 +66,7 @@
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/x" />
+            android:src="@drawable/x" />
 
         <ImageButton
             android:id="@+id/buy"
@@ -78,7 +78,7 @@
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/buy" />
+            android:src="@drawable/buy" />
 
         <TextView
             android:id="@+id/price"
@@ -104,7 +104,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/buy"
             app:layout_constraintEnd_toStartOf="@+id/buy"
             app:layout_constraintTop_toTopOf="@+id/buy"
-            app:srcCompat="@drawable/coin" />
+            android:src="@drawable/coin" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/itemPreviewRoot"
@@ -122,7 +122,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_percent="0.75"
-                app:srcCompat="@drawable/light1" />
+                android:src="@drawable/light1" />
 
             <ImageView
                 android:id="@+id/item_icon"
@@ -134,7 +134,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_percent="0.6"
-                app:srcCompat="@drawable/anvil" />
+                android:src="@drawable/anvil" />
 
             <TextView
                 android:id="@+id/item_name"
@@ -176,7 +176,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_weight="0"
-                    app:srcCompat="@drawable/anvil" />
+                    android:src="@drawable/anvil" />
 
                 <TextView
                     android:id="@+id/mat_progress"
@@ -232,7 +232,7 @@
             app:layout_constraintEnd_toEndOf="@+id/itemTiles"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/itemTiles"
-            app:srcCompat="@drawable/research_node_line" />
+            android:src="@drawable/research_node_line" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
