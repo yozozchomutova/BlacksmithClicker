@@ -95,7 +95,7 @@ public class SmithingItem {
 
             if (progress >= smithingItem.requiredClicks) {
                 progress = 0;
-                Player.AddMoney(smithingItem.sellPrice * smithingItem.material.materialValue * smithingItem.material.offerMultiplierValue * Rank.GetRank(Player.xp).earningMultiplier);
+                Player.AddMoney(smithingItem.sellPrice * smithingItem.material.materialValue * smithingItem.material.offerMultiplierValue * Rank.GetRank(Player.xp).earningMultiplier * Player.serverBonus);
                 Player.AddMaterial(smithingItem.material, -smithingItem.materialCost);
                 Player.totalForgedItems++;
                 MainActivity.endlessThread.particlePacks.add(new ParticlePack(R.drawable.particle_star, 60, 60, 3));

@@ -50,13 +50,22 @@
 
         <ImageView
             android:id="@+id/item_ingredient_material"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:scaleType="fitStart"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/item_rarity"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="2dp"
+            android:scaleType="fitCenter"
             app:layout_constraintStart_toStartOf="@+id/item_rarity"
             app:layout_constraintTop_toBottomOf="@+id/item_icon" />
+
+        <TextView
+            android:id="@+id/item_materialprogress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="@+id/item_ingredient_material"
+            app:layout_constraintStart_toEndOf="@+id/item_ingredient_material"
+            app:layout_constraintTop_toTopOf="@+id/item_ingredient_material" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

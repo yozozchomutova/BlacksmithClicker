@@ -236,6 +236,17 @@
             <TextView
                 style="@style/GuideDialog_SubTitle"
                 android:layout_width="match_parent"
+                android:text="[Sound] Mine"
+                android:paddingTop="0dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Author - adcbicycle\nhttps://freesound.org/people/adcbicycle/sounds/14055/\nNo changes were made!\nLicensed under CC0 1.0:\nhttps://creativecommons.org/publicdomain/zero/1.0/"
+                style="@style/GuideDialog_Description"/>
+
+            <TextView
+                style="@style/GuideDialog_SubTitle"
+                android:layout_width="match_parent"
                 android:text="[Font] Gemunu Libre"
                 android:paddingTop="0dp" />
 

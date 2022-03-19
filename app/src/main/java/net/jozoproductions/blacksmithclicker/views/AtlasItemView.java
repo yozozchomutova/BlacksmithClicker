@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,6 +30,7 @@ public class AtlasItemView extends ConstraintLayout implements View.OnClickListe
     private ImageView itemRarity;
     private ImageView itemIcon;
     private ImageView itemIngredientMaterial;
+    private TextView itemMaterialProgress;
 
     public AtlasItemView(@NonNull Context context) {
         super(context);
@@ -57,6 +59,7 @@ public class AtlasItemView extends ConstraintLayout implements View.OnClickListe
         itemRarity = findViewById(R.id.item_rarity);
         itemIcon = findViewById(R.id.item_icon);
         itemIngredientMaterial = findViewById(R.id.item_ingredient_material);
+        itemMaterialProgress = findViewById(R.id.item_materialprogress);
     }
 
     public void setItem(Item item) {
@@ -68,6 +71,7 @@ public class AtlasItemView extends ConstraintLayout implements View.OnClickListe
         if (item.owningItem) {
             itemTitle.setText(item.name);
             itemIngredientMaterial.setImageDrawable(ContextCompat.getDrawable(getContext(), item.material.drawableId));
+            itemMaterialProgress.setText(item.material.curResearches + "/" + item.material.requiredResearches);
             itemIcon.setOnClickListener(this);
         } else {
             itemTitle.setText("???");

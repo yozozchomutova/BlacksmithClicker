@@ -35,7 +35,9 @@ public class CrateMenuActivity extends AppCompatActivity {
         if (curFragment instanceof CrateListFragment) {
             finish();
         } else if (curFragment instanceof CrateOpenFragment) {
-            if (!((CrateOpenFragment) curFragment).openingCrateThread.isAlive())
+            if (((CrateOpenFragment) curFragment).openingCrateThread == null)
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, new CrateListFragment()).commit();
+            else if (!((CrateOpenFragment) curFragment).openingCrateThread.isAlive())
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, new CrateListFragment()).commit();
         }
     }
